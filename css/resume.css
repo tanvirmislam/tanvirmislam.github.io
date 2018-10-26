@@ -1,0 +1,11 @@
+p {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-family: 'Montaga', serif;
+}
+
+
+p a {
+	color: #0b599e;
+	font-weight: 600;
+}

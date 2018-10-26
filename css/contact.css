@@ -1,0 +1,9 @@
+body {
+	font-family: 'Montaga', serif;
+	text-align: justify;
+}
+
+
+#message {
+	height: 200px;
+}
