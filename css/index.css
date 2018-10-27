@@ -21,6 +21,7 @@ body {
 
 img {
 	width: 100%;
+	/*height: 10%;*/
 	/*border-radius: 5%;*/
 }
 
@@ -105,6 +106,17 @@ img {
 
 .bio-text p .tech {
 	color: #a30d35;
+}
+
+.links {
+	color: #0b599e;
+	/*color: #a30d35;*/
+	font-weight: 600;
+}
+
+.links-2 {
+	color: #a30d35;
+	font-weight: 600;
 }
 
 /*

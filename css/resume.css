@@ -9,3 +9,22 @@ p a {
 	color: #0b599e;
 	font-weight: 600;
 }
+
+.doc-link {
+	color: black;
+	font-weight: 600;
+}
+
+.center {
+	text-align: center;
+}
+
+.inner {
+	/*width: 50%;*/
+  	margin: 0 auto;
+}
+
+.doc-text {
+	font-size: 1.5em;
+}
+

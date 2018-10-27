@@ -7,3 +7,12 @@ body {
 #message {
 	height: 200px;
 }
+
+.center {
+	text-align: center;
+}
+
+#contact-header {
+	font-weight: 600;
+	font-size: 2em;
+}
