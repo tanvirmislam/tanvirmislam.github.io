@@ -5,10 +5,10 @@ p {
 }
 
 
-p a {
+/*p a {
 	color: #0b599e;
 	font-weight: 600;
-}
+}*/
 
 a:hover {
 	color: #a30d35;
