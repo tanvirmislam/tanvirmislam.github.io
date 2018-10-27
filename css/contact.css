@@ -16,3 +16,11 @@ body {
 	font-weight: 600;
 	font-size: 2em;
 }
+
+.links {
+	color: black;
+}
+
+a:hover {
+	color: #a30d35;
+}
