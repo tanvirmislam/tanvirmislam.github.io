@@ -10,6 +10,10 @@ p a {
 	font-weight: 600;
 }
 
+a:hover {
+	color: #a30d35;
+}
+
 .doc-link {
 	color: black;
 	font-weight: 600;
