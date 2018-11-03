@@ -50,18 +50,18 @@ figcaption {
 	opacity: 1.0;
 }
 
-#sdrlinkimage .animated {
-	-webkit-animation-duration: 1s;
-	-moz-animation-duration: 1s;
-	animation-duration: 1s;
+#sdrlink .animated {
+	-webkit-animation-duration: 1.2s;
+	-moz-animation-duration: 1.2s;
+	animation-duration: 1.2s;
 	-webkit-animation-delay: 0.2s;
 }
 
-#semiconductorlinkimage .animated {
-	-webkit-animation-duration: 1s;
-	-moz-animation-duration: 1s;
-	animation-duration: 1s;
-	-webkit-animation-delay: 1.5s;
+#semiconductorlink .animated {
+	-webkit-animation-duration: 1.2s;
+	-moz-animation-duration: 1.2s;
+	animation-duration: 1.2s;
+	-webkit-animation-delay: 0.7s;
 }
 
 
