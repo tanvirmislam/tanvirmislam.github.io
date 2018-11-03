@@ -49,3 +49,8 @@ a:hover {
 	animation-duration: 0.8s;
 	-webkit-animation-delay: 1.1s;
 }
+
+.icon:hover {
+	-webkit-animation: tada 1s;
+    animation: tada 1s;
+}
