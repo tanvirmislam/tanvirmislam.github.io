@@ -119,7 +119,15 @@ img {
 	font-weight: 600;
 }
 
-/*
-.bio-text p .personal {
-	color: #09680a;
-}*/
+#display-picture .animated {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	animation-duration: 1s;
+}
+
+.bio-text .animated {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-delay: 0.5s;
+}

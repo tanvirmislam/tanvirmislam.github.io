@@ -12,6 +12,10 @@ body {
 	text-align: center;
 }
 
+.header-text {
+	margin-bottom: 25px;
+}
+
 #contact-header {
 	font-weight: 600;
 	font-size: 2em;
@@ -23,4 +27,24 @@ body {
 
 a:hover {
 	color: #a30d35;
+}
+
+.mailicon .animated {
+	-webkit-animation-duration: 0.8s;
+	-moz-animation-duration: 0.8s;
+	animation-duration: 0.8s;
+}
+
+.linkedinicon .animated {
+	-webkit-animation-duration: 0.8s;
+	-moz-animation-duration: 0.8s;
+	animation-duration: 0.8s;
+	-webkit-animation-delay: 0.5s;
+}
+
+.githubicon .animated {
+	-webkit-animation-duration: 0.8s;
+	-moz-animation-duration: 0.8s;
+	animation-duration: 0.8s;
+	-webkit-animation-delay: 1.0s;
 }

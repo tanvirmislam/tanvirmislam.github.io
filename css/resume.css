@@ -34,3 +34,9 @@ a:hover {
 	font-size: 1.5em;
 }
 
+.animated {
+	-webkit-animation-duration: 1.2s;
+	-moz-animation-duration: 1.2s;
+	animation-duration: 1.2s;
+}
+

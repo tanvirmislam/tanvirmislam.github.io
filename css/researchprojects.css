@@ -32,14 +32,14 @@ figcaption {
 
 #sdrlink {
     margin-bottom: 50px;  
-	opacity: 0.7;
-	transition: 0.4s;
+	opacity: 0.6;
+	transition: 0.5s;
 }
 
 #semiconductorlink {
-	margin-bottom: 200px; 
-	opacity: 0.7;
-	transition: 0.4s;
+	margin-bottom: 100px; 
+	opacity: 0.6;
+	transition: 0.5s;
 }
 
 #sdrlink:hover {
@@ -49,6 +49,21 @@ figcaption {
 #semiconductorlink:hover {
 	opacity: 1.0;
 }
+
+#sdrlinkimage .animated {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-delay: 0.5s;
+}
+
+#semiconductorlinkimage .animated {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-delay: 1.5s;
+}
+
 
 #sdrlinkimage {
 
