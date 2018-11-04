@@ -50,6 +50,13 @@ figcaption {
 	opacity: 1.0;
 }
 
+.animated {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-delay: 0.8s;
+}
+
 #sdrlink .animated {
 	-webkit-animation-duration: 1s;
 	-moz-animation-duration: 1s;
