@@ -1,0 +1,59 @@
+body {
+	font-family: 'Montaga', serif;
+	text-align: justify;
+}
+
+.center {
+	text-align: center;
+}
+
+.header-text {
+	font-weight: 600;
+	font-size: 2em;
+	margin-bottom: 25px;
+}
+
+.title-1 {
+	font-size: 1.6em;
+	font-weight: 600;
+}
+
+.title-extended {
+	font-size: 1.2em;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.title-2 {
+	font-weight: 600;
+}
+
+.links {
+	color: black;
+}
+
+a:hover {
+	color: #cc0a27;
+}
+
+.codesnippet {
+	white-space: pre-wrap;
+	background: #faf0e3;
+	/*background: rgb(40, 41, 35);
+	color: white;*/
+	font-family: 'Consolas';
+	text-align: justify;
+	margin-top: 20px;
+	margin-bottom: 70px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.image-container {
+	text-align: center;	
+}
+
+figcaption {
+	font-style: italic;
+}
+

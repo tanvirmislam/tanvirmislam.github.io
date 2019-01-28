@@ -1,0 +1,36 @@
+p {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+p, ol {
+	font-family: 'Montaga', serif;
+	/*font-size: 0.9em;*/
+}
+
+ol {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.institution {
+	font-size: 1.1em;
+	font-weight: 600;
+	color: #a30d35;
+}
+
+.degree {
+	font-style: italic;
+}
+
+.semester {
+	font-size: 1.1em;
+	font-weight: 600;
+	/*color: #a30d35;*/
+}
+
+.courses {
+	font-size: 1.3em;
+	font-weight: 600;
+	text-align: center;
+}
+​

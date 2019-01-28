@@ -1,0 +1,81 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Montaga', serif;
+	text-align: justify;
+}
+
+.title-1 {
+	font-size: 1.6em;
+	font-weight: 600;
+}
+
+.title-extended {
+	font-size: 1.2em;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.title-2 {
+	font-weight: 600;
+}
+
+.image-container {
+	text-align: center;	
+}
+
+figcaption {
+	font-style: italic;
+}
+
+#sdrlink {
+    margin-bottom: 50px;  
+	opacity: 0.6;
+	transition: 0.5s;
+}
+
+#semiconductorlink {
+	margin-bottom: 100px; 
+	opacity: 0.6;
+	transition: 0.5s;
+}
+
+#sdrlink:hover {
+	opacity: 1.0;
+}
+
+#semiconductorlink:hover {
+	opacity: 1.0;
+}
+
+.animated {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-delay: 0.8s;
+}
+
+#sdrlink .animated {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-delay: 0.2s;
+}
+
+#semiconductorlink .animated {
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-delay: 0.7s;
+}
+
+
+#sdrlinkimage {
+
+}
+
+#semiconductorlinkimage {
+
+}

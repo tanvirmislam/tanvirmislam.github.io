@@ -3,9 +3,9 @@
 <head>
 	<title>Home</title>
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Spectral+SC|Crimson+Text" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Montaga" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral+SC|Crimson+Text">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montaga">
 	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -16,18 +16,18 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	
 	<!-- Animate CSS -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="resources/css/animate.css">
 	
 	<!-- Lightbox CSS CDN -->
-	<link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/lightbox.min.css">
 	
 	<!-- Custom CSS -->
-	<link rel="stylesheet" type="text/css" href="css/header.css">
-	<link rel="stylesheet" type="text/css" href="css/footer.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/header.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/index.css">
 	
 	<!-- WOW JS for Animation -->
-	<script src="js/wow.min.js"></script>
+	<script src="resources/js/wow.min.js"></script>
 </head>
 <body>
 	
@@ -60,24 +60,21 @@
 						<a class="nav-link nav-home active" href="index.html">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link nav-education" href="education.html">Education</a>
+						<a class="nav-link nav-education" href="pages/education.html">Education</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link nav-resume" href="resume.html">Résumé</a>
+						<a class="nav-link nav-resume" href="pages/resume.html">Résumé</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link nav-projects" href="researchprojects.html">Research Projects</a>
-					</li>
-					<!-- <li class="nav-item dropdown" id="blog">
-					    <a  href="blog.html" class="nav-link nav-blog dropdown-toggle" data-toggle="dropdown" id="blogtext">&nbspBlog&nbsp&nbsp&nbsp</span></a>
+					<li class="nav-item dropdown" id="blog">
+					    <a href="pages/blog.html" class="nav-link nav-blog dropdown-toggle" data-toggle="dropdown" id="blogtext">&nbspBlog&nbsp&nbsp&nbsp</span></a>
 				        <div class="dropdown-menu">
-				        	<a class="dropdown-item" href="#">Projects</a>
-				          	<a class="dropdown-item" href="#">Problem Solving</a>
-				          	<a class="dropdown-item" href="#">Travel</a>
+				        	<a class="dropdown-item" href="pages/researchprojects.html">Research Projects</a>
+				          	<a class="dropdown-item" href="pages/problemsolving.html">Problem Solving</a>
+				          	<!-- <a class="dropdown-item" href="#">Travel</a> -->
 				        </div>
-				    </li> -->
+				    </li>
 					<li class="nav-item">
-						<a class="nav-link nav-contact" href="contact.html">Contact</a>
+						<a class="nav-link nav-contact" href="pages/contact.html">Contact</a>
 					</li>
 				</ul>
 			</div>
@@ -88,9 +85,9 @@
 
 	<!-- ********* CONTENT START ********* -->
 	<div class="jumbotron jumbotron-fluid" id="display-picture">
-		<img src="images/skyshot-cropped-2.jpeg" class="img-fluid">
+		<img src="resources/images/cover-photo.jpeg" class="img-fluid">
 		<!-- <div class="wow fadeIn animated">
-		  <img src="images/skyshot-cropped-2.jpeg" class="img-fluid">
+		  <img src="resources/images/cover-photo.jpeg" class="img-fluid">
 		</div> -->
 	</div>
 
@@ -107,16 +104,19 @@
 					I like to code smart programs that can impact our lives in a positive way. 
 				</p>
 				<p>
-					My undergraduate research work includes working under the supervision of <a class="links" href="http://engr.uconn.edu/~song/">Dr. Song Han</a> and <a class="links" href="http://www.engr.uconn.edu/~shengli/">Dr. Shengli Zhou</a> to research the use of software instead of the traditional hardware approach for implementing smart real-time wireless technologies. I believe that intelligent software and the power of processing huge sets of data is the new frontier of technological advancement. From financial analysis, predicting customer preferences all the way to solving environmental issues require us to analyze and learn from the data. As a reult, I am interested in exploring and working on human computer interaction, machine learning, artificial intelligence, big data, and software systems.
+					My undergraduate research work includes working under the supervision of <a class="links" href="http://engr.uconn.edu/~song/">Dr. Song Han</a> and <a class="links" href="http://www.engr.uconn.edu/~shengli/">Dr. Shengli Zhou</a> to research the use of software instead of the traditional hardware approach for implementing smart real-time wireless technologies. 
 				</p>
 				<p>
-					I have also assisted <a class="links" href="https://tanvirmislam.github.io/researchprojects.html#SEMICONDUCTOR">Dr. John Ayers</a> on his work to <a class="links" href="">design and simulate different superlattice structures for metamorphic semiconductor devices.</a>
+					I have also assisted <a class="links" href="http://www.ee.uconn.edu/john-e-ayers/">Dr. John Ayers</a> on his work to <a class="links" href="https://tanvirmislam.github.io/researchprojects.html#SEMICONDUCTOR">design and simulate different superlattice structures for metamorphic semiconductor devices.</a>
+				</p>
+				<p>
+					I believe that intelligent software and the power of processing huge sets of data is the new frontier of technological advancement. From financial analysis, predicting customer preferences all the way to solving environmental issues - they all require us to analyze and learn from the data. As a reult, I am interested in exploring and working on human computer interaction, machine learning, artificial intelligence, big data, and software systems.
 				</p>
 				<p>
 					Currently I work at University of Connecticut Fine Arts Dean's Office where I do web-development and technical support. I have also worked as an Information Technology Intern at the Travelers Companies, and as a National Science Foundation Summer Undergraduate Researcher at the University of Connecticut.
 				</p>
 				<p>
-					Apart from my work and research, I try to do small projects in my spare time. From my interest in AI and ML, I developed an <a class="links-2" href="https://github.com/tanvirmislam/Checkers-AI-CPP">AI opponent for Checkers</a>, and used the popular <a class="links-2" href="https://www.tensorflow.org/">TensorFlow</a> library to work on different Object Classifiers that can be trained on given set of images and can then recognize things such as playing cards, faces, etc. The most recet project I worked on was developing an <a class="links-2" href="cellular-automata/life.html" target="_blank">Interactive Simulation of Cellular Automata</a>.
+					Apart from my work and research, I try to do small projects in my spare time. From my interest in AI and ML, I developed an <a class="links-2" href="https://github.com/tanvirmislam/Checkers-AI-CPP">AI opponent for Checkers</a>, and used the popular <a class="links-2" href="https://www.tensorflow.org/">TensorFlow</a> library to work on different Object Classifiers that can be trained on given set of images and can then recognize things such as playing cards, faces, etc. The most recet project I worked on was developing an <a class="links-2" href="resources/cellular-automata/life.html" target="_blank">Interactive Simulation of Cellular Automata</a>.
 				</p>
 				<p>
 					When not coding, I play guitar, travel, or read books with a warm cup of coffee in my hand.
@@ -155,8 +155,8 @@
 	<!-- JavaScript CDN -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 	<!-- Lightbox -->
-	<script src="js/lightbox-plus-jquery.min.js"></script>
+	<script src="resources/js/lightbox-plus-jquery.min.js"></script>
 	<!-- Custom JS -->
-	<script type="text/javascript" src="js/header.js"></script>
+	<script type="text/javascript" src="resources/js/header.js"></script>
 </body>
 </html>
