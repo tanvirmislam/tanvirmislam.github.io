@@ -39,9 +39,8 @@ a:hover {
 .codesnippet {
 	white-space: pre-wrap;
 	background: #faf0e3;
-	/*background: rgb(40, 41, 35);
-	color: white;*/
-	font-family: 'Consolas';
+	/*font-family: 'Consolas';*/
+	font-family: 'Inconsolata', monospace;
 	text-align: justify;
 	margin-top: 20px;
 	margin-bottom: 70px;
