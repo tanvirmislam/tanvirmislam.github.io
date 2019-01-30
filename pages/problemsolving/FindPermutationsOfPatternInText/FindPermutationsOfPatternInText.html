@@ -89,16 +89,103 @@
 		<div class="row">
 			<div class="col">
 				<div class="header-text center">
-					Header
-				</div>
-				<div class="title-1">
-					Title
+					Find All Permutations of a Pattern in a Given Text
 				</div>
 				<p>
-					Paragraph
+					A famous interview question on pattern matching. A trivial solution to this problem would be to find all possible permutations of the given pattern, and for each of the permutations check whether it exists in the given text or not. Of course, the efficiency of this approach would be poor. We can do better than this. In fact, this problem can be solved in O(n) time with the help of a sliding window.
 				</p>
+
+				<div class="title-1">
+					Sliding Window Approach
+				</div>
+				<p>
+					Many pattern-matching problems can be solved using the sliding window approach. Notice that a pattern and any of its permutations will have the same number of characters in them. For example, "ABCD" can be re-arranged as "DBCA" or "CADB", and all of them have the same number of A, B, C, and D letters. We use this observation to solve the given problem.
+				</p>
+				<p>
+					We will create windows of length n in the given text, where n is the length of the pattern. At each point, we will check if that window is a permutation of the pattern.
+				</p>
+				<p>
+					As a result, we will need to run through the text only one time. After simplification, the time complexity is proportional to the length of the given text. In other words, the time complexity is linear.
+				</p>
+
+
+				<div class="title-1">
+					Implementation
+				</div>
+
 				<div class="codesnippet">
-	cout << "hello world" << endl;
+	#include <bits/stdc++.h>
+	using namespace std;
+
+	#define ASCII_MAX 256
+
+	// Returns true of s1 is a permutation of s2
+	bool isPermutation(int* charCountS1, int* charCountS2) {
+		for (int i = 0; i < ASCII_MAX; i++) {
+			if (charCountS1[i] != charCountS2[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	vector<int> searchPermutations(string pattern, string text) {
+		// Variables
+		int patternChars[ASCII_MAX] = {0};
+		int window[ASCII_MAX] = {0};
+
+		int n = pattern.length();
+		int k = text.length();
+		int currentlyMatching = 0;
+		
+		vector<int> result;
+
+		// Validity
+		if (n > k) {
+			cout << "error: invalid input parameters" << endl;
+			return result;
+		}
+
+		// Store the characters used in the pattern
+		// At the same time, initiate the first character window
+		for (int i = 0; i < n; i++) {
+			patternChars[pattern[i]]++;
+			window[text[i]]++;
+		}
+
+		// Check the very first window
+		if (isPermutation(window, patternChars)) {
+			result.push_back(0);
+		}
+
+		// Starting from the nth index at text, check the rest of the windows
+		for (int i = n; i < k; i++) {
+			// Remove the first character of the previous window
+			window[text[i-n]]--;
+
+			// Add the new character to the window
+			window[text[i]]++;
+
+			// Check
+			if (isPermutation(window, patternChars)) {
+				result.push_back(i-n+1);
+			}
+		}
+
+		return result;
+	}
+
+	int main() {
+		string text    = "BACDGABCDA";
+		string pattern = "ABCD";
+
+		vector<int> v = searchPermutations(pattern, text);
+		for (auto i : v) {
+			cout << "Found at " << i << endl;
+		}
+
+		return 0; 
+	}
 				</div>
 			</div>
 		</div>

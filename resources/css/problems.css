@@ -16,6 +16,8 @@ body {
 .title-1 {
 	font-size: 1.6em;
 	font-weight: 600;
+	margin-top: 10px;
+	margin-bottom: 5px;
 }
 
 .title-extended {
