@@ -191,7 +191,7 @@ function Rocket(initX, initY, w, h) {
 			textSize(16);
 			textFont('Trebuchet MS');
 			x = width/2.5;
-			y = height/8;
+			y = height/2;
 			let strList = ["Houston, the Eagle has landed", "I repeat, THE EAGLE HAS LANDED.", "Good job Maisha!"];
 			for (let i = 0; i < strList.length; i++) {
 				text(strList[i], x, y);
@@ -565,7 +565,7 @@ function Rocket(initX, initY, w, h) {
 			textSize(16);
 			textFont("Trebuchet MS");
 			x = width/2.5;
-			y = height/8;
+			y = height/2;
 			let strList = ["Houston, we have a problem."];
 			for (let i = 0; i < strList.length; i++) {
 				text(strList[i], x, y);
