@@ -5,7 +5,7 @@ let bg;
 
 function setup() {
 	let imageName = "canvas" + int(random(1,27)).toString() + ".jpg";
-	bg = loadImage("resources/pictures/canvas1.jpg");
+	bg = loadImage("resources/pictures/" + imageName);
 	createCanvas(800, 800);
 	rocket = new Rocket(width/2, height/8, 6, 65);
 	terrain = new Terrain();
