@@ -1,0 +1,19 @@
+html, body {
+ 	height: 100%;
+}
+
+body {
+	background-image: url("pictures/background.png");
+	margin: 0;
+	display: flex;
+
+	/* horizontally center p5.js canvas */
+	justify-content: center;
+
+	/* vertically center p5.js canvas */
+	align-items: center;
+}
+
+canvas {
+  border-radius: 90px;
+}
