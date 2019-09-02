@@ -192,7 +192,7 @@ function Rocket(initX, initY, w, h) {
 			textFont('Trebuchet MS');
 			x = width/2.5;
 			y = height/2;
-			let strList = ["Houston, the Eagle has landed", "I repeat, THE EAGLE HAS LANDED.", "Good job Maisha!"];
+			let strList = ["Houston, the Eagle has landed", "I repeat, THE EAGLE HAS LANDED."];
 			for (let i = 0; i < strList.length; i++) {
 				text(strList[i], x, y);
 				y += 25;
