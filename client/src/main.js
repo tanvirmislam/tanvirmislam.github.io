@@ -8,6 +8,7 @@ import Vue from 'vue'
 import { FontAwesomeIcon } from './plugins/icons'
 
 // Vuetify
+import Vuetify from 'vuetify/lib'
 import vuetify from './plugins/vuetify'
 
 // Axios (HTTP Client)
@@ -20,6 +21,9 @@ import { sync } from 'vuex-router-sync'
 // Store (Vuex)
 import store from './store'
 
+// Particles
+import VueParticles from 'vue-particles'
+
 // App root
 import App from './components/app'
 
@@ -30,6 +34,9 @@ import App from './components/app'
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.use(Vuetify)
+Vue.use(VueParticles)
 
 sync(store, router)
 
