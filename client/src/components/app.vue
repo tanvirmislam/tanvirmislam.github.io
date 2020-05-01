@@ -24,8 +24,6 @@ export default {
     'app-footer': Footer
   },
 
-  data: () => ({
-
-  })
+  data: () => ({})
 }
 </script>
