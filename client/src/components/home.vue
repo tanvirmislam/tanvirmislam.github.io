@@ -115,6 +115,10 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
+.container {
+  max-width: 100%;
+}
+
 #particles-js {
   height: 100vh;
 }

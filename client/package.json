@@ -48,7 +48,8 @@
     "terser-webpack-plugin": "^2.3.5",
     "vue-cli-plugin-vuetify": "^2.0.5",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.3.0"
+    "vuetify-loader": "^1.3.0",
+    "yargs-parser": "^18.1.3"
   },
   "eslintConfig": {
     "root": true,
@@ -66,7 +67,10 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "quotes": [2, "single"]
+      "quotes": [
+        2,
+        "single"
+      ]
     }
   },
   "browserslist": [
