@@ -1,49 +1,45 @@
 <template>
   <div>
-    <vue-particles
-      id="particles-js"
-      color="#dedede"
-      :particleOpacity="0.5"
-      :particlesNumber="100"
-      shapeType="triangle"
-      :particleSize="5"
-      linesColor="#dedede"
-      :linesWidth="1"
-      :lineLinked="true"
-      :lineOpacity="0.1"
-      :linesDistance="200"
-      :moveSpeed="1"
-      :hoverEffect="true"
-      hoverMode="grab"
-      :clickEffect="true"
-      clickMode="repulse"
-    >
-    </vue-particles>
+    <v-container id="home">
+      <v-row id="first-slide" class="slide" align="center" justify="center">
+        <v-col>
+          <vue-particles
+            id="particles-js"
+            color="#dedede"
+            :particleOpacity="0.5"
+            :particlesNumber="90"
+            shapeType="triangle"
+            :particleSize="5"
+            linesColor="#dedede"
+            :linesWidth="1"
+            :lineLinked="true"
+            :lineOpacity="0.1"
+            :linesDistance="200"
+            :moveSpeed="1"
+            :hoverEffect="true"
+            hoverMode="grab"
+            :clickEffect="true"
+            clickMode="repulse"
+          >
+          </vue-particles>
 
-    <div id="intro">
-      <v-card
-        class="mx-auto"
-        max-width="500"
-        color="rgb(54, 54, 54, 0.2)"
-      >
-        <v-card-title id="intro-header" class="justify-center mb-5" >
-          <span v-if="subtitleText === ''"> {{ textEditorSign }} </span>
-          <span v-else> {{ subtitleText }}{{ textEditorSign }} </span>
-        </v-card-title>
-
-        <v-card-title id="intro-name" class="justify-center">
-          <v-avatar class="mr-3" size="40">
-            <img src="../../public/images/avatar.jpg" alt="Tanvir">
-          </v-avatar>
-          Tanvir Islam
-        </v-card-title>
-      </v-card>
-    </div>
+          <div id="introcard-container">
+            <introcard />
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script>
+import introcard from './home-introcard'
+
 export default {
+  components: {
+    introcard
+  },
+
   data () {
     return {
       subtitles: [
@@ -59,83 +55,61 @@ export default {
       isSubtitleBeingWritten: true,
       subtitleText: '',
       textEditorSign: '|',
-      isSleeping: false
+      isSleeping: false,
+
+      showExploreOptions: false
     }
   },
 
   mounted () {
-    const particlesElement = document.querySelector('#particles-js')
-    const introElement = document.querySelector('#intro')
+    this.adjustCardPosition()
+    window.addEventListener('resize', this.adjustCardPosition)
+  },
 
-    introElement.style.width = `${particlesElement.offsetWidth}px`
-    introElement.style.textAlign = 'center'
-
-    setInterval(() => this.updateSubtitle(), 150)
+  beforeDestroy () {
+    window.removeEventListener('resize', this.adjustCardPosition)
   },
 
   methods: {
-    sleep (duration) {
-      this.isSleeping = true
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.isSleeping = false
-          resolve()
-        }, duration)
-      })
-    },
+    adjustCardPosition () {
+      const particlesElement = document.querySelector('#particles-js')
+      const introcardElement = document.querySelector('#introcard-container')
 
-    async updateSubtitle () {
-      if (this.isSleeping) {
-        return
-      }
+      // Vertically position the card
+      const windowHeight = window.innerHeight
+      const cardHeight = introcardElement.offsetHeight
+      const targetHeight = (windowHeight * 0.45) - (cardHeight * 0.5)
 
-      if (this.isSubtitleBeingWritten && this.subtitleText === this.subtitles[this.subtitleIndex]) {
-        this.isSubtitleBeingWritten = false
-        this.textEditorSign = ''
-        await this.sleep(1200)
-        this.textEditorSign = '|'
-      } else if (!this.isSubtitleBeingWritten && this.subtitleText.length === 0) {
-        this.subtitleIndex = (this.subtitleIndex + 1) % this.subtitles.length
-        this.isSubtitleBeingWritten = true
-        this.subtitleCharIndex = 0
-        await this.sleep(200)
-      } else if (this.isSubtitleBeingWritten) {
-        this.subtitleText += this.subtitles[this.subtitleIndex][this.subtitleCharIndex]
-        this.subtitleCharIndex += 1
-      } else {
-        this.subtitleText = this.subtitleText.slice(0, -1)
-        this.subtitleCharIndex -= Math.max(0, this.subtitleCharIndex - 1)
-      }
+      introcardElement.style.top = `${targetHeight}px`
+
+      // Horizontally center the card
+      introcardElement.style.width = `${particlesElement.offsetWidth}px`
+      introcardElement.style.textAlign = 'center'
     }
   }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
-
 .container {
   max-width: 100%;
+}
+
+#home {
+  max-width: 100%;
+  padding: 0px;
+}
+
+.slide {
+  height: 100vh;
 }
 
 #particles-js {
   height: 100vh;
 }
 
-#intro {
+#introcard-container {
   color: #ffffff;
   position: absolute;
-  top: 40%;
-  font-family: 'Roboto', sans-serif;
-}
-
-#intro-header {
-  font-size: 3.5em;
-  font-weight: lighter;
-}
-
-#intro-name {
-  font-weight: 300;
 }
 </style>

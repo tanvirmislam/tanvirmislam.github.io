@@ -22,8 +22,6 @@ import Footer from './footer'
 export default {
   components: {
     'app-footer': Footer
-  },
-
-  data: () => ({})
+  }
 }
 </script>

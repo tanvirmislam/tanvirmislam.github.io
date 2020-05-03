@@ -33,12 +33,28 @@ import App from './components/app'
 // Initiate Vue
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(Vuetify)
 Vue.use(VueParticles)
 
 sync(store, router)
+
+// Mixins
+Vue.mixin({
+  methods: {
+    sleep (duration) {
+      this.isSleeping = true
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.isSleeping = false
+          resolve()
+        }, duration)
+      })
+    }
+  }
+})
 
 const app = new Vue({
   store,
