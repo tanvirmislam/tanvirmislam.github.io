@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container id="home">
-      <v-row id="first-slide" class="slide" align="center" justify="center">
+      <v-row id="titlecard-slide" class="slide" align="center" justify="center">
         <v-col>
           <vue-particles
             id="particles-js"
@@ -23,21 +23,27 @@
           >
           </vue-particles>
 
-          <div id="introcard-container">
-            <introcard />
+          <div id="titlecard-container">
+            <titlecard about-anchor="#about-slide" />
           </div>
         </v-col>
+      </v-row>
+
+      <v-row id="about-slide" class="slide" align="center" justify="space-around">
+        <about />
       </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
-import introcard from './home-introcard'
+import titlecard from './home.titlecard'
+import about from './home.about'
 
 export default {
   components: {
-    introcard
+    titlecard,
+    about
   },
 
   data () {
@@ -72,19 +78,36 @@ export default {
 
   methods: {
     adjustCardPosition () {
-      const particlesElement = document.querySelector('#particles-js')
-      const introcardElement = document.querySelector('#introcard-container')
+      const titlecardElement = document.querySelector('#titlecard')
+      const titlecardContainerElement = document.querySelector('#titlecard-container')
 
       // Vertically position the card
       const windowHeight = window.innerHeight
-      const cardHeight = introcardElement.offsetHeight
-      const targetHeight = (windowHeight * 0.45) - (cardHeight * 0.5)
+      const cardHeight = titlecardElement.offsetHeight
+      let topSpace
 
-      introcardElement.style.top = `${targetHeight}px`
+      if (windowHeight > cardHeight) {
+        topSpace = (windowHeight * 0.45) - (cardHeight * 0.5)
+      } else {
+        topSpace = 0
+      }
 
-      // Horizontally center the card
-      introcardElement.style.width = `${particlesElement.offsetWidth}px`
-      introcardElement.style.textAlign = 'center'
+      titlecardContainerElement.style.top = `${topSpace}px`
+
+      // Horizontally position the card
+      const windowWidth = window.innerWidth
+      const cardWidth = 550
+      let leftSpace
+
+      if (windowWidth > cardWidth) {
+        leftSpace = (windowWidth * 0.5) - (cardWidth * 0.5)
+        titlecardContainerElement.style.width = `${cardWidth}px`
+      } else {
+        leftSpace = 0
+        titlecardContainerElement.style.width = `${windowWidth}px`
+      }
+
+      titlecardContainerElement.style.left = `${leftSpace}px`
     }
   }
 }
@@ -108,7 +131,7 @@ export default {
   height: 100vh;
 }
 
-#introcard-container {
+#titlecard-container {
   color: #ffffff;
   position: absolute;
 }
