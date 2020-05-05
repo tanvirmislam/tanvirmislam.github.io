@@ -24,6 +24,9 @@ import store from './store'
 // Particles
 import VueParticles from 'vue-particles'
 
+// Div viewport visibility checker
+import VueObserveVisibility from 'vue-observe-visibility'
+
 // App root
 import App from './components/app'
 
@@ -38,6 +41,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(Vuetify)
 Vue.use(VueParticles)
+Vue.use(VueObserveVisibility)
 
 sync(store, router)
 

@@ -209,8 +209,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Roboto:wght@100;300;400&display=swap');
 
 .col {
   padding: 2px;
@@ -220,8 +219,12 @@ export default {
   padding-bottom: 0px;
 }
 
+#titlecard-container {
+  font-family: 'Roboto', sans-serif;
+}
+
 #titlecard-header {
-  font-weight: lighter;
+  font-weight: 100;
 }
 
 #titlecard-name {
