@@ -1,5 +1,19 @@
 <template>
   <div>
+    <span id="start-anchor" class="anchor"/>
+
+    <div id="back-to-home-container" v-if="!isTitlecardVisible">
+      <v-btn
+        id="back-to-home"
+        class="red--text text--lighten-1"
+        small fab depressed
+        @click="$vuetify.goTo('#start-anchor', options)"
+      >
+        <v-icon>{{ 'mdi-chevron-double-up' }}</v-icon>
+        <span style="visibility: hidden"> {{ animteBackToHomeButton() }} </span>
+      </v-btn>
+    </div>
+
     <v-container id="home">
       <v-row id="titlecard-slide" class="slide" align="center" justify="center">
         <v-col>
@@ -23,7 +37,7 @@
           >
           </vue-particles>
 
-          <div id="titlecard-container">
+          <div id="titlecard-container" v-observe-visibility="titlecardVisibilityChanged">
             <titlecard about-anchor="#about-slide" />
           </div>
         </v-col>
@@ -63,7 +77,25 @@ export default {
       textEditorSign: '|',
       isSleeping: false,
 
-      showExploreOptions: false
+      showExploreOptions: false,
+
+      isTitlecardVisible: true,
+
+      anchorScroll: {
+        duration: 1000,
+        offset: 0,
+        easing: 'easeInOutCubic'
+      }
+    }
+  },
+
+  computed: {
+    options () {
+      return {
+        duration: this.anchorScroll.duration,
+        offset: this.anchorScroll.offset,
+        easing: this.anchorScroll.easing
+      }
     }
   },
 
@@ -108,6 +140,21 @@ export default {
       }
 
       titlecardContainerElement.style.left = `${leftSpace}px`
+    },
+
+    titlecardVisibilityChanged (isVisible, entity) {
+      this.isTitlecardVisible = isVisible
+    },
+
+    animteBackToHomeButton () {
+      setTimeout(() => {
+        const element = document.querySelector('#back-to-home-container')
+        if (!element) {
+          this.animteButton()
+        } else {
+          element.classList.add('wow', 'rubberBand', 'animated')
+        }
+      }, 200)
     }
   }
 }
@@ -116,6 +163,10 @@ export default {
 <style>
 .container {
   max-width: 100%;
+}
+
+.anchor {
+  visibility: hidden;
 }
 
 #home {
@@ -134,5 +185,11 @@ export default {
 #titlecard-container {
   color: #ffffff;
   position: absolute;
+}
+
+#back-to-home-container {
+  position: fixed;
+  top: 1%;
+  right: 4%;
 }
 </style>

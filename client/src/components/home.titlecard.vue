@@ -43,6 +43,7 @@
                     small
                     depressed
                     class="mr-2 mb-2"
+                    @click="showSnackbar()"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'project-diagram']" />
@@ -54,6 +55,7 @@
                     small
                     depressed
                     class="mr-2 mb-2"
+                    @click="showSnackbar()"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'flask']" />
@@ -65,6 +67,7 @@
                     small
                     depressed
                     class="mr-2 mb-2"
+                    @click="showSnackbar()"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'brain']" />
@@ -92,6 +95,7 @@
                     small
                     depressed
                     class="mr-2 mb-2"
+                    @click="showSnackbar()"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'file-alt']" />
@@ -105,13 +109,21 @@
         </div>
       </v-expand-transition>
     </v-card>
+
+    <snackbar :is-snackbar-visible="showUnderDevelopmentSnackbar" :timeout="snackbarTimeout" />
   </div>
 </template>
 
 <script>
+import snackbar from './snackbar.underdevelopment'
+
 export default {
   props: {
     aboutAnchor: String
+  },
+
+  components: {
+    snackbar
   },
 
   data () {
@@ -137,7 +149,10 @@ export default {
         duration: 1000,
         offset: 0,
         easing: 'easeInOutCubic'
-      }
+      },
+
+      showUnderDevelopmentSnackbar: false,
+      snackbarTimeout: 1000
     }
   },
 
@@ -203,14 +218,17 @@ export default {
         this.titleText = this.titleText.slice(0, -1)
         this.titleCharIndex -= Math.max(0, this.titleCharIndex - 1)
       }
+    },
+
+    showSnackbar () {
+      this.showUnderDevelopmentSnackbar = true
+      setTimeout(() => { this.showUnderDevelopmentSnackbar = false }, this.snackbarTimeout)
     }
   }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Roboto:wght@100;300;400&display=swap');
-
 .col {
   padding: 2px;
 }

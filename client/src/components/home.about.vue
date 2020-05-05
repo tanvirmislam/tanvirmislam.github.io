@@ -20,10 +20,10 @@
 
             <div>
               <p>
-                Hello world, welcome to my homepage.
+                Hello world! Thanks for visiting my homepage.
               </p>
               <p>
-                I am a software developer, working in the FinTech industry.
+                I am a software developer, currently working in the FinTech industry.
               </p>
               <p>
                 Developing data-driven, intelligent, and interactive software is something I am deeply passionate about.
@@ -113,8 +113,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Crimson+Text&family=Roboto:wght@100;300;400&display=swap&Ubuntu+Mono:ital@1&display=swap');
-
 #about-container {
   width: 100%;
   padding: 0;
