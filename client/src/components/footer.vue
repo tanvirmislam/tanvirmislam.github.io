@@ -1,5 +1,5 @@
 <template>
-  <v-card class="flex" flat tile>
+  <v-card id="footer" class="flex" flat tile>
     <v-card-text class="py-2 white--text text-right">
       <span class="caption mr-2">@ Tanvir Islam</span>
       <v-btn

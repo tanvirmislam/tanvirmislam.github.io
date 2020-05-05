@@ -52,7 +52,7 @@
             <span id="end-of-description" />
           </v-list>
 
-          <v-btn small text depressed class="mt-1" @click="onScrollButtonClick()">
+          <v-btn small text depressed class="mt-1 title" @click="onScrollButtonClick()">
             <font-awesome-icon :icon="['fas', 'sort']" />
           </v-btn>
         </v-col>
@@ -100,10 +100,12 @@ export default {
     },
 
     onScrollButtonClick () {
+      const descriptionElement = document.querySelector('#about-description')
+
       if (this.isStartOfDescriptionVisible) {
-        this.$el.querySelector('#end-of-description').scrollIntoView()
+        descriptionElement.scrollTop = descriptionElement.scrollHeight
       } else {
-        this.$el.querySelector('#start-of-description').scrollIntoView()
+        descriptionElement.scrollTop = 0
       }
     }
   }
