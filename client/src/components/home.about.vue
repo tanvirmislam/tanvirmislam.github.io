@@ -18,7 +18,7 @@
               </p>
             </div>
 
-            <div>
+            <div class="description">
               <p>
                 Hello world! Thanks for visiting my homepage.
               </p>
@@ -137,9 +137,15 @@ export default {
 
 .quote {
   font-family: 'Bad Script', cursive;
-  font-size: 1.2em;
+  font-size: 1.1em;
   text-align: right;
   line-height: 1.0;
+}
+
+.description {
+  /* font-family: 'Crimson text', 'serif'; */
+  font-family: 'Alegreya', 'serif';
+  font-size: 1.2em;
 }
 
 .monospaced {

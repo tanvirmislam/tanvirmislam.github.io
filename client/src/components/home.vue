@@ -6,10 +6,11 @@
       <v-btn
         id="back-to-home"
         class="red--text text--lighten-1"
-        small fab depressed
+        fab depressed
+        style="opacity: 0.8;"
         @click="$vuetify.goTo('#start-anchor', options)"
       >
-        <v-icon>{{ 'mdi-chevron-double-up' }}</v-icon>
+        <v-icon class="display-1">{{ 'mdi-chevron-double-up' }}</v-icon>
         <span style="visibility: hidden"> {{ animteBackToHomeButton() }} </span>
       </v-btn>
     </div>
@@ -38,13 +39,17 @@
           </vue-particles>
 
           <div id="titlecard-container" v-observe-visibility="titlecardVisibilityChanged">
-            <titlecard about-anchor="#about-slide" />
+            <titlecard about-anchor="#about-slide"/>
           </div>
         </v-col>
       </v-row>
 
       <v-row id="about-slide" class="slide" align="center" justify="space-around">
         <about />
+      </v-row>
+
+      <v-row id="projects-slide" class="slide" align="center" justify="space-around">
+        <planet />
       </v-row>
     </v-container>
   </div>
@@ -53,10 +58,12 @@
 <script>
 import titlecard from './home.titlecard'
 import about from './home.about'
+import planet from './planet'
 
 export default {
   components: {
     titlecard,
+    planet,
     about
   },
 

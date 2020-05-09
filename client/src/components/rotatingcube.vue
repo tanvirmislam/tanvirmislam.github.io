@@ -87,8 +87,8 @@ export default {
 }
 
 #cube {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   top: 50px;
   transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -109,52 +109,53 @@ export default {
   position: absolute;
   -webkit-transition: all 1.5s ease-in-out;
   transition: all 1.5s ease-in-out;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   float: left;
   overflow: hidden;
   opacity: 0.08;
 }
 
 #side1 {
-  transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(100px);
-  -moz-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(100px);
-  -webkit-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(100px);
+  transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
+  -moz-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
+  -webkit-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
   background-color: #9d9d9d;
+  /* background-image: url("../../public/img/avatar.jpg"); */
 }
 
 #side2 {
-  transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(100px);
-  -moz-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(100px);
-  -webkit-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(100px);
+  transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
+  -moz-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
+  -webkit-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
   background-color: #545454;
 }
 
 #side3 {
-  transform: translateX(0px) translateY(0px) translateZ(100px);
-  -moz-transform: translateX(0px) translateY(0px) translateZ(100px);
-  -webkit-transform: translateX(0px) translateY(0px) translateZ(100px);
+  transform: translateX(0px) translateY(0px) translateZ(90px);
+  -moz-transform: translateX(0px) translateY(0px) translateZ(90px);
+  -webkit-transform: translateX(0px) translateY(0px) translateZ(90px);
   background-color: #dfdada;
 }
 
 #side4 {
-  transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(100px);
-  -moz-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(100px);
-  -webkit-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(100px);
+  transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
+  -moz-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
+  -webkit-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
   background-color: #545454;
 }
 
 #side5 {
-  transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(100px);
-  -moz-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(100px);
-  -webkit-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(100px);
+  transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
+  -moz-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
+  -webkit-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
   background-color: #dfdada;
 }
 
 #side6 {
-  transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(100px);
-  -moz-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(100px);
-  -webkit-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(100px);
+  transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
+  -moz-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
+  -webkit-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
   background-color: #9d9d9d;
 }
 
@@ -208,15 +209,7 @@ export default {
 
 @keyframes pulse {
    0% { transform: scale(1); }
-   50% { transform: scale(1.1); }
+   50% { transform: scale(1.15); }
    100% { transform: scale(1); }
-}
-
-.click-animate-shake {
-  animation-name: shake;
-  animation-direction: alternate;
-  animation-duration: 0.4s;
-  animation-iteration-count: 1;
-  animation-play-state: running;
 }
 </style>
