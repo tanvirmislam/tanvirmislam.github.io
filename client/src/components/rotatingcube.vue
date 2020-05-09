@@ -70,8 +70,11 @@ export default {
     },
 
     onClick () {
-      document.querySelector('#cube-container').classList.add('click-animate-pulse')
-      setTimeout(() => document.querySelector('#cube-container').classList.remove('click-animate-pulse'), 500)
+      const cubeContainerElement = document.querySelector('#cube-container')
+      if (!cubeContainerElement.classList.contains('animate-pulse')) {
+        cubeContainerElement.classList.add('animate-pulse')
+        setTimeout(() => document.querySelector('#cube-container').classList.remove('animate-pulse'), 500)
+      }
     }
   }
 }
@@ -90,124 +93,173 @@ export default {
   width: 180px;
   height: 180px;
   top: 50px;
+
+  margin: auto;
+  position: relative;
+
   transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
+
   transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
   -moz-transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
   -webkit-transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
-  margin: auto;
-  position: relative;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transition: all 1.5s ease-in-out;
+
   transition: all 1.5s ease-in-out;
-  transform: '';
+  -webkit-transition: all 1.5s ease-in-out;
+  -moz-transition: all 1.5s ease-in-out;
 }
 
 #cube > div {
   position: absolute;
-  -webkit-transition: all 1.5s ease-in-out;
-  transition: all 1.5s ease-in-out;
+
   width: 180px;
   height: 180px;
+
   float: left;
   overflow: hidden;
   opacity: 0.08;
+
+  transition: all 1.5s ease-in-out;
+  -webkit-transition: all 1.5s ease-in-out;
+  -moz-transition: all 1.5s ease-in-out;
 }
 
 #side1 {
+  background-color: #9d9d9d;
+
   transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
   -moz-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
   -webkit-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
-  background-color: #9d9d9d;
-  /* background-image: url("../../public/img/avatar.jpg"); */
 }
 
 #side2 {
+  background-color: #545454;
+
   transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
   -moz-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
   -webkit-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
-  background-color: #545454;
 }
 
 #side3 {
+  background-color: #dfdada;
+
   transform: translateX(0px) translateY(0px) translateZ(90px);
   -moz-transform: translateX(0px) translateY(0px) translateZ(90px);
   -webkit-transform: translateX(0px) translateY(0px) translateZ(90px);
-  background-color: #dfdada;
 }
 
 #side4 {
+  background-color: #545454;
+
   transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
   -moz-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
   -webkit-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
-  background-color: #545454;
 }
 
 #side5 {
+  background-color: #dfdada;
+
   transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
   -moz-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
   -webkit-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
-  background-color: #dfdada;
 }
 
 #side6 {
+  background-color: #9d9d9d;
+
   transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
   -moz-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
   -webkit-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
-  background-color: #9d9d9d;
 }
 
 #side1:hover {
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
   background-color: #592222;
   opacity: 0.5;
+
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
 }
 
 #side2:hover {
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
   background-color: #592222;
   opacity: 0.5;
+
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
 }
 
 #side3:hover {
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
   background-color: #592222;
   opacity: 0.5;
+
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
 }
 
 #side4:hover {
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
   background-color: #592222;
   opacity: 0.5;
+
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
 }
 #side5:hover {
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease-out;
   background-color: #592222;
   opacity: 0.5;
+
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
 }
 #side6:hover {
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
   background-color: #592222;
   opacity: 0.5;
+
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
 }
 
-.click-animate-pulse {
-  animation-name: pulse;
+.animate-pulse {
+  animation-name: cubepulse;
+  -webkit-animation-name: cubepulse;
+  -moz-animation-name: cubepulse;
+
   animation-direction: alternate;
-  animation-duration: 0.4s;
+  -webkit-animation-direction: alternate;
+  -moz-animation-direction: alternate;
+
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+
   animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+
   animation-play-state: running;
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
 }
 
-@keyframes pulse {
+@keyframes cubepulse {
+   0% { transform: scale(1); }
+   50% { transform: scale(1.15); }
+   100% { transform: scale(1); }
+}
+
+@-webkit-keyframes cubepulse {
+   0% { transform: scale(1); }
+   50% { transform: scale(1.15); }
+   100% { transform: scale(1); }
+}
+
+@-moz-keyframes cubepulse {
    0% { transform: scale(1); }
    50% { transform: scale(1.15); }
    100% { transform: scale(1); }

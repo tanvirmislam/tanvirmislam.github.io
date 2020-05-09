@@ -269,6 +269,7 @@ export default {
       orbitElement.style.top = `${this.sun.y - orbitalRadius + this.sun.radius}px`
 
       // Set orbit duration
+      orbitElement.style.animationDuration = `${orbitalDuration}s`
       orbitElement.style['-webkit-animation-duration'] = `${orbitalDuration}s`
       orbitElement.style['-moz-animation-duration'] = `${orbitalDuration}s`
     },
@@ -299,6 +300,7 @@ export default {
   height: var(--radius);
 
   border: solid 2px var(--color);
+
   border-radius: var(--radius)/var(--radius);
   -moz-border-radius: var(--radius)/var(--radius);
   -webkit-border-radius: var(--radius) var(--radius);
@@ -314,6 +316,7 @@ export default {
   height: var(--radius);
 
   border: solid calc(var(--radius) * 0.5) var(--color);
+
   border-radius: var(--radius)/var(--radius);
   -moz-border-radius: var(--radius)/var(--radius);
   -webkit-border-radius: var(--radius) var(--radius);
@@ -327,6 +330,9 @@ export default {
   height: 50px;
 
   border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+
   background: tomato;
 }
 
@@ -344,13 +350,20 @@ export default {
   -moz-border-radius: 200px/200px;
   -webkit-border-radius: 200px 200px;
 
+  animation-name: planetorbit;
+  -webkit-animation-name: planetorbit;
+  -moz-animation-name: planetorbit;
+
+  animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-name: orbit;
-  -webkit-animation-duration: 5s;
   -moz-animation-iteration-count: infinite;
+
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
   -moz-animation-timing-function: linear;
-  -moz-animation-name: orbit;
+
+  animation-duration: 5s;
+  -webkit-animation-duration: 5s;
   -moz-animation-duration: 5s;
 }
 
@@ -363,6 +376,10 @@ export default {
   margin-top: 45%;
   margin-left: -20%;
 
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+
   transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
@@ -371,46 +388,99 @@ export default {
 }
 
 #solarsystem:hover .planet {
-  animation-name: pulse;
+  animation-name: planetpulse;
+  -webkit-animation-name: planetpulse;
+  -moz-animation-name: planetpulse;
+
   animation-direction: alternate;
   -webkit-animation-direction: alternate;
+  -moz-animation-direction: alternate;
+
   animation-duration: 1.0s;
   -webkit-animation-duration: 1.0s;
+  -moz-animation-duration: 1.0s;
+
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+
   animation-play-state: running;
   -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
 }
 
 #solarsystem:hover #sun {
-  animation-name: burn;
+  animation-name: sunburn;
+  -webkit-animation-name: sunburn;
+  -moz-animation-name: sunburn;
+
   animation-direction: alternate;
   -webkit-animation-direction: alternate;
+  -moz-animation-direction: alternate;
+
   animation-duration: 0.5s;
   -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+
   animation-iteration-count: 2;
   -webkit-animation-iteration-count: 2;
+  -moz-animation-iteration-count: 2;
+
   animation-play-state: running;
   -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
 }
 
-@-webkit-keyframes orbit {
+@keyframes planetorbit {
   from { -webkit-transform: rotate(0deg) }
   to { -webkit-transform: rotate(360deg) }
 }
 
-@-moz-keyframes orbit {
+@-webkit-keyframes planetorbit {
+  from { -webkit-transform: rotate(0deg) }
+  to { -webkit-transform: rotate(360deg) }
+}
+
+@-moz-keyframes planetorbit {
   from { -moz-transform: rotate(0deg) }
   to { -moz-transform: rotate(360deg) }
 }
 
-@keyframes pulse {
+@keyframes planetpulse {
    0% { transform: scale(1.0); }
    50% { transform: scale(1.5); }
    100% { transform: scale(1.0); }
 }
 
-@keyframes burn {
+@-webkit-keyframes planetpulse {
+   0% { transform: scale(1.0); }
+   50% { transform: scale(1.5); }
+   100% { transform: scale(1.0); }
+}
+
+@-moz-keyframes planetpulse {
+   0% { transform: scale(1.0); }
+   50% { transform: scale(1.5); }
+   100% { transform: scale(1.0); }
+}
+
+@keyframes sunburn {
+  0% { border-color: yellow; }
+  25% { border-color: tomato; }
+  50% { border-color: red; }
+  75% { border-color: tomato; }
+  100% { border-color: yellow; }
+}
+
+@-webkit-keyframes sunburn {
+  0% { border-color: yellow; }
+  25% { border-color: tomato; }
+  50% { border-color: red; }
+  75% { border-color: tomato; }
+  100% { border-color: yellow; }
+}
+
+@-moz-keyframes sunburn {
   0% { border-color: yellow; }
   25% { border-color: tomato; }
   50% { border-color: red; }
