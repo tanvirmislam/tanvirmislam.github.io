@@ -39,17 +39,17 @@
           </vue-particles>
 
           <div id="titlecard-container" v-observe-visibility="titlecardVisibilityChanged">
-            <titlecard about-anchor="#about-slide"/>
+            <titlecard about-anchor="#about-slide" projects-anchor="#projects-slide"/>
           </div>
         </v-col>
       </v-row>
 
-      <v-row id="about-slide" class="slide" align="center" justify="space-around">
-        <about />
+      <v-row id="projects-slide" class="slide" align="center" justify="space-around">
+        <projects />
       </v-row>
 
-      <v-row id="projects-slide" class="slide" align="center" justify="space-around">
-        <planet />
+      <v-row id="about-slide" class="slide" align="center" justify="space-around">
+        <about />
       </v-row>
     </v-container>
   </div>
@@ -57,13 +57,13 @@
 
 <script>
 import titlecard from './home.titlecard'
+import projects from './home.projects'
 import about from './home.about'
-import planet from './planet'
 
 export default {
   components: {
     titlecard,
-    planet,
+    projects,
     about
   },
 

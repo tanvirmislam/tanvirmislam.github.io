@@ -43,7 +43,7 @@
                     small
                     depressed
                     class="mr-2 mb-2"
-                    @click="showSnackbar()"
+                    @click="$vuetify.goTo(projectsAnchor, options)"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'project-diagram']" />
@@ -119,6 +119,7 @@ import snackbar from './snackbar.underdevelopment'
 
 export default {
   props: {
+    projectsAnchor: String,
     aboutAnchor: String
   },
 

@@ -70,10 +70,15 @@ export default {
     },
 
     onClick () {
-      const cubeContainerElement = document.querySelector('#cube-container')
-      if (!cubeContainerElement.classList.contains('animate-pulse')) {
-        cubeContainerElement.classList.add('animate-pulse')
-        setTimeout(() => document.querySelector('#cube-container').classList.remove('animate-pulse'), 500)
+      const containerId = 'cube-container'
+      const animationClass = 'cube-animate-pulse'
+      const animationTime = 500
+
+      const cubeContainerElement = document.querySelector(`#${containerId}`)
+
+      if (!cubeContainerElement.classList.contains(animationClass)) {
+        cubeContainerElement.classList.add(animationClass)
+        setTimeout(() => cubeContainerElement.classList.remove(animationClass), animationTime)
       }
     }
   }
@@ -208,6 +213,7 @@ export default {
   -webkit-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
 }
+
 #side5:hover {
   background-color: #592222;
   opacity: 0.5;
@@ -216,6 +222,7 @@ export default {
   -webkit-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
 }
+
 #side6:hover {
   background-color: #592222;
   opacity: 0.5;
@@ -225,7 +232,7 @@ export default {
   -moz-transition: all 0.1s ease;
 }
 
-.animate-pulse {
+.cube-animate-pulse {
   animation-name: cubepulse;
   -webkit-animation-name: cubepulse;
   -moz-animation-name: cubepulse;

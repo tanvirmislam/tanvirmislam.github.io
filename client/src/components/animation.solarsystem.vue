@@ -42,14 +42,20 @@
 
 <script>
 export default {
+  props: {
+    scale: Number,
+    centerTop: String,
+    centerLeft: String
+  },
+
   data () {
     return {
       sun: {
         x: undefined,
         y: undefined,
         radius: undefined,
+        initialRadius: 25,
         color: 'yellow',
-        referenceRadius: 25,
         earthProportions: {
           radius: 109
         }
@@ -187,9 +193,7 @@ export default {
             orbitalDuration: 0.3
           }
         }
-      },
-
-      scale: 0.5
+      }
     }
   },
 
@@ -203,14 +207,23 @@ export default {
   },
 
   methods: {
+    adjustSolarSystem () {
+      this.adjustSun()
+
+      const planetNames = Object.keys(this.planets)
+      for (let i = 0; i < planetNames.length; ++i) {
+        this.adjustPlanet(planetNames[i])
+      }
+    },
+
     adjustSun () {
-      this.sun.radius = this.sun.referenceRadius * this.scale
+      this.sun.radius = this.sun.initialRadius * this.scale
 
       const sunElement = document.querySelector('#sun')
       const sunDivLength = this.sun.radius * 2
 
-      sunElement.style.left = '50%'
-      sunElement.style.top = '50%'
+      sunElement.style.left = this.centerLeft
+      sunElement.style.top = this.centerTop
 
       sunElement.style.width = `${sunDivLength}px`
       sunElement.style.height = `${sunDivLength}px`
@@ -272,14 +285,6 @@ export default {
       orbitElement.style.animationDuration = `${orbitalDuration}s`
       orbitElement.style['-webkit-animation-duration'] = `${orbitalDuration}s`
       orbitElement.style['-moz-animation-duration'] = `${orbitalDuration}s`
-    },
-
-    adjustSolarSystem () {
-      this.adjustSun()
-
-      for (const planet in this.planets) {
-        this.adjustPlanet(planet)
-      }
     }
   }
 }
