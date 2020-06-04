@@ -1,7 +1,11 @@
 <template>
-  <div id="solarsystem" class="wow fadeIn" data-wow-duration="2.0s">
+  <div id="solarsystem">
     <div class="star">
-      <div id="sun" class="circle-filled" style="--radius: 50px; --top: 50%; --left: 50%; --color: yellow" @mouseover="onMouseOver(element)" />
+      <div id="sun"
+      class="circle-filled"
+      style="--radius: 50px; --top: 50%; --left: 50%; --color: yellow"
+      @mouseover="onMouseOver(element)"
+    />
     </div>
 
     <div id="mercury-orbit" class="orbit">

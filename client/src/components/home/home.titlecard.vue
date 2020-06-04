@@ -55,7 +55,7 @@
                     small
                     depressed
                     class="mr-2 mb-2"
-                    @click="showSnackbar()"
+                    @click="$vuetify.goTo(researchAnchor, options)"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'flask']" />
@@ -120,6 +120,7 @@ import snackbar from '../shared/snackbar.underdevelopment'
 export default {
   props: {
     projectsAnchor: String,
+    researchAnchor: String,
     aboutAnchor: String
   },
 

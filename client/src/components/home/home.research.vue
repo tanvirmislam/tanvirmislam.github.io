@@ -15,7 +15,9 @@
         class="mt-10 mb-2"
         cols="12" md="4"
       >
-        <rotatingcubesmall />
+        <div class="wow fadeIn" data-wow-duration="2.5s">
+          <rotatingcubesmall />
+        </div>
       </v-col>
 
       <v-col
@@ -79,7 +81,9 @@
         id="solarsystem-container"
         cols="12" md="4"
       >
-        <rotatingcube />
+        <div class="wow fadeIn" data-wow-duration="2.5s">
+          <rotatingcube />
+        </div>
       </v-col>
     </v-row>
   </v-container>

@@ -39,7 +39,11 @@
           </vue-particles>
 
           <div id="titlecard-container" v-observe-visibility="titlecardVisibilityChanged">
-            <titlecard about-anchor="#about-slide" projects-anchor="#projects-slide"/>
+            <titlecard
+              projects-anchor="#projects-slide"
+              research-anchor="#research-slide"
+              about-anchor="#about-slide"
+            />
           </div>
         </v-col>
       </v-row>

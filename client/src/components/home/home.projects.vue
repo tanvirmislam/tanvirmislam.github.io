@@ -14,11 +14,13 @@
         cols="12"
         md="4"
       >
-        <solarsystem
-          :scale="solarsystemParams.scale"
-          :centerTop="solarsystemParams.centerTop"
-          :centerLeft="solarsystemParams.centerLeft"
-        />
+        <div class="wow fadeIn" data-wow-duration="2.5s">
+          <solarsystem
+            :scale="solarsystemParams.scale"
+            :centerTop="solarsystemParams.centerTop"
+            :centerLeft="solarsystemParams.centerLeft"
+          />
+        </div>
       </v-col>
 
       <v-col
