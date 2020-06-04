@@ -3,7 +3,7 @@
     <v-app>
       <v-content>
         <v-container>
-          <router-view></router-view>
+          <router-view />
         </v-container>
       </v-content>
 
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Footer from './footer'
+import Footer from './shared/footer'
 
 export default {
   components: {
@@ -27,5 +27,9 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Crimson+Text&family=Roboto:wght@100;300;400&display=swap&Ubuntu+Mono:ital@1&display=swap&family=Shadows+Into+Light+Two&display=swap&family=Alegreya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Crimson+Text&family=Roboto:wght@100;300;400&display=swap&Ubuntu+Mono:ital@1&display=swap&family=Shadows+Into+Light+Two&display=swap&family=Alegreya&display=swap&family=Dosis&display=swap&family=Patrick+Hand&display=swap');
+
+#app {
+  font-family: 'Roboto', sans-serif;
+}
 </style>

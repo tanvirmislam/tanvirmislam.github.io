@@ -1,5 +1,5 @@
 <template>
-  <div id="solarsystem">
+  <div id="solarsystem" class="wow fadeIn" data-wow-duration="2.0s">
     <div class="star">
       <div id="sun" class="circle-filled" style="--radius: 50px; --top: 50%; --left: 50%; --color: yellow" @mouseover="onMouseOver(element)" />
     </div>
@@ -298,8 +298,8 @@ export default {
 .circle-hollow {
   position: absolute;
   margin: auto;
-  top: var(--top-offset);
-  left: var(--left-offset);
+  top: var(--top);
+  left: var(--left);
 
   width: var(--radius);
   height: var(--radius);
@@ -314,8 +314,8 @@ export default {
 .circle-filled {
   position: absolute;
   margin: auto;
-  top: var(--top-offset);
-  left: var(--left-offset);
+  top: var(--top);
+  left: var(--lefts);
 
   width: var(--radius);
   height: var(--radius);

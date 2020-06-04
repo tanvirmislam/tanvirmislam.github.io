@@ -11,7 +11,7 @@
       <div class="wow fadeIn" data-wow-delay="1s" data-wow-duration="1.5s">
         <v-card-title id="titlecard-name" class="justify-center">
           <v-avatar class="mr-3" size="40">
-            <img src="../../public/img/avatar.jpg" alt="Tanvir">
+            <img src="../../../public/img/avatar.jpg" alt="Tanvir">
           </v-avatar>
           Tanvir Islam
         </v-card-title>
@@ -115,7 +115,7 @@
 </template>
 
 <script>
-import snackbar from './snackbar.underdevelopment'
+import snackbar from '../shared/snackbar.underdevelopment'
 
 export default {
   props: {

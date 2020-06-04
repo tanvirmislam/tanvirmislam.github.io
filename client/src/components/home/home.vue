@@ -48,6 +48,10 @@
         <projects />
       </v-row>
 
+      <v-row id="research-slide" class="slide" align="center" justify="space-around">
+        <research />
+      </v-row>
+
       <v-row id="about-slide" class="slide" align="center" justify="space-around">
         <about />
       </v-row>
@@ -58,12 +62,14 @@
 <script>
 import titlecard from './home.titlecard'
 import projects from './home.projects'
+import research from './home.research'
 import about from './home.about'
 
 export default {
   components: {
     titlecard,
     projects,
+    research,
     about
   },
 
