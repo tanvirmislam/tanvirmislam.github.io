@@ -84,7 +84,11 @@
         id="solarsystem-container"
         cols="12" md="4"
       >
-        <div>
+        <div
+          class="wow pulse"
+          data-wow-delay="1.0s"
+          data-wow-duration="2.5s"
+        >
           <rotatingcube />
         </div>
       </v-col>

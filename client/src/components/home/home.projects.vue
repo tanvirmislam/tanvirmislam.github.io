@@ -16,7 +16,9 @@
         md="4"
       >
         <div
-          class="wow fadeIn"
+          class="wow pulse"
+          data-wow-delay="1.0s"
+          data-wow-duration="2.5s"
         >
           <solarsystem
             :scale="solarsystemParams.scale"
