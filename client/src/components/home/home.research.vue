@@ -10,12 +10,12 @@
     >
       <!-- Show cube on top for mobile view -->
       <v-col
-        v-if="showCubeOnTop"
+        v-if="showAnimation && showCubeOnTop"
         id="solarsystem-container"
         class="mt-10 mb-2"
         cols="12" md="4"
       >
-        <div class="wow fadeIn" data-wow-duration="2.5s">
+        <div class="wow fadeIn" data-wow-duration="2.0s">
           <rotatingcubesmall />
         </div>
       </v-col>
@@ -55,14 +55,17 @@
                 color="rgb(30, 30, 30)"
               >
                 <v-row align="center" justify="center">
-                  <div class="research-text mx-12 mt-10" align="start">
+                  <div class="research-text mx-12 px-2 mt-10" align="start">
                     <div class="research-title">{{ research.title }}</div> <br/>
                     <div class="research-description">{{ research.description }}</div>
-                    <br />
+                  </div>
+                </v-row>
+                <v-row align="end" justify="end" class="mt-2">
+                  <div>
                     <v-btn
                       dark
                       depressed
-                      class="red--text text--lighten-1 learn-more-button"
+                      class="mr-10 red--text text--lighten-1 learn-more-button"
                       :href="research.url"
                     >
                       Learn More
@@ -77,11 +80,11 @@
 
       <!-- Show cube on the right for desktop view -->
       <v-col
-        v-if="!showCubeOnTop"
+        v-if="showAnimation && !showCubeOnTop"
         id="solarsystem-container"
         cols="12" md="4"
       >
-        <div class="wow fadeIn" data-wow-duration="2.5s">
+        <div>
           <rotatingcube />
         </div>
       </v-col>
@@ -94,6 +97,10 @@ import rotatingcube from '../shared/animations/animation.rotatingcube'
 import rotatingcubesmall from '../shared/animations/animation.rotatingcube.small'
 
 export default {
+  props: {
+    showAnimation: Boolean
+  },
+
   components: {
     rotatingcube,
     rotatingcubesmall
@@ -104,12 +111,12 @@ export default {
       researchProjects: {
         SoftwareDefinedRadio: {
           title: 'Software Defined Radio',
-          description: 'Real-time wireless communication system using SDR',
+          description: 'Real-time ad-hoc wireless communication system built using GNURadio (C++), Python, and USRP SDR devices',
           url: '#'
         },
         SuperlatticeStructures: {
           title: 'Buffer Layers for Semiconductor Devices',
-          description: 'Simulate and analyze growth platforms for InGaAs/GaAs semiconductor devices',
+          description: 'Simulate and analyze different growth platforms for InGaAs/GaAs semiconductor devices, and quantify their performances as dislocation filters using MATLAB',
           url: '#'
         }
       }
@@ -148,7 +155,7 @@ export default {
       const researchCarouselElement = document.querySelector('#research-carousel')
 
       researchCarouselElement.style.width = `${Math.min(windowWidth, 500)}px`
-      researchCarouselElement.style.height = `${windowHeight * 0.5}px`
+      researchCarouselElement.style.height = `${Math.min(500, windowHeight * 0.5)}px`
     }
   }
 }
@@ -167,6 +174,10 @@ export default {
   height: 100%;
 }
 
+#research-sheet {
+  height: 40%;
+}
+
 .research-title {
   font-size: min(2.0em, 6vw);
 }
@@ -177,7 +188,7 @@ export default {
 }
 
 .learn-more-button {
-  float: right;
+  /* float: right; */
   /* border-radius: 25px; */
   background: rgb(60, 60, 60);
 }

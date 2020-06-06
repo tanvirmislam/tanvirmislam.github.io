@@ -2,20 +2,22 @@
   <div>
     <span id="start-anchor" class="anchor"/>
 
-    <div id="back-to-home-container" v-if="!isTitlecardVisible">
+    <!-- Back to home button -->
+    <div id="back-to-home-button-container" v-if="!isTitlecardVisible">
       <v-btn
-        id="back-to-home"
+        id="back-to-home-button"
         class="red--text text--lighten-1"
         fab depressed
         style="opacity: 0.8;"
         @click="$vuetify.goTo('#start-anchor', options)"
       >
         <v-icon class="display-1">{{ 'mdi-chevron-double-up' }}</v-icon>
-        <span style="visibility: hidden"> {{ animteBackToHomeButton() }} </span>
+        <span style="visibility: hidden"> {{ animateBackToHomeButton() }} </span>
       </v-btn>
     </div>
 
     <v-container id="home">
+      <!-- Home -->
       <v-row id="titlecard-slide" class="slide" align="center" justify="center">
         <v-col>
           <vue-particles
@@ -38,7 +40,10 @@
           >
           </vue-particles>
 
-          <div id="titlecard-container" v-observe-visibility="titlecardVisibilityChanged">
+          <div
+            id="titlecard-container"
+            v-observe-visibility="titlecardVisibilityChanged"
+          >
             <titlecard
               projects-anchor="#projects-slide"
               research-anchor="#research-slide"
@@ -48,14 +53,29 @@
         </v-col>
       </v-row>
 
-      <v-row id="projects-slide" class="slide" align="center" justify="space-around">
-        <projects />
+      <!-- Projects -->
+      <v-row
+        id="projects-slide"
+        class="slide"
+        align="center"
+        justify="space-around"
+        v-observe-visibility="projectsSlideVisibilityChanged"
+      >
+        <projects :show-animation="isProjectsSlideVisible" />
       </v-row>
 
-      <v-row id="research-slide" class="slide" align="center" justify="space-around">
-        <research />
+      <!-- Research -->
+      <v-row
+        id="research-slide"
+        class="slide"
+        align="center"
+        justify="space-around"
+        v-observe-visibility="researchSlideVisibilityChanged"
+      >
+        <research :show-animation="isResearchSlideVisible" />
       </v-row>
 
+      <!-- About -->
       <v-row id="about-slide" class="slide" align="center" justify="space-around">
         <about />
       </v-row>
@@ -97,6 +117,8 @@ export default {
       showExploreOptions: false,
 
       isTitlecardVisible: true,
+      isProjectsSlideVisible: false,
+      isResearchSlideVisible: false,
 
       anchorScroll: {
         duration: 1000,
@@ -163,13 +185,21 @@ export default {
       this.isTitlecardVisible = isVisible
     },
 
-    animteBackToHomeButton () {
+    projectsSlideVisibilityChanged (isVisible, entry) {
+      this.isProjectsSlideVisible = isVisible
+    },
+
+    researchSlideVisibilityChanged (isVisible, entry) {
+      this.isResearchSlideVisible = isVisible
+    },
+
+    animateBackToHomeButton () {
       setTimeout(() => {
-        const element = document.querySelector('#back-to-home-container')
-        if (!element) {
-          this.animteButton()
-        } else {
+        const element = document.querySelector('#back-to-home-button-container')
+        if (element) {
           element.classList.add('wow', 'rubberBand', 'animated')
+        } else {
+          this.animateBackToHomeButton()
         }
       }, 200)
     }
@@ -204,7 +234,7 @@ export default {
   position: absolute;
 }
 
-#back-to-home-container {
+#back-to-home-button-container {
   position: fixed;
   top: 1%;
   right: 4%;

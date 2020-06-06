@@ -18,18 +18,35 @@ export default {
       cubeX: -50,
       cubeY: -38,
       cubeZ: 0,
-      lastMovementType: undefined
+      lastMovementType: undefined,
+      autoRotationFunction: undefined
     }
   },
 
   mounted () {
-    setInterval(() => {
+    // Apply auto rotation of the cube
+    this.$nextTick(() => {
+      this.autoRotationFunction = setInterval(() => {
+        if (document.querySelector('#small-cube-container')) {
+          this.autoRotate()
+        }
+      }, 2000)
+    })
+  },
+
+  beforeDestroy () {
+    clearInterval(this.autoRotationFunction)
+  },
+
+  methods: {
+    autoRotate () {
       let movementType = Math.floor(Math.random() * (3 - 0) + 0)
+
       while (movementType === this.lastMovementType) {
         movementType = Math.floor(Math.random() * (3 - 0) + 0)
       }
-      this.lastMovementType = movementType
 
+      this.lastMovementType = movementType
       const movementAmount = Math.floor(Math.random() * (91 - 30) + 91)
 
       switch (movementType) {
@@ -43,10 +60,8 @@ export default {
           this.flip(movementAmount)
           break
       }
-    }, 2500)
-  },
+    },
 
-  methods: {
     applyRotations (degX, degY, degZ) {
       const movements = 'rotateX(' + degX % 180 + 'deg) rotateY(' + degY % 180 + 'deg) rotateZ(' + degZ % 180 + 'deg) translateX(0) translateY(0) translateZ(0)'
       document.querySelector('#small-cube').style.transform = movements

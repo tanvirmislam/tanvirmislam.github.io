@@ -9,12 +9,15 @@
       justify="space-around"
     >
       <v-col
+        v-if="showAnimation"
         id="solarsystem-container"
         class="mt-10 mb-2"
         cols="12"
         md="4"
       >
-        <div class="wow fadeIn" data-wow-duration="2.5s">
+        <div
+          class="wow fadeIn"
+        >
           <solarsystem
             :scale="solarsystemParams.scale"
             :centerTop="solarsystemParams.centerTop"
@@ -58,7 +61,7 @@
                 tile
               >
                 <v-row align="center" justify="center">
-                  <div class="project-text mx-12 mt-10" align="start">
+                  <div class="project-text mx-12 px-2 mt-10" align="start">
                     <div class="project-title">{{ project.title }}</div> <br/>
                     <div class="project-description">{{ project.description }}</div>
 
@@ -127,6 +130,10 @@
 import solarsystem from '../shared/animations/animation.solarsystem'
 
 export default {
+  props: {
+    showAnimation: Boolean
+  },
+
   components: {
     solarsystem
   },
@@ -251,7 +258,7 @@ export default {
       const projectCarouselElement = document.querySelector('#project-carousel')
 
       projectCarouselElement.style.width = `${Math.min(windowWidth, 500)}px`
-      projectCarouselElement.style.height = `${windowHeight * 0.55}px`
+      projectCarouselElement.style.height = `${Math.min(500, windowHeight * 0.5)}px`
     }
   }
 }
@@ -266,6 +273,10 @@ export default {
   height: 100%;
 }
 
+#project-sheet {
+  height: 40%;
+}
+
 .project-title {
   font-size: min(2.0em, 6vw);
 }
@@ -278,10 +289,10 @@ export default {
 .tag {
   float: left;
   border-radius: 25px;
-  background: rgb(60, 60, 60);
-  padding: 0px 12px;
-  margin: 0px 2px;
+  background: rgb(60, 60, 60, 0.8);
+  padding: 2px 12px;
+  margin: 2px 2px;
   margin-top: 4px;
-  font-size: min(0.8em, 3.5vw);
+  font-size: min(0.9em, 3.5vw);
 }
 </style>

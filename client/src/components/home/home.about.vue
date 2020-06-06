@@ -21,7 +21,7 @@
           <!-- Anchor: Start of description -->
           <span id="start-of-description" v-observe-visibility="descriptionScrolled" />
 
-          <div class="quote mb-2">
+          <div class="quote mb-10">
             <p class="quote-sentence">
               " I would rather have questions that can't be answered than answers that can't be questioned. "
             </p>
@@ -32,7 +32,7 @@
 
           <div class="description">
             <p>
-              Hello world, Welcome to my homepage. <span style="font-size: 0.8em;"> ♥ </span>
+              Hello world, Welcome to my homepage. <span style="font-size: 0.9em;"> ♥ </span>
             </p>
             <p>
               I am a software developer, currently working in the FinTech industry.
