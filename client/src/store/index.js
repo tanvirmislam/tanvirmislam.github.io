@@ -1,16 +1,14 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import CreatePersistedState from 'vuex-persistedstate'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import CreatePersistedState from 'vuex-persistedstate';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-export default new Vuex.Store({
-  modules: {
-
-  },
+const store = new Vuex.Store({
+  modules: {},
   plugins: [
-    CreatePersistedState({
+    CreatePersistedState({}),
+  ],
+});
 
-    })
-  ]
-})
+export default store;

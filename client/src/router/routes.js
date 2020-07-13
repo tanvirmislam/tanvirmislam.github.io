@@ -1,6 +1,26 @@
-import Home from '../components/home/home'
+import Home from '../components/home/home.vue';
+import ResearchProjectSDR from '../components/research-projects/sdr.vue';
 
-export const routes = [
-  { name: 'Home', path: '/', component: Home, display: 'Home', meta: { title: 'tanvirmislam' } },
-  { path: '*', redirect: '/' }
-]
+const routes = [
+  {
+    name: 'Home',
+    path: '/',
+    component: Home,
+    display: 'Home',
+    meta: { title: 'tanvirmislam' },
+  },
+  {
+    name: 'Research Project',
+    path: '/research/sdr',
+    component: ResearchProjectSDR,
+    display:
+    'Research Project - SDR',
+    meta: { title: 'Research Projects' },
+  },
+  {
+    path: '*',
+    redirect: '/',
+  },
+];
+
+export default routes;

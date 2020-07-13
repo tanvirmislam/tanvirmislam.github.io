@@ -1,5 +1,10 @@
 <template>
-  <v-card id="footer" class="flex" flat tile>
+  <v-card
+    id="footer"
+    class="flex"
+    flat
+    tile
+  >
     <v-card-text class="py-2 white--text text-right">
       <span class="caption mr-2">@ Tanvir Islam</span>
       <v-btn
@@ -14,7 +19,14 @@
           <font-awesome-icon :icon="['fab', 'linkedin']" />
         </span>
       </v-btn>
-      <v-btn fab depressed small text href="https://github.com/tanvirmislam" target="_blank">
+      <v-btn
+        fab
+        depressed
+        small
+        text
+        href="https://github.com/tanvirmislam"
+        target="_blank"
+      >
         <span class="subtitle-1">
           <font-awesome-icon :icon="['fab', 'github-alt']" />
         </span>
@@ -25,8 +37,8 @@
 
 <script>
 export default {
-  data: () => ({})
-}
+  data: () => ({}),
+};
 </script>
 
 <style>

@@ -12,16 +12,22 @@
 <script>
 export default {
   props: {
-    isSnackbarVisible: Boolean,
-    timeout: Number
+    isSnackbarVisible: {
+      type: Boolean,
+      required: true,
+    },
+    timeout: {
+      type: Number,
+      required: true,
+    },
   },
 
-  data () {
+  data() {
     return {
-      text: 'Currently under development'
-    }
-  }
-}
+      text: 'Currently under development',
+    };
+  },
+};
 </script>
 
 <style>

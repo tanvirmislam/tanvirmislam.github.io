@@ -19,7 +19,10 @@
           max-width="90vw"
         >
           <!-- Anchor: Start of description -->
-          <span id="start-of-description" v-observe-visibility="descriptionScrolled" />
+          <span
+            id="start-of-description"
+            v-observe-visibility="descriptionScrolled"
+          />
 
           <div class="quote mb-10">
             <p class="quote-sentence">
@@ -44,7 +47,8 @@
               I love to articulate real world phenomena and visualize data and abstract concepts through code.
               So a lot of the personal projects include some sort of data visualization.
               I am always looking for ways to expand my knowledge on things such as creating scalable software systems,
-              building robust infrastructures, or using data for machine learning and deep learning so solve real-world problems.
+              building robust infrastructures, or using data for machine learning and deep learning
+              to solve real-world problems.
             </p>
             <p>
               In my free time, I find solace in playing guitar, travelling, hiking,
@@ -62,9 +66,21 @@
     </v-row>
 
     <!-- Scroll button -->
-    <v-row align="center" justify="center">
-      <v-col align="center" justify="center">
-        <v-btn small text depressed class="mt-1 title" @click.stop="onScrollButtonClick()">
+    <v-row
+      align="center"
+      justify="center"
+    >
+      <v-col
+        align="center"
+        justify="center"
+      >
+        <v-btn
+          small
+          text
+          depressed
+          class="mt-1 title"
+          @click.stop="onScrollButtonClick()"
+        >
           <font-awesome-icon :icon="['fas', 'sort']" />
         </v-btn>
       </v-col>
@@ -74,34 +90,34 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      isStartOfDescriptionVisible: undefined
-    }
+      isStartOfDescriptionVisible: undefined,
+    };
   },
 
-  mounted () {
-    this.isStartOfDescriptionVisible = true
+  mounted() {
+    this.isStartOfDescriptionVisible = true;
   },
 
   methods: {
-    descriptionScrolled (isVisible, entry) {
-      this.isStartOfDescriptionVisible = isVisible
+    descriptionScrolled(isVisible) {
+      this.isStartOfDescriptionVisible = isVisible;
     },
 
-    onScrollButtonClick () {
-      const descriptionElement = document.querySelector('#about-description')
+    onScrollButtonClick() {
+      const descriptionElement = document.querySelector('#about-description');
 
       if (this.isStartOfDescriptionVisible) {
         // Go to bottom
-        descriptionElement.scrollTop = descriptionElement.scrollHeight
+        descriptionElement.scrollTop = descriptionElement.scrollHeight;
       } else {
         // Go to top
-        descriptionElement.scrollTop = 0
+        descriptionElement.scrollTop = 0;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>

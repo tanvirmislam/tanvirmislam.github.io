@@ -1,70 +1,40 @@
-// ---------------------------------------------------------------------------------
+// -----------------------------------------------------------
 // Imports
-// ---------------------------------------------------------------------------------
-// Vue
-import Vue from 'vue'
+// -----------------------------------------------------------
+import Vue from 'vue';
+import Vuetify from 'vuetify/lib';
 
-// Fonts and Icons
-import { FontAwesomeIcon } from './plugins/icons'
+import VueParticles from 'vue-particles';
+import VueObserveVisibility from 'vue-observe-visibility';
 
-// Vuetify
-import Vuetify from 'vuetify/lib'
-import vuetify from './plugins/vuetify'
+import axios from 'axios';
+import { sync } from 'vuex-router-sync';
 
-// Axios (HTTP Client)
-import axios from 'axios'
+import store from './store';
+import router from './router/index';
+import vuetify from './plugins/vuetify';
+import FontAwesomeIcon from './plugins/icons';
 
-// Router
-import router from './router/index'
-import { sync } from 'vuex-router-sync'
-
-// Store (Vuex)
-import store from './store'
-
-// Particles
-import VueParticles from 'vue-particles'
-
-// Div viewport visibility checker
-import VueObserveVisibility from 'vue-observe-visibility'
-
-// App root
-import App from './components/app'
-
-// ---------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------
+import App from './components/app.vue';
+// -----------------------------------------------------------
 
 // Initiate Vue
-Vue.config.productionTip = false
-Vue.prototype.$http = axios
+Vue.config.productionTip = false;
+Vue.prototype.$http = axios;
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-Vue.use(Vuetify)
-Vue.use(VueParticles)
-Vue.use(VueObserveVisibility)
+Vue.use(Vuetify);
+Vue.use(VueParticles);
+Vue.use(VueObserveVisibility);
 
-sync(store, router)
-
-// Mixins
-Vue.mixin({
-  methods: {
-    sleep (duration) {
-      this.isSleeping = true
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.isSleeping = false
-          resolve()
-        }, duration)
-      })
-    }
-  }
-})
+sync(store, router);
 
 const app = new Vue({
   store,
   router,
   vuetify,
-  ...App
-})
+  ...App,
+});
 
-app.$mount('#app')
+app.$mount('#app');

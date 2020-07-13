@@ -1,118 +1,131 @@
 <template>
-  <div id="cube-container" v-on:click="onClick()">
+  <div
+    id="cube-container"
+    @click="onClick()"
+  >
     <div id="cube">
-      <div id="side1"></div>
-      <div id="side2"></div>
-      <div id="side3"></div>
-      <div id="side4"></div>
-      <div id="side5"></div>
-      <div id="side6"></div>
+      <div id="side1" />
+      <div id="side2" />
+      <div id="side3" />
+      <div id="side4" />
+      <div id="side5" />
+      <div id="side6" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       cubeX: -50,
       cubeY: -38,
       cubeZ: 0,
       lastMovementType: undefined,
-      autoRotationFunction: undefined
-    }
+      autoRotationFunction: undefined,
+      animationDelay: 2500,
+    };
   },
 
-  mounted () {
+  mounted() {
     // Apply auto rotation of the cube
     this.$nextTick(() => {
       this.autoRotationFunction = setInterval(() => {
         if (document.querySelector('#cube-container')) {
-          this.autoRotate()
+          this.autoRotate();
         }
-      }, 2500)
-    })
+      }, this.animationDelay);
+    });
   },
 
-  beforeDestroy () {
-    clearInterval(this.autoRotationFunction)
+  beforeDestroy() {
+    clearInterval(this.autoRotationFunction);
   },
 
   methods: {
-    autoRotate () {
-      let movementType = Math.floor(Math.random() * (3 - 0) + 0)
+    autoRotate() {
+      let movementType = Math.floor(Math.random() * (3 - 0) + 0);
 
       while (movementType === this.lastMovementType) {
-        movementType = Math.floor(Math.random() * (3 - 0) + 0)
+        movementType = Math.floor(Math.random() * (3 - 0) + 0);
       }
 
-      this.lastMovementType = movementType
-      const movementAmount = Math.floor(Math.random() * (91 - 30) + 91)
+      this.lastMovementType = movementType;
+      const movementAmount = Math.floor(Math.random() * (91 - 30) + 91);
 
       switch (movementType) {
         case 0:
-          this.rotateRight(movementAmount)
-          break
+          this.rotateRight(movementAmount);
+          break;
         case 1:
-          this.rotateLeft(movementAmount)
-          break
-        case 2:
-          this.flip(movementAmount)
-          break
+          this.rotateLeft(movementAmount);
+          break;
+        default:
+          this.flip(movementAmount);
+          break;
       }
     },
 
-    applyRotations (degX, degY, degZ) {
-      const movements = 'rotateX(' + degX % 180 + 'deg) rotateY(' + degY % 180 + 'deg) rotateZ(' + degZ % 180 + 'deg) translateX(0) translateY(0) translateZ(0)'
-      document.querySelector('#cube').style.transform = movements
+    rotateRight(amount) {
+      this.cubeY += amount;
+      this.applyRotations(this.cubeX, this.cubeY, this.cubeZ);
     },
 
-    rotate (cubeAxis, degrees) {
-      this[cubeAxis] = this[cubeAxis] + degrees
-      this.applyRotations(this.cubeX, this.cubeY, this.cubeZ)
+    rotateLeft(amount) {
+      this.cubeY -= amount;
+      this.applyRotations(this.cubeX, this.cubeY, this.cubeZ);
     },
 
-    rotateRight (amount) {
-      this.rotate('cubeY', amount)
+    flip(amount) {
+      this.cubeZ += amount;
+      this.applyRotations(this.cubeX, this.cubeY, this.cubeZ);
     },
 
-    rotateLeft (amount) {
-      this.rotate('cubeY', -amount)
+    applyRotations(degX, degY, degZ) {
+      const cssTransformations = (
+        `rotateX(${degX % 180}deg) `
+        + `rotateY(${degY % 180}deg) `
+        + `rotateZ(${degZ % 180}deg) `
+        + 'translateX(0) translateY(0) translateZ(0)'
+      );
+
+      document.querySelector('#cube').style.transform = cssTransformations;
     },
 
-    flip (amount) {
-      this.rotate('cubeZ', -amount)
-    },
+    onClick() {
+      const containerId = 'cube-container';
+      const animationClass = 'cube-animate-pulse';
+      const duration = 500;
 
-    onClick () {
-      const containerId = 'cube-container'
-      const animationClass = 'cube-animate-pulse'
-      const animationTime = 500
-
-      const cubeContainerElement = document.querySelector(`#${containerId}`)
+      const cubeContainerElement = document.querySelector(`#${containerId}`);
 
       if (!cubeContainerElement.classList.contains(animationClass)) {
-        cubeContainerElement.classList.add(animationClass)
-        setTimeout(() => cubeContainerElement.classList.remove(animationClass), animationTime)
+        cubeContainerElement.classList.add(animationClass);
+        setTimeout(() => cubeContainerElement.classList.remove(animationClass), duration);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>
 /* CSS Credit: https://html-online.com/articles/css3-cube/ */
 
 #cube-container {
-  width: 250px;
-  height: 250px;
+  --cube-diagonal: calc(var(--cube-side) * 1.4142);
+  --cube-top-offset: calc(var(--cube-side) * 0.35);
+}
+
+#cube-container {
+  width: var(--cube-diagonal);
+  height: calc(var(--cube-diagonal) + var(--cube-top-offset));
   margin: auto;
 }
 
 #cube {
-  width: 180px;
-  height: 180px;
-  top: 50px;
+  width: var(--cube-side);
+  height: var(--cube-side);
+  top: var(--cube-top-offset);
 
   margin: auto;
   position: relative;
@@ -133,8 +146,8 @@ export default {
 #cube > div {
   position: absolute;
 
-  width: 180px;
-  height: 180px;
+  width: var(--cube-side);
+  height: var(--cube-side);
 
   float: left;
   overflow: hidden;
@@ -148,97 +161,52 @@ export default {
 #side1 {
   background-color: #9d9d9d;
 
-  transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
-  -moz-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
-  -webkit-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(90px);
+  transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -moz-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -webkit-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
 }
 
 #side2 {
   background-color: #545454;
 
-  transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
-  -moz-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
-  -webkit-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(90px);
+  transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -moz-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -webkit-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
 }
 
 #side3 {
   background-color: #dfdada;
 
-  transform: translateX(0px) translateY(0px) translateZ(90px);
-  -moz-transform: translateX(0px) translateY(0px) translateZ(90px);
-  -webkit-transform: translateX(0px) translateY(0px) translateZ(90px);
+  transform: translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -moz-transform: translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -webkit-transform: translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
 }
 
 #side4 {
   background-color: #545454;
 
-  transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
-  -moz-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
-  -webkit-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(90px);
+  transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -moz-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -webkit-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
 }
 
 #side5 {
   background-color: #dfdada;
 
-  transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
-  -moz-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
-  -webkit-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(90px);
+  transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -moz-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -webkit-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
 }
 
 #side6 {
   background-color: #9d9d9d;
 
-  transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
-  -moz-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
-  -webkit-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(90px);
+  transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -moz-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
+  -webkit-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(calc(var(--cube-side) / 2));
 }
 
-#side1:hover {
-  background-color: #592222;
-  opacity: 0.5;
-
-  transition: all 0.1s ease;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-}
-
-#side2:hover {
-  background-color: #592222;
-  opacity: 0.5;
-
-  transition: all 0.1s ease;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-}
-
-#side3:hover {
-  background-color: #592222;
-  opacity: 0.5;
-
-  transition: all 0.1s ease;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-}
-
-#side4:hover {
-  background-color: #592222;
-  opacity: 0.5;
-
-  transition: all 0.1s ease;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-}
-
-#side5:hover {
-  background-color: #592222;
-  opacity: 0.5;
-
-  transition: all 0.1s ease;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-}
-
-#side6:hover {
+#side1:hover, #side2:hover, #side3:hover, #side4:hover, #side5:hover, #side6:hover {
   background-color: #592222;
   opacity: 0.5;
 
