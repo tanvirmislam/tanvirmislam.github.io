@@ -1,22 +1,25 @@
 <template>
   <v-container
-    id="about-container"
-    class="mt-5 wow fadeInUp"
+    class="pa-0 mt-10 wow fadeInUp"
     data-wow-duration="1.5s"
+    fluid
+    align="center"
+    justify="center"
+    style="height: 85%;"
   >
     <v-row
-      id="about-description-row"
       align="center"
       justify="space-around"
+      style="height: 95%;"
     >
       <v-col
-        id="about-description-col"
         cols="12"
+        style="height: 100%;"
       >
-        <v-list
+        <v-card
           id="about-description"
-          class="overflow-y-auto pt-6 pb-3 px-5"
-          max-width="90vw"
+          class="overflow-y-auto py-5 px-7"
+          width="90vw"
         >
           <!-- Anchor: Start of description -->
           <span
@@ -24,18 +27,18 @@
             v-observe-visibility="descriptionScrolled"
           />
 
-          <div class="quote mb-10">
-            <p class="quote-sentence">
+          <div class="quote pl-3 pl-mb-12 mb-5">
+            <p class="ma-0">
               " I would rather have questions that can't be answered than answers that can't be questioned. "
             </p>
-            <p class="quote-writer">
+            <p class="ma-0">
               - Richard Feynman
             </p>
           </div>
 
           <div class="description">
             <p>
-              Hello world, Welcome to my homepage. <span style="font-size: 0.9em;"> ♥ </span>
+              Hello world, Welcome to my homepage <span class="title ml-1"> 🎉 </span>
             </p>
             <p>
               I am a software developer, currently working in the FinTech industry.
@@ -61,18 +64,15 @@
 
           <!-- Anchor: End of description -->
           <span id="end-of-description" />
-        </v-list>
+        </v-card>
       </v-col>
     </v-row>
 
     <!-- Scroll button -->
-    <v-row
-      align="center"
-      justify="center"
-    >
+    <v-row>
       <v-col
+        class="ma-0 pa-0"
         align="center"
-        justify="center"
       >
         <v-btn
           small
@@ -120,45 +120,22 @@ export default {
 };
 </script>
 
-<style>
-#about-container {
-  width: 100%;
-  height: 80%;
-  padding: 0;
-}
-
-#about-description-row {
-  height: 95%;
-  text-align: center;
-}
-
-#about-description-col {
-  height: 100%;
-}
-
+<style scoped>
 #about-description {
   height: 100%;
-  max-height: 100%;
-  background-color: '#191919';
   margin: auto;
 }
 
 .quote {
-  font-family: 'Bad Script', cursive;
-  /* font-family: 'Patrick Hand', cursive; */
-  font-size: 1.5em;
+  /* font-family: 'Bad Script', cursive; */
+  font-weight: lighter;
+  font-size: 1.4em;
   text-align: right;
 }
 
 .description {
-  /* font-family: 'Crimson text', 'serif'; */
-  /* font-family: 'Dosis', sans-serif; */
   font-size: 1.5em;
   line-height: 1.6em;
   text-align: left;
-}
-
-.monospaced {
-  font-family: 'Ubuntu Mono', monospace;
 }
 </style>

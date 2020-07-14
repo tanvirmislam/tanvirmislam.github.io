@@ -42,5 +42,8 @@ export default {
 
 #app {
   font-family: var(--default-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 </style>

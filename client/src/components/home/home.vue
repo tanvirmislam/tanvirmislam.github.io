@@ -41,7 +41,7 @@
         <v-col>
           <!-- Title card -->
           <titlecard
-            v-observe-visibility="onTitleCardVisibilityChange"
+            :scroll-options="scrollOptions"
             projects-anchor="#projects-slide"
             research-anchor="#research-slide"
             about-anchor="#about-slide"
@@ -72,28 +72,29 @@
       <!-- Projects -->
       <v-row
         id="projects-slide"
-        v-observe-visibility="onProjectsSlideVisibilityChange"
+        v-observe-visibility="(status) => { onSlideVisibilityChange('projects', status); }"
         class="slide"
         align="center"
         justify="space-around"
       >
-        <projects :show-animation="isProjectsSlideVisible" />
+        <projects :show-animation="slideVisibility.projects" />
       </v-row>
 
       <!-- Research -->
       <v-row
         id="research-slide"
-        v-observe-visibility="onResearchSlideVisibilityChange"
+        v-observe-visibility="(status) => { onSlideVisibilityChange('research', status); }"
         class="slide"
         align="center"
         justify="space-around"
       >
-        <research :show-animation="isResearchSlideVisible" />
+        <research :show-animation="slideVisibility.research" />
       </v-row>
 
       <!-- About -->
       <v-row
         id="about-slide"
+        v-observe-visibility="(status) => { onSlideVisibilityChange('about', status); }"
         class="slide"
         align="center"
         justify="space-around"
@@ -120,11 +121,13 @@ export default {
 
   data() {
     return {
-      isTitleCardVisible: true,
-      isProjectsSlideVisible: false,
-      isResearchSlideVisible: false,
+      slideVisibility: {
+        projects: false,
+        research: false,
+        about: false,
+      },
 
-      anchorScroll: {
+      scrollOptions: {
         duration: 1000,
         offset: 0,
         easing: 'easeInOutCubic',
@@ -133,30 +136,14 @@ export default {
   },
 
   computed: {
-    scrollOptions() {
-      return {
-        duration: this.anchorScroll.duration,
-        offset: this.anchorScroll.offset,
-        easing: this.anchorScroll.easing,
-      };
-    },
-
     showBackToHomeButton() {
-      return !this.isTitleCardVisible;
+      return Object.values(this.slideVisibility).some(status => status === true);
     },
   },
 
   methods: {
-    onTitleCardVisibilityChange(isVisible) {
-      this.isTitleCardVisible = isVisible;
-    },
-
-    onProjectsSlideVisibilityChange(isVisible) {
-      this.isProjectsSlideVisible = isVisible;
-    },
-
-    onResearchSlideVisibilityChange(isVisible) {
-      this.isResearchSlideVisible = isVisible;
+    onSlideVisibilityChange(slideName, status) {
+      this.slideVisibility[slideName] = status;
     },
   },
 };
@@ -168,7 +155,9 @@ export default {
 }
 
 .slide {
-  height: 100vh;
+  /* Height of each slide */
+  /* Set to slight higher than 100% to allow for better slide visibility detection */
+  height: 102vh;
 }
 
 #particles-js {

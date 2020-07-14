@@ -77,7 +77,7 @@
                     small
                     depressed
                     class="action-button mr-2 mb-2"
-                    @click="$vuetify.goTo(projectsAnchor, options)"
+                    @click="$vuetify.goTo(projectsAnchor, scrollOptions)"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'project-diagram']" />
@@ -89,7 +89,7 @@
                     small
                     depressed
                     class="action-button mr-2 mb-2"
-                    @click="$vuetify.goTo(researchAnchor, options)"
+                    @click="$vuetify.goTo(researchAnchor, scrollOptions)"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'flask']" />
@@ -113,7 +113,7 @@
                     small
                     depressed
                     class="action-button mr-2 mb-2"
-                    @click="$vuetify.goTo(aboutAnchor, options)"
+                    @click="$vuetify.goTo(aboutAnchor, scrollOptions)"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'user-astronaut']" />
@@ -165,6 +165,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    scrollOptions: {
+      type: Object,
+      required: true,
+    },
     projectsAnchor: {
       type: String,
       required: true,
@@ -199,26 +203,12 @@ export default {
 
       showExploreOptions: false,
 
-      anchorScroll: {
-        duration: 1000,
-        offset: 0,
-        easing: 'easeInOutCubic',
-      },
-
       showUnderDevelopmentSnackbar: false,
       snackbarTimeout: 1000,
     };
   },
 
   computed: {
-    options() {
-      return {
-        duration: this.anchorScroll.duration,
-        offset: this.anchorScroll.offset,
-        easing: this.anchorScroll.easing,
-      };
-    },
-
     debouncedWindowResizeHandler() {
       return debounce(this.onWindowResize, 200);
     },
