@@ -132,34 +132,41 @@ export default {
         offset: 0,
         easing: 'easeInOutCubic',
       },
+
+      showBackToHomeButton: false,
+      debounceDuration: 200,
     };
   },
 
-  computed: {
-    showBackToHomeButton() {
-      return Object.values(this.slideVisibility).some(status => status === true);
-    },
+  mounted() {
+    this.$vuetify.goTo('#start-anchor');
+    this.showBackToHomeButton = false;
+    window.onscroll = this.onScroll;
   },
 
   methods: {
     onSlideVisibilityChange(slideName, status) {
       this.slideVisibility[slideName] = status;
     },
+
+    onScroll() {
+      const top = (
+        (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0)
+      );
+
+      if (top > 0) {
+        if (!this.showBackToHomeButton) {
+          this.showBackToHomeButton = true;
+        }
+      } else if (this.showBackToHomeButton) {
+        this.showBackToHomeButton = false;
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
-.anchor {
-  visibility: hidden;
-}
-
-.slide {
-  /* Height of each slide */
-  /* Set to slight higher than 100% to allow for better slide visibility detection */
-  height: 102vh;
-}
-
 #particles-js {
   height: 95vh;
 }

@@ -6,7 +6,7 @@
         <v-btn
           icon
           fab
-          class="red--text text--lighten-1 mr-4"
+          class="red--text text--lighten-1 mr-2"
           to="/"
           v-on="on"
         >

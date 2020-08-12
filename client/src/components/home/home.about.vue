@@ -17,17 +17,17 @@
         style="height: 100%;"
       >
         <v-card
-          id="about-description"
+          id="about-content"
           class="overflow-y-auto py-5 px-7"
           width="90vw"
         >
           <!-- Anchor: Start of description -->
           <span
-            id="start-of-description"
-            v-observe-visibility="descriptionScrolled"
+            id="start-of-content"
+            v-observe-visibility="onStartOfContentVisibilityChange"
           />
 
-          <div class="quote pl-3 pl-mb-12 mb-5">
+          <div class="quote pl-3 pl-md-12 mb-12">
             <p class="ma-0">
               " I would rather have questions that can't be answered than answers that can't be questioned. "
             </p>
@@ -36,7 +36,7 @@
             </p>
           </div>
 
-          <div class="description">
+          <div :class="'text enlarged' + ($vuetify.breakpoint.mdAndUp ? ' justify-text' : '')">
             <p>
               Hello world, Welcome to my homepage <span class="title ml-1"> 🎉 </span>
             </p>
@@ -61,9 +61,6 @@
               Feel free to reach out with any questions or comments.
             </p>
           </div>
-
-          <!-- Anchor: End of description -->
-          <span id="end-of-description" />
         </v-card>
       </v-col>
     </v-row>
@@ -92,28 +89,24 @@
 export default {
   data() {
     return {
-      isStartOfDescriptionVisible: undefined,
+      isStartOfContentVisible: true,
     };
   },
 
-  mounted() {
-    this.isStartOfDescriptionVisible = true;
-  },
-
   methods: {
-    descriptionScrolled(isVisible) {
-      this.isStartOfDescriptionVisible = isVisible;
+    onStartOfContentVisibilityChange(isVisible) {
+      this.isStartOfContentVisible = isVisible;
     },
 
     onScrollButtonClick() {
-      const descriptionElement = document.querySelector('#about-description');
+      const aboutElement = document.querySelector('#about-content');
 
-      if (this.isStartOfDescriptionVisible) {
+      if (this.isStartOfContentVisible) {
         // Go to bottom
-        descriptionElement.scrollTop = descriptionElement.scrollHeight;
+        aboutElement.scrollTop = aboutElement.scrollHeight;
       } else {
         // Go to top
-        descriptionElement.scrollTop = 0;
+        aboutElement.scrollTop = 0;
       }
     },
   },
@@ -121,21 +114,8 @@ export default {
 </script>
 
 <style scoped>
-#about-description {
+#about-content {
   height: 100%;
   margin: auto;
-}
-
-.quote {
-  /* font-family: 'Bad Script', cursive; */
-  font-weight: lighter;
-  font-size: 1.4em;
-  text-align: right;
-}
-
-.description {
-  font-size: 1.5em;
-  line-height: 1.6em;
-  text-align: left;
 }
 </style>

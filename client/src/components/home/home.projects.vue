@@ -58,6 +58,8 @@
             delimiter-icon="mdi-minus"
             next-icon="mdi-menu-right"
             prev-icon="mdi-menu-left"
+            align="center"
+            justify="center"
             hide-delimiter-background
             hide-delimiters
           >
@@ -68,7 +70,6 @@
               justify="center"
             >
               <v-sheet
-                class="project-sheet"
                 color="rgb(30, 30, 30)"
                 tile
               >
@@ -156,12 +157,11 @@
 </template>
 
 <script>
-import solarsystem from '../shared/animations/animation.solarsystem.vue';
+import SolarSystemComponent from '../shared/animations/animation.solarsystem.vue';
 
 export default {
-
   components: {
-    solarsystem,
+    solarsystem: SolarSystemComponent,
   },
   props: {
     showAnimation: Boolean,

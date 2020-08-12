@@ -3,6 +3,7 @@
 // -----------------------------------------------------------
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
+import VueLazyLoad from 'vue-lazyload';
 
 import VueParticles from 'vue-particles';
 import VueObserveVisibility from 'vue-observe-visibility';
@@ -27,6 +28,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(Vuetify);
 Vue.use(VueParticles);
 Vue.use(VueObserveVisibility);
+Vue.use(VueLazyLoad);
 
 sync(store, router);
 
