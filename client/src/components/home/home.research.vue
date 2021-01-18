@@ -7,189 +7,284 @@
     justify="center"
     style="height: 100%;"
   >
+    <div
+      class="mx-6 my-4"
+      style="position: absolute;"
+    >
+      <v-btn
+        small
+        depressed
+      >
+        <span class="title-1 mr-2">
+          <font-awesome-icon :icon="['fas', 'flask']" />
+        </span>
+        <span> Research </span>
+      </v-btn>
+    </div>
     <v-row
       align="center"
       justify="space-around"
       style="height: 100%;"
     >
-      <!-- Show cube on top for mobile view -->
-      <v-col
-        v-if="showAnimation && $vuetify.breakpoint.smAndDown"
-        id="small-rotatingcube-container"
-        class="py-0"
-        cols="12"
-        md="4"
-      >
-        <div
-          class="wow pulse"
-          data-wow-delay="1.0s"
-          data-wow-duration="2.5s"
-        >
-          <rotatingcube />
-        </div>
-      </v-col>
-
       <!-- Research projects card -->
       <v-col
         id="research-projects-list-container"
         cols="12"
-        md="6"
         align="center"
         justify="center"
       >
-        <v-card
-          id="research-project-card"
-          class="wow fadeInUp overflow-y-auto"
+        <carousel-3d
           data-wow-duration="1.5s"
-          align="center"
-          justify="center"
-          :style="`width: ${cardDimensions.width}; height: ${cardDimensions.height}`"
+          class="wow fadeInUp overflow-y-auto"
+          controls-visible
+          border="0"
+          animation-speed="850"
+          bias="right"
+          perspective="30"
+          :width="cardDimensions.width"
+          :height="cardDimensions.height"
+          :inverse-scaling="500"
+          :space="600"
         >
-          <v-carousel
-            id="research-project-carousel"
-            class="py-10"
-            :continuous="true"
-            :show-arrows="true"
-            height="auto"
-            delimiter-icon="mdi-minus"
-            next-icon="mdi-menu-right"
-            prev-icon="mdi-menu-left"
-            hide-delimiter-background
-            hide-delimiters
+          <slide
+            v-for="(project, i) in researchProjects"
+            :key="i"
+            :index="i"
           >
-            <v-carousel-item
-              v-for="(research, index) in researchProjects"
-              :key="index"
-              align="center"
-              justify="center"
-            >
-              <v-sheet
-                class="project-sheet"
-                color="rgb(30, 30, 30)"
+            <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
+              <v-card
+                id="research-project-card"
                 tile
+                align="center"
+                justify="center"
+                :data-index="index"
+                :class="{
+                  current: isCurrent,
+                  onLeft: (leftIndex >= 0),
+                  onRight: (rightIndex >= 0)
+                } + ' overflow-y-auto'"
+                style="width: 100%; height: 100%;"
               >
-                <!-- Content -->
-                <div
-                  class="research-project-text mx-12 px-5"
-                  align="start"
-                >
-                  <!-- Title -->
-                  <div class="research-project-title">
-                    {{ research.title }}
+                <div class="px-sm-2">
+                  <!-- Slide number -->
+                  <div class="carousel-slide-number">
+                    <span>{{ i+1 }} / {{ researchProjects.length }}</span>
                   </div>
 
-                  <!-- Description -->
-                  <div class="research-project-description mt-4">
-                    {{ research.description }}
+                  <!-- Links -->
+                  <div align="start">
+                    <!-- Link to detailed description -->
+                    <v-tooltip
+                      v-if="project.learnMoreURL"
+                      bottom
+                    >
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          icon
+                          fab
+                          class="red--text text--lighten-1"
+                          :to="project.learnMoreURL"
+                          target="_blank"
+                          v-on="on"
+                        >
+                          <v-icon class="display-1">
+                            mdi-head-lightbulb
+                          </v-icon>
+                        </v-btn>
+                      </template>
+                      <span>Learn More</span>
+                    </v-tooltip>
+
+                    <!-- Link to github -->
+                    <v-tooltip
+                      v-if="project.repoURL"
+                      bottom
+                    >
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          icon
+                          fab
+                          class="red--text text--lighten-1"
+                          :href="project.repoURL"
+                          target="_blank"
+                          v-on="on"
+                        >
+                          <v-icon class="display-1">
+                            mdi-github
+                          </v-icon>
+                        </v-btn>
+                      </template>
+                      <span>View Repository</span>
+                    </v-tooltip>
                   </div>
 
-                  <!-- Learn more -->
-                  <div class="mt-5">
-                    <v-btn>
-                      Learn More
-                    </v-btn>
+                  <!-- Goolge scholar slide -->
+                  <div
+                    v-if="project.title === 'Google Scholar'"
+                    align="center"
+                    justify="center"
+                    style="top: 80px; -ms-transform: translateY(80px); transform: translateY(80px);"
+                  >
+                    <div class="research-project-title">
+                      Find me on Google Scholar!
+                    </div>
+
+                    <div class="mt-2">
+                      <v-btn
+                        icon
+                        fab
+                        class="red--text text--lighten-1"
+                        :href="project.URL"
+                        target="_blank"
+                        v-on="on"
+                      >
+                        <v-icon class="display-1">
+                          mdi-school
+                        </v-icon>
+                      </v-btn>
+                    </div>
+                  </div>
+
+                  <!-- Content -->
+                  <div
+                    v-else
+                    class="mt-2"
+                  >
+                    <!-- Title -->
+                    <div class="research-project-title">
+                      {{ project.title }}
+                    </div>
+
+                    <!-- Description -->
+                    <div class="research-project-description mt-2">
+                      {{ project.description }}
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mt-4">
+                      <v-chip
+                        v-for="(tag, tagIndex) in project.tags"
+                        :key="tagIndex"
+                        class="tag"
+                        small
+                      >
+                        {{ tag }}
+                      </v-chip>
+                    </div>
                   </div>
                 </div>
-              </v-sheet>
-            </v-carousel-item>
-          </v-carousel>
-        </v-card>
-      </v-col>
-
-      <!-- Show cube on the right for larger screens -->
-      <v-col
-        v-if="showAnimation && $vuetify.breakpoint.mdAndUp"
-        id="rotatingcube-container"
-        class="mt-10 mb-2"
-        cols="12"
-        md="4"
-      >
-        <div
-          class="wow pulse"
-          data-wow-delay="1.0s"
-          data-wow-duration="2.5s"
-        >
-          <rotatingcube />
-        </div>
+              </v-card>
+            </template>
+          </slide>
+        </carousel-3d>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import rotatingcube from '../shared/animations/animation.rotatingcube.vue';
+import { Carousel3d, Slide } from 'vue-carousel-3d';
 
 export default {
   components: {
-    rotatingcube,
+    Carousel3d,
+    Slide,
   },
-  props: {
-    showAnimation: Boolean,
-  },
+
+  props: {},
 
   data() {
     return {
-      researchProjects: {
-        SoftwareDefinedRadio: {
+      cardDimensions: {
+        width: '0px',
+        height: '0px',
+      },
+
+      researchProjects: [
+        {
           title: 'Software Defined Radio',
           // eslint-disable-next-line max-len
           description: 'Real-time ad-hoc wireless communication system built using GNURadio (C++), Python, and USRP SDR devices',
-          url: '#',
+          learnMoreURL: '/research/sdr',
+          repoURL: 'https://github.com/tanvirmislam/tdma-gnuradio-sdr',
+          tags: [
+            'Linux',
+            'GNURadio',
+            'C++',
+            'Boost',
+            'SWIG',
+            'Python',
+            'LabVIEW',
+            'Digital Communications',
+            'Cryptography',
+          ],
         },
-        SuperlatticeStructures: {
-          title: 'Buffer Layers for Semiconductor Devices',
+        {
+          title: 'Study of Buffer Layers for Semiconductor Devices',
           // eslint-disable-next-line max-len
           description: 'Simulate and analyze different growth platforms for InGaAs/GaAs semiconductor devices, and quantify their performances as dislocation filters using MATLAB',
-          url: '#',
+          learnMoreURL: '/research/semiconductors',
+          tags: [
+            'MATLAB',
+            'Python',
+            'Semiconductor Physics',
+            'Nanotechnology',
+          ],
         },
-      },
+        {
+          title: 'Google Scholar',
+          URL: 'https://scholar.google.com/citations?hl=en&user=VLMVgH4AAAAJ',
+        },
+      ],
     };
   },
 
-  computed: {
-    cardDimensions() {
-      const windowWidth = window.innerWidth;
+  created() {
+    window.addEventListener('resize', this.setCardDimensions);
+    this.setCardDimensions();
+  },
+
+  destroyed() {
+    window.removeEventListener('resize', this.setCardDimensions);
+  },
+
+  methods: {
+    setCardDimensions() {
       const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
 
       let width;
       let height;
 
-      if (this.$vuetify.breakpoint.mdAndUp) {
-        width = '550px';
-        height = '450px';
+      if (windowWidth < 500) {
+        width = windowWidth;
+        height = `${windowHeight * 0.65}px`;
       } else {
-        width = `${Math.min(500, windowWidth)}px`;
-        height = `${windowHeight * 0.6}px`;
+        width = '410px';
+        height = '380px';
       }
 
-      return {
-        width,
-        height,
-      };
+      this.cardDimensions.width = width;
+      this.cardDimensions.height = height;
     },
   },
 };
 </script>
 
 <style scoped>
-#rotatingcube-container {
-  --cube-side: 180px;
-}
-
-#small-rotatingcube-container {
-  --cube-side: 120px;
-}
-
 .research-project-title {
-  font-size: min(2.0em, 6vw);
+  font-size: max(1.2em, min(1.5em, 6vw));
 }
 
 .research-project-description {
   font-weight: lighter;
-  font-size: min(1.3em, 4.5vw);
+  font-size: max(1.0em, min(1.3em, 5vw));
 }
 
-.v-btn.v-size--default {
-  font-size: min(0.8em, 3.5vw);
+.tag {
+  padding: auto;
+  margin: 4px 4px;
+  margin-top: 5px;
+  font-size: max(0.7em, min(0.9em, 3.5vw));
 }
 </style>

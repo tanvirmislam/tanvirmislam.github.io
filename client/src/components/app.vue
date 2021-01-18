@@ -104,4 +104,40 @@ export default {
 .anchor {
   visibility: hidden;
 }
+
+.img {
+  cursor: pointer;
+  margin: 2em auto 1.5em auto;
+  text-align: center;
+}
+
+.img > * {
+  margin: auto;
+}
+
+/* Carousel settings */
+div.carousel-3d-controls > a.prev > span {
+  color: rgb(216, 92, 84);
+  margin-left: 10px;
+}
+
+div.carousel-3d-controls > a.next > span {
+  color: rgb(216, 92, 84);
+  margin-right: 10px;
+}
+
+div.carousel-3d-slide.current > .v-card {
+  border-width: 1px;
+  border-color: rgba(100, 100, 100, 0.30);
+  border-style: solid;
+}
+
+.carousel-slide-number {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 12px;
+  margin-top: 10px;
+  color: rgba(100, 100, 100, 0.65);
+}
 </style>

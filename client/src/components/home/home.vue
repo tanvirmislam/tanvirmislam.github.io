@@ -45,6 +45,7 @@
             projects-anchor="#projects-slide"
             research-anchor="#research-slide"
             about-anchor="#about-slide"
+            contact-anchor="#contact-slide"
           />
 
           <!-- Particle JS on the landing slide -->
@@ -72,34 +73,45 @@
       <!-- Projects -->
       <v-row
         id="projects-slide"
-        v-observe-visibility="(status) => { onSlideVisibilityChange('projects', status); }"
+        v-observe-visibility="status => { onSlideVisibilityChange('projects', status); }"
         class="slide"
         align="center"
         justify="space-around"
       >
-        <projects :show-animation="slideVisibility.projects" />
+        <projects />
       </v-row>
 
       <!-- Research -->
       <v-row
         id="research-slide"
-        v-observe-visibility="(status) => { onSlideVisibilityChange('research', status); }"
+        v-observe-visibility="status => { onSlideVisibilityChange('research', status); }"
         class="slide"
         align="center"
         justify="space-around"
       >
-        <research :show-animation="slideVisibility.research" />
+        <research />
       </v-row>
 
       <!-- About -->
       <v-row
         id="about-slide"
-        v-observe-visibility="(status) => { onSlideVisibilityChange('about', status); }"
+        v-observe-visibility="status => { onSlideVisibilityChange('about', status); }"
         class="slide"
         align="center"
         justify="space-around"
       >
         <about />
+      </v-row>
+
+      <!-- Contact -->
+      <v-row
+        id="contact-slide"
+        v-observe-visibility="status => { onSlideVisibilityChange('contact', status); }"
+        class="slide"
+        align="center"
+        justify="space-around"
+      >
+        <contact :show-animation="slideVisibility.contact" />
       </v-row>
     </v-container>
   </div>
@@ -110,6 +122,7 @@ import titlecard from './home.titlecard.vue';
 import projects from './home.projects.vue';
 import research from './home.research.vue';
 import about from './home.about.vue';
+import contact from './home.contact.vue';
 
 export default {
   components: {
@@ -117,6 +130,7 @@ export default {
     projects,
     research,
     about,
+    contact,
   },
 
   data() {
@@ -125,6 +139,7 @@ export default {
         projects: false,
         research: false,
         about: false,
+        contact: false,
       },
 
       scrollOptions: {
@@ -174,7 +189,7 @@ export default {
 #back-to-home-button-container {
   position: fixed;
   top: 1%;
-  right: 4%;
+  right: 15px;
   z-index: 9999;
 }
 </style>

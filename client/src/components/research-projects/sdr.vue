@@ -4,12 +4,11 @@
 
     <v-container
       id="description-container"
-      class="wow fadeInUp"
       align="center"
       justify="center"
     >
       <!-- Title -->
-      <v-row>
+      <v-row id="title">
         <v-col cols="12">
           <p>
             <span class="header-1">
@@ -649,15 +648,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.img {
-  cursor: pointer;
-  margin: 2em auto 1.5em auto;
-  text-align: center;
-}
-
-.img > * {
-  margin: auto;
-}
-</style>

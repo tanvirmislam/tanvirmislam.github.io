@@ -7,170 +7,170 @@
     justify="center"
     style="height: 100%;"
   >
+    <div
+      class="mx-6 my-4"
+      style="position: absolute;"
+    >
+      <v-btn
+        small
+        depressed
+      >
+        <span class="title-1 mr-2">
+          <font-awesome-icon :icon="['fas', 'project-diagram']" />
+        </span>
+        <span> Projects </span>
+      </v-btn>
+    </div>
     <v-row
       align="center"
       justify="space-around"
       style="height: 100%;"
     >
-      <!-- Solar system animation -->
-      <v-col
-        v-if="showAnimation"
-        id="solarsystem-container"
-        :class="$vuetify.breakpoint.smAndDown ? 'my-12 py-12' : ''"
-        cols="12"
-        md="4"
-      >
-        <div
-          class="wow pulse"
-          data-wow-delay="1.0s"
-          data-wow-duration="2.5s"
-        >
-          <solarsystem
-            :scale="solarsystemParams.scale"
-            :center-top="solarsystemParams.centerTop"
-            :center-left="solarsystemParams.centerLeft"
-          />
-        </div>
-      </v-col>
-
       <!-- Projects card -->
       <v-col
         id="projects-list-container"
         cols="12"
-        md="6"
         align="center"
         justify="center"
       >
-        <v-card
-          id="project-card"
-          class="wow fadeInUp overflow-y-auto"
+        <carousel-3d
           data-wow-duration="1.5s"
-          align="center"
-          justify="center"
-          :style="`width: ${cardDimensions.width}; height: ${cardDimensions.height}`"
+          class="wow fadeInUp overflow-y-auto"
+          controls-visible
+          border="0"
+          animation-speed="850"
+          bias="right"
+          :width="cardDimensions.width"
+          :height="cardDimensions.height"
+          :inverse-scaling="1000"
+          :space="500"
         >
-          <v-carousel
-            id="project-carousel"
-            class="pt-5 pb-10"
-            :continuous="true"
-            :show-arrows="true"
-            height="auto"
-            delimiter-icon="mdi-minus"
-            next-icon="mdi-menu-right"
-            prev-icon="mdi-menu-left"
-            align="center"
-            justify="center"
-            hide-delimiter-background
-            hide-delimiters
+          <slide
+            v-for="(project, i) in projects"
+            :key="i"
+            :index="i"
           >
-            <v-carousel-item
-              v-for="(project, index) in projects"
-              :key="index"
-              align="center"
-              justify="center"
-            >
-              <v-sheet
-                color="rgb(30, 30, 30)"
+            <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
+              <v-card
+                id="project-card"
                 tile
+                align="center"
+                justify="center"
+                :data-index="index"
+                :class="{
+                  current: isCurrent,
+                  onLeft: (leftIndex >= 0),
+                  onRight: (rightIndex >= 0)
+                } + ' overflow-y-auto'"
+                style="width: 100%; height: 100%;"
               >
-                <!-- Links -->
-                <div align="end">
-                  <!-- Link to app -->
-                  <v-tooltip
-                    v-if="project.appURL"
-                    bottom
-                  >
-                    <template v-slot:activator="{ on }">
-                      <v-btn
-                        icon
-                        fab
-                        class="red--text text--lighten-1 mr-4"
-                        :href="project.appURL"
-                        target="_blank"
-                        v-on="on"
-                      >
-                        <v-icon class="display-1">
-                          mdi-open-in-app
-                        </v-icon>
-                      </v-btn>
-                    </template>
-                    <span>Open App</span>
-                  </v-tooltip>
-
-                  <!-- Link to github -->
-                  <v-tooltip
-                    v-if="project.repoURL"
-                    bottom
-                  >
-                    <template v-slot:activator="{ on }">
-                      <v-btn
-                        icon
-                        fab
-                        class="red--text text--lighten-1 mr-4"
-                        :href="project.repoURL"
-                        target="_blank"
-                        v-on="on"
-                      >
-                        <v-icon class="display-1">
-                          mdi-github
-                        </v-icon>
-                      </v-btn>
-                    </template>
-                    <span>View Repository</span>
-                  </v-tooltip>
-                </div>
-
-                <!-- Content -->
-                <div
-                  class="project-text mx-12 px-5"
-                  align="start"
-                >
-                  <!-- Title -->
-                  <div class="project-title">
-                    {{ project.title }}
+                <div class="px-sm-2">
+                  <!-- Slide number -->
+                  <div class="carousel-slide-number">
+                    <span>{{ i+1 }} / {{ projects.length }}</span>
                   </div>
 
-                  <!-- Description -->
-                  <div class="project-description mt-4">
-                    {{ project.description }}
-                  </div>
-
-                  <!-- Tags -->
-                  <div class="mt-5">
-                    <v-chip
-                      v-for="(tag, tagIndex) in project.tags"
-                      :key="tagIndex"
-                      class="tag"
-                      small
+                  <!-- Links -->
+                  <div align="start">
+                    <!-- Link to app -->
+                    <v-tooltip
+                      v-if="project.appURL"
+                      bottom
                     >
-                      {{ tag }}
-                    </v-chip>
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          icon
+                          fab
+                          class="red--text text--lighten-1"
+                          :href="project.appURL"
+                          target="_blank"
+                          v-on="on"
+                        >
+                          <v-icon class="display-1">
+                            mdi-open-in-app
+                          </v-icon>
+                        </v-btn>
+                      </template>
+                      <span>Open App</span>
+                    </v-tooltip>
+
+                    <!-- Link to github -->
+                    <v-tooltip
+                      v-if="project.repoURL"
+                      bottom
+                    >
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          icon
+                          fab
+                          class="red--text text--lighten-1"
+                          :href="project.repoURL"
+                          target="_blank"
+                          v-on="on"
+                        >
+                          <v-icon class="display-1">
+                            mdi-github
+                          </v-icon>
+                        </v-btn>
+                      </template>
+                      <span>View Repository</span>
+                    </v-tooltip>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="mt-2">
+                    <!-- Title -->
+                    <div class="project-title">
+                      {{ project.title }}
+                    </div>
+
+                    <!-- Description -->
+                    <div class="project-description mt-2">
+                      {{ project.description }}
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mt-4">
+                      <v-chip
+                        v-for="(tag, tagIndex) in project.tags"
+                        :key="tagIndex"
+                        class="tag"
+                        small
+                      >
+                        {{ tag }}
+                      </v-chip>
+                    </div>
                   </div>
                 </div>
-              </v-sheet>
-            </v-carousel-item>
-          </v-carousel>
-        </v-card>
+              </v-card>
+            </template>
+          </slide>
+        </carousel-3d>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import SolarSystemComponent from '../shared/animations/animation.solarsystem.vue';
+import { Carousel3d, Slide } from 'vue-carousel-3d';
 
 export default {
   components: {
-    solarsystem: SolarSystemComponent,
+    Carousel3d,
+    Slide,
   },
-  props: {
-    showAnimation: Boolean,
-  },
+
+  props: {},
 
   data() {
     return {
-      projects: {
-        gitfiddle: {
+      cardDimensions: {
+        width: '0px',
+        height: '0px',
+      },
+
+      projects: [
+        {
           title: 'GitFiddle',
           description: 'Interactive visualization tool to learn git branching',
           repoURL: 'https://github.com/tanvirmislam/gitfiddle',
@@ -186,7 +186,7 @@ export default {
             'Visualization',
           ],
         },
-        covidathenaeum: {
+        {
           title: 'Covid Athenaeum',
           description: 'Data visualization of COVID-19 pandemic',
           repoURL: 'https://github.com/tanvirmislam/covid-athenaeum',
@@ -202,7 +202,7 @@ export default {
             'Visualization',
           ],
         },
-        cpppathfinding: {
+        {
           title: 'Quickgrid Pathfinder',
           description: 'Pathfinding algorithm visualized using grids',
           repoURL: 'https://github.com/tanvirmislam/quickgrid-pathfinding',
@@ -214,7 +214,7 @@ export default {
             'Command Line Tool',
           ],
         },
-        checkers: {
+        {
           title: 'Checkers AI',
           description: 'Checkers AI implemented using fixed-depth Minimax algorithm',
           repoURL: 'https://github.com/tanvirmislam/checkers-ai',
@@ -225,7 +225,7 @@ export default {
             'Minimax',
           ],
         },
-        mazewanderer: {
+        {
           title: 'Maze Wanderer Robot',
           description: 'Maze solver bot using Microcontroller, ultrasound sensors, and optical encoders',
           repoURL: 'https://github.com/tanvirmislam/maze-wanderer-robot',
@@ -238,50 +238,43 @@ export default {
             'Circuits',
           ],
         },
-      },
+      ],
     };
   },
 
-  computed: {
-    solarsystemParams() {
-      const centerTop = '50%';
-      const centerLeft = '50%';
-      let scale;
+  created() {
+    window.addEventListener('resize', this.setCardDimensions);
+    this.setCardDimensions();
+  },
 
-      if (this.$vuetify.breakpoint.smAndDown) {
-        scale = 0.35;
-      } else if (this.$vuetify.breakpoint.mdOnly) {
-        scale = 0.4;
-      } else {
-        scale = 0.5;
-      }
+  destroyed() {
+    window.removeEventListener('resize', this.setCardDimensions);
+  },
 
-      return {
-        centerTop,
-        centerLeft,
-        scale,
-      };
-    },
-
-    cardDimensions() {
-      const windowWidth = window.innerWidth;
+  methods: {
+    setCardDimensions() {
       const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
 
       let width;
       let height;
 
-      if (this.$vuetify.breakpoint.mdAndUp) {
-        width = '550px';
-        height = '450px';
+      if (windowWidth < 500) {
+        width = windowWidth;
+        height = `${windowHeight * 0.65}px`;
       } else {
-        width = `${Math.min(500, windowWidth)}px`;
-        height = `${windowHeight * 0.6}px`;
+        width = '410px';
+        height = '380px';
       }
 
-      return {
-        width,
-        height,
-      };
+      // if (windowWidth < 450) {
+      //   height = `${windowHeight * 0.8}px`;
+      // } else {
+      //   height = `${Math.min(400, windowHeight * 0.8)}px`;
+      // }
+
+      this.cardDimensions.width = width;
+      this.cardDimensions.height = height;
     },
   },
 };
@@ -289,18 +282,18 @@ export default {
 
 <style scoped>
 .project-title {
-  font-size: min(2.0em, 6vw);
+  font-size: max(1.2em, min(1.5em, 6vw));
 }
 
 .project-description {
   font-weight: lighter;
-  font-size: min(1.3em, 5vw);
+  font-size: max(1.0em, min(1.4em, 5vw));
 }
 
 .tag {
-  padding: 2px 12px;
-  margin: 2px 2px;
-  margin-top: 4px;
-  font-size: min(0.9em, 3.5vw);
+  padding: auto;
+  margin: 4px 4px;
+  margin-top: 5px;
+  font-size: max(0.7em, min(0.9em, 3.5vw));
 }
 </style>

@@ -35,8 +35,8 @@
             size="40"
           >
             <img
-              src="../../../public/img/avatar.jpg"
-              alt="Tanvir"
+              src="../../../public/assets/home/avatar.jpg"
+              alt="Tanvir Islam"
             >
           </v-avatar>
           Tanvir Islam
@@ -125,7 +125,7 @@
                     small
                     depressed
                     class="action-button mr-2 mb-2"
-                    @click="showSnackbar()"
+                    @click="$vuetify.goTo(contactAnchor, scrollOptions)"
                   >
                     <span class="title-1 mr-2">
                       <font-awesome-icon :icon="['fas', 'envelope']" />
@@ -178,6 +178,10 @@ export default {
       required: true,
     },
     aboutAnchor: {
+      type: String,
+      required: true,
+    },
+    contactAnchor: {
       type: String,
       required: true,
     },
