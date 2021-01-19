@@ -1,6 +1,6 @@
 <template>
   <v-container
-    id="projects-container"
+    id="research-projects-container"
     class="pa-0"
     fluid
     align="center"
@@ -16,9 +16,9 @@
         depressed
       >
         <span class="title-1 mr-2">
-          <font-awesome-icon :icon="['fas', 'project-diagram']" />
+          <font-awesome-icon :icon="['fas', 'flask']" />
         </span>
-        <span> Projects </span>
+        <span> Research </span>
       </v-btn>
     </div>
     <v-row
@@ -26,9 +26,9 @@
       justify="space-around"
       style="height: 100%;"
     >
-      <!-- Projects card -->
+      <!-- Research projects card -->
       <v-col
-        id="projects-list-container"
+        id="research-projects-list-container"
         cols="12"
         align="center"
         justify="center"
@@ -40,19 +40,20 @@
           border="0"
           animation-speed="850"
           bias="right"
+          perspective="30"
           :width="cardDimensions.width"
           :height="cardDimensions.height"
-          :inverse-scaling="1000"
-          :space="500"
+          :inverse-scaling="500"
+          :space="600"
         >
           <slide
-            v-for="(project, i) in projects"
+            v-for="(project, i) in researchProjects"
             :key="i"
             :index="i"
           >
             <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
               <v-card
-                id="project-card"
+                id="research-project-card"
                 tile
                 align="center"
                 justify="center"
@@ -67,14 +68,14 @@
                 <div class="px-sm-2">
                   <!-- Slide number -->
                   <div class="carousel-slide-number">
-                    <span>{{ i+1 }} / {{ projects.length }}</span>
+                    <span>{{ i+1 }} / {{ researchProjects.length }}</span>
                   </div>
 
                   <!-- Links -->
                   <div align="start">
-                    <!-- Link to app -->
+                    <!-- Link to detailed description -->
                     <v-tooltip
-                      v-if="project.appURL"
+                      v-if="project.learnMoreURL"
                       bottom
                     >
                       <template v-slot:activator="{ on }">
@@ -82,16 +83,16 @@
                           icon
                           fab
                           class="red--text text--lighten-1"
-                          :href="project.appURL"
+                          :to="project.learnMoreURL"
                           target="_blank"
                           v-on="on"
                         >
                           <v-icon class="display-1">
-                            mdi-open-in-app
+                            mdi-head-lightbulb
                           </v-icon>
                         </v-btn>
                       </template>
-                      <span>Open App</span>
+                      <span>Learn More</span>
                     </v-tooltip>
 
                     <!-- Link to github -->
@@ -117,15 +118,46 @@
                     </v-tooltip>
                   </div>
 
+                  <!-- Goolge scholar slide -->
+                  <div
+                    v-if="project.title === 'Google Scholar'"
+                    align="center"
+                    justify="center"
+                    style="top: 80px; -ms-transform: translateY(80px); transform: translateY(80px);"
+                  >
+                    <div class="research-project-title">
+                      Find my publications on
+                      <br>
+                      Google Scholar!
+                    </div>
+
+                    <div class="mt-2">
+                      <v-btn
+                        icon
+                        fab
+                        class="red--text text--lighten-1"
+                        :href="project.URL"
+                        target="_blank"
+                      >
+                        <v-icon class="display-1">
+                          mdi-school
+                        </v-icon>
+                      </v-btn>
+                    </div>
+                  </div>
+
                   <!-- Content -->
-                  <div class="mt-2">
+                  <div
+                    v-else
+                    class="mt-2"
+                  >
                     <!-- Title -->
-                    <div class="project-title">
+                    <div class="research-project-title">
                       {{ project.title }}
                     </div>
 
                     <!-- Description -->
-                    <div class="project-description mt-2">
+                    <div class="research-project-description mt-2">
                       {{ project.description }}
                     </div>
 
@@ -169,109 +201,68 @@ export default {
         height: '0px',
       },
 
-      projects: [
+      researchProjects: [
         {
-          title: 'GitFiddle',
-          description: 'Interactive visualization tool to learn git branching',
-          repoURL: 'https://github.com/tanvirmislam/gitfiddle',
-          appURL: 'http://gitfiddle.herokuapp.com/',
+          title: 'Software Defined Radio',
+          // eslint-disable-next-line max-len
+          description: 'Real-time ad-hoc wireless communication system built using GNURadio (C++), Python, and USRP SDR devices',
+          learnMoreURL: '/research/sdr',
+          repoURL: 'https://github.com/tanvirmislam/tdma-gnuradio-sdr',
           tags: [
-            'Node.js',
-            'Vue.js',
-            'Javascript',
-            'REST API',
-            'Data Structures',
-            'Processing',
-            'DevTools',
-            'Visualization',
-          ],
-        },
-        {
-          title: 'Covid Athenaeum',
-          description: 'Data visualization of COVID-19 pandemic',
-          repoURL: 'https://github.com/tanvirmislam/covid-athenaeum',
-          appURL: 'http://gitfiddle.covidathenaeum.com/',
-          tags: [
-            'Node.js',
-            'MongoDB',
-            'Nuxt.js',
-            'D3.js',
-            'Javascript',
-            'API',
-            'Data Scrubbing',
-            'Visualization',
-          ],
-        },
-        {
-          title: 'Quickgrid Pathfinder',
-          description: 'Pathfinding algorithm visualized using grids',
-          repoURL: 'https://github.com/tanvirmislam/quickgrid-pathfinding',
-          tags: [
+            'Linux',
+            'GNURadio',
             'C++',
-            'Data Stuctures',
-            'Algorithms',
-            'Graph',
-            'Command Line Tool',
+            'Boost',
+            'SWIG',
+            'Python',
+            'LabVIEW',
+            'Digital Communications',
+            'Cryptography',
           ],
         },
         {
-          title: 'Checkers AI',
-          description: 'Checkers AI implemented using fixed-depth Minimax algorithm',
-          repoURL: 'https://github.com/tanvirmislam/checkers-ai',
+          title: 'Study of Buffer Layers for Semiconductor Devices',
+          // eslint-disable-next-line max-len
+          description: 'Simulate and analyze different growth platforms for InGaAs/GaAs semiconductor devices, and quantify their performances as dislocation filters using MATLAB',
+          learnMoreURL: '/research/semiconductors',
           tags: [
-            'C++',
-            'Algorithms',
-            'Game Theory',
-            'Minimax',
+            'MATLAB',
+            'Python',
+            'Semiconductor Physics',
+            'Nanotechnology',
           ],
         },
         {
-          title: 'Maze Wanderer Robot',
-          description: 'Maze solver bot using Microcontroller, ultrasound sensors, and optical encoders',
-          repoURL: 'https://github.com/tanvirmislam/maze-wanderer-robot',
-          tags: [
-            'C',
-            'Arduino',
-            'Microcontroller',
-            'Algorithms',
-            'Sensors and Modules',
-            'Circuits',
-          ],
+          title: 'Google Scholar',
+          URL: 'https://scholar.google.com/citations?hl=en&user=VLMVgH4AAAAJ',
         },
       ],
     };
   },
 
   created() {
-    window.addEventListener('resize', this.setCardDimensions);
-    this.setCardDimensions();
+    window.addEventListener('resize', this.setResearchCardDimensions);
+    this.setResearchCardDimensions();
   },
 
   destroyed() {
-    window.removeEventListener('resize', this.setCardDimensions);
+    window.removeEventListener('resize', this.setResearchCardDimensions);
   },
 
   methods: {
-    setCardDimensions() {
+    setResearchCardDimensions() {
       const windowHeight = window.innerHeight;
       const windowWidth = window.innerWidth;
 
       let width;
-      let height;
 
       if (windowWidth < 500) {
         width = windowWidth;
-        height = `${windowHeight * 0.65}px`;
       } else {
         width = '410px';
-        height = '380px';
       }
 
-      // if (windowWidth < 450) {
-      //   height = `${windowHeight * 0.8}px`;
-      // } else {
-      //   height = `${Math.min(400, windowHeight * 0.8)}px`;
-      // }
+      const height = `${Math.min(380, windowHeight * 0.65)}px`;
 
       this.cardDimensions.width = width;
       this.cardDimensions.height = height;
@@ -281,13 +272,13 @@ export default {
 </script>
 
 <style scoped>
-.project-title {
+.research-project-title {
   font-size: max(1.2em, min(1.5em, 6vw));
 }
 
-.project-description {
+.research-project-description {
   font-weight: lighter;
-  font-size: max(1.0em, min(1.4em, 5vw));
+  font-size: max(1.0em, min(1.3em, 5vw));
 }
 
 .tag {

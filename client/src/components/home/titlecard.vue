@@ -97,17 +97,31 @@
                     <span> Research </span>
                   </v-btn>
 
-                  <v-btn
-                    small
-                    depressed
-                    class="action-button mr-2 mb-2"
-                    @click="showSnackbar()"
+                  <v-dialog
+                    v-model="showEducationDialogBox"
+                    transition="dialog-bottom-transition"
+                    scrollable
+                    max-width="700"
                   >
-                    <span class="title-1 mr-2">
-                      <font-awesome-icon :icon="['fas', 'brain']" />
-                    </span>
-                    <span> Education </span>
-                  </v-btn>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        small
+                        depressed
+                        class="action-button mr-2 mb-2"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <span class="title-1 mr-2">
+                          <font-awesome-icon :icon="['fas', 'brain']" />
+                        </span>
+                        <span> Education </span>
+                      </v-btn>
+                    </template>
+
+                    <template v-slot:default="dialog">
+                      <education :dialog="dialog" />
+                    </template>
+                  </v-dialog>
 
                   <v-btn
                     small
@@ -149,11 +163,13 @@
 
 <script>
 import { debounce } from 'debounce';
-import snackbar from '../shared/snackbar.underdevelopment.vue';
+import EducationComponent from './education.vue';
+import SnackbarComponent from '../shared/snackbar.underdevelopment.vue';
 
 export default {
   components: {
-    snackbar,
+    education: EducationComponent,
+    snackbar: SnackbarComponent,
   },
 
   props: {
@@ -206,6 +222,7 @@ export default {
       isSleeping: false,
 
       showExploreOptions: false,
+      showEducationDialogBox: false,
 
       showUnderDevelopmentSnackbar: false,
       snackbarTimeout: 1000,

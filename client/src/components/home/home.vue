@@ -118,19 +118,19 @@
 </template>
 
 <script>
-import titlecard from './home.titlecard.vue';
-import projects from './home.projects.vue';
-import research from './home.research.vue';
-import about from './home.about.vue';
-import contact from './home.contact.vue';
+import TitlecardComponent from './titlecard.vue';
+import ProjectsComponent from './projects.vue';
+import ResearchComponent from './research.vue';
+import AboutComponent from './about.vue';
+import ContactComponent from './contact.vue';
 
 export default {
   components: {
-    titlecard,
-    projects,
-    research,
-    about,
-    contact,
+    titlecard: TitlecardComponent,
+    projects: ProjectsComponent,
+    research: ResearchComponent,
+    about: AboutComponent,
+    contact: ContactComponent,
   },
 
   data() {
