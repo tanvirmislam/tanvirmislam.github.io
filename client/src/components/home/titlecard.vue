@@ -103,7 +103,7 @@
                     scrollable
                     max-width="700"
                   >
-                    <template v-slot:activator="{ on, attrs }">
+                    <template #activator="{ on, attrs }">
                       <v-btn
                         small
                         depressed
@@ -118,8 +118,8 @@
                       </v-btn>
                     </template>
 
-                    <template v-slot:default="dialog">
-                      <education :dialog="dialog" />
+                    <template #default="dialog">
+                      <education @closedialog="dialog.value = false" />
                     </template>
                   </v-dialog>
 
@@ -153,23 +153,16 @@
         </div>
       </v-expand-transition>
     </v-card>
-
-    <snackbar
-      :is-snackbar-visible="showUnderDevelopmentSnackbar"
-      :timeout="snackbarTimeout"
-    />
   </div>
 </template>
 
 <script>
 import { debounce } from 'debounce';
 import EducationComponent from './education.vue';
-import SnackbarComponent from '../shared/snackbar.underdevelopment.vue';
 
 export default {
   components: {
     education: EducationComponent,
-    snackbar: SnackbarComponent,
   },
 
   props: {
@@ -223,9 +216,6 @@ export default {
 
       showExploreOptions: false,
       showEducationDialogBox: false,
-
-      showUnderDevelopmentSnackbar: false,
-      snackbarTimeout: 1000,
     };
   },
 
@@ -308,11 +298,6 @@ export default {
 
       titlecardElement.style.left = `${leftSpace}px`;
       titlecardElement.style.top = `${topSpace}px`;
-    },
-
-    showSnackbar() {
-      this.showUnderDevelopmentSnackbar = true;
-      setTimeout(() => { this.showUnderDevelopmentSnackbar = false; }, this.snackbarTimeout);
     },
   },
 };

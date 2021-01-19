@@ -11,18 +11,18 @@ const routes = [
     meta: { title: 'tanvirmislam' },
   },
   {
-    name: 'Research Project',
+    name: 'Research Project - Software Defined Radio',
     path: '/research/sdr',
     component: ResearchProjectSDR,
     display: 'Research Project - SDR',
-    meta: { title: 'Research Projects' },
+    meta: { title: 'Research Project - Software Defined Radio' },
   },
   {
-    name: 'Research Project',
+    name: 'Research Project - Semiconductor Simulation and Analysis',
     path: '/research/semiconductors',
     component: ResearchProjectSemiconductors,
     display: 'Research Project - Semiconductors',
-    meta: { title: 'Research Projects' },
+    meta: { title: 'Research Project - Semiconductor Simulation and Analysis' },
   },
   {
     path: '*',

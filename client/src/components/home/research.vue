@@ -78,7 +78,7 @@
                       v-if="project.learnMoreURL"
                       bottom
                     >
-                      <template v-slot:activator="{ on }">
+                      <template #activator="{ on }">
                         <v-btn
                           icon
                           fab
@@ -100,7 +100,7 @@
                       v-if="project.repoURL"
                       bottom
                     >
-                      <template v-slot:activator="{ on }">
+                      <template #activator="{ on }">
                         <v-btn
                           icon
                           fab

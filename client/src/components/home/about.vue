@@ -41,10 +41,12 @@
               Hello world, Welcome to my homepage <span class="title ml-1"> 🎉 </span>
             </p>
             <p>
-              I am a software developer, currently working in the FinTech industry.
+              Developing data-driven, intelligent, and interactive software is something I am deeply passionate about.
             </p>
             <p>
-              Developing data-driven, intelligent, and interactive software is something I am deeply passionate about.
+              My philosophy is that we are all given a limited time on earth, let's utilize what we have
+              to keep the wheel of human civilization turning and make this world better
+              than how we originally found it.
             </p>
             <p>
               I love to articulate real world phenomena and visualize data and abstract concepts through code.
@@ -58,7 +60,7 @@
               or reading about space and astronomy.
             </p>
             <p>
-              Feel free to reach out with any questions or comments.
+              Feel free to reach out with any questions or comments!
             </p>
           </div>
         </v-card>

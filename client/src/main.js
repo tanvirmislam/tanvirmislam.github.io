@@ -24,7 +24,7 @@ import App from './components/app.vue';
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('FontAwesomeIcon', FontAwesomeIcon);
 
 Vue.use(Vuetify);
 Vue.use(VueParticles);

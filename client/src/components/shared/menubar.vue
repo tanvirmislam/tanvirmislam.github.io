@@ -2,7 +2,7 @@
   <v-toolbar>
     <!-- Back to home button -->
     <v-tooltip bottom>
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <v-btn
           icon
           fab

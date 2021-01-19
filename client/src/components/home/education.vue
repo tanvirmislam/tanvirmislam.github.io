@@ -5,7 +5,7 @@
         Education
       </v-toolbar-title>
 
-      <template v-slot:extension>
+      <template #extension>
         <v-tabs
           v-model="tab"
           align-with-title
@@ -238,7 +238,7 @@
       <v-btn
         text
         class="red--text text--lighten-1"
-        @click="dialog.value = false"
+        @click="$emit('closedialog')"
       >
         Close
       </v-btn>
@@ -248,13 +248,6 @@
 
 <script>
 export default {
-  props: {
-    dialog: {
-      type: Object,
-      required: true,
-    },
-  },
-
   data() {
     return {
       tab: null,
