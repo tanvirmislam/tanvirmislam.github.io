@@ -190,7 +190,7 @@ export default {
           title: 'Covid Athenaeum',
           description: 'Data visualization of COVID-19 pandemic',
           repoURL: 'https://github.com/tanvirmislam/covid-athenaeum',
-          appURL: 'http://gitfiddle.covidathenaeum.com/',
+          appURL: 'http://covid-athenaeum.herokuapp.com/',
           tags: [
             'Node.js',
             'MongoDB',
