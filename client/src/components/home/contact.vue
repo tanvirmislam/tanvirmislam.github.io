@@ -172,7 +172,7 @@
 </template>
 
 <script>
-import RotatingcubeComponent from '../shared/animations/animation.rotatingcube.vue';
+import RotatingcubeComponent from '../shared/rotatingcube.vue';
 
 export default {
   components: {

@@ -40,6 +40,13 @@ export default {
   --default-font-family: 'Roboto', sans-serif;
 }
 
+html, body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
 #app {
   font-family: var(--default-font-family);
   -webkit-font-smoothing: antialiased;

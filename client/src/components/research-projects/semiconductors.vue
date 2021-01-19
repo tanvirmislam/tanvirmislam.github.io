@@ -1,6 +1,6 @@
 <template>
   <div>
-    <menubar title="Research Projects" />
+    <menubar title="Research Project - Semiconductors" />
 
     <v-container
       id="description-container"

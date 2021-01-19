@@ -18,11 +18,11 @@ const routes = [
     meta: { title: 'Research Project - Software Defined Radio' },
   },
   {
-    name: 'Research Project - Semiconductor Simulation and Analysis',
+    name: 'Research Project - Semiconductors',
     path: '/research/semiconductors',
     component: ResearchProjectSemiconductors,
     display: 'Research Project - Semiconductors',
-    meta: { title: 'Research Project - Semiconductor Simulation and Analysis' },
+    meta: { title: 'Research Project - Semiconductors' },
   },
   {
     path: '*',

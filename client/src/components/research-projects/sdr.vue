@@ -1,6 +1,6 @@
 <template>
   <div>
-    <menubar title="Research Projects" />
+    <menubar title="Research Project - Software Defined Radio" />
 
     <v-container
       id="description-container"
