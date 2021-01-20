@@ -108,7 +108,7 @@
                   <br>
                   <ul class="mt-2">
                     <li>C++ Programming</li>
-                    <li>Introduction to Discreet Systems</li>
+                    <li>Introduction to Discrete Systems</li>
                     <li>Digital Logic Design</li>
                     <li>Electronic Circuit Design and Analysis</li>
                     <li>Signals and Systems</li>
@@ -206,7 +206,7 @@
                     <li>Digital Communication</li>
                     <li>Intro to Cultural Anthropology</li>
                     <li>Traditional Chinese Culture</li>
-                    <li>Senoir Design I</li>
+                    <li>Senior Design I</li>
                   </ul>
                 </p>
               </v-col>
@@ -224,7 +224,7 @@
                     <li>VLSI Design and Simulation</li>
                     <li>Robotics</li>
                     <li>Modern Chinese Culture</li>
-                    <li>Senoir Design II</li>
+                    <li>Senior Design II</li>
                   </ul>
                 </p>
               </v-col>

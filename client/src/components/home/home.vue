@@ -9,7 +9,7 @@
     <div
       v-if="showBackToHomeButton"
       id="back-to-home-button-container"
-      class="wow rubberBand"
+      class="wow fadeIn"
     >
       <v-btn
         id="back-to-home-button"

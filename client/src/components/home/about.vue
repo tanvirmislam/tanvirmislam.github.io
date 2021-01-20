@@ -1,6 +1,6 @@
 <template>
   <v-container
-    class="pa-0 mt-10 wow fadeInUp"
+    class="pa-0 mt-10"
     data-wow-duration="1.5s"
     fluid
     align="center"
@@ -38,20 +38,24 @@
 
           <div :class="'text enlarged' + ($vuetify.breakpoint.mdAndUp ? ' justify-text' : '')">
             <p>
-              Hello world, Welcome to my homepage <span class="title ml-1"> 🎉 </span>
+              Hello world, welcome to my homepage <span class="title ml-1"> 🎉 </span>
+            </p>
+            <p>
+              I am a software engineer, currently working in the FinTech industry.
             </p>
             <p>
               Developing data-driven, intelligent, and interactive software is something I am deeply passionate about.
             </p>
             <p>
-              My philosophy is that we are all given a limited time on earth, let's utilize what we have
-              to keep the wheel of human civilization turning and make this world better
-              than how we originally found it.
+              My philosophy is that we are all given a limited time on earth,
+              so we should utilize what we have to keep make a positive contribution to the society
+              and leave this world a better than how we originally found it.
             </p>
             <p>
               I love to articulate real world phenomena and visualize data and abstract concepts through code.
               So a lot of the personal projects include some sort of data visualization.
-              I am always looking for ways to expand my knowledge on things such as creating scalable software systems,
+              I am always looking for ways to expand my knowledge on things such as
+              creating scalable software systems,
               building robust infrastructures, or using data for machine learning and deep learning
               to solve real-world problems.
             </p>

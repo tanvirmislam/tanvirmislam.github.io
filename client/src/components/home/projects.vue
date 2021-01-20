@@ -21,6 +21,7 @@
         <span> Projects </span>
       </v-btn>
     </div>
+
     <v-row
       align="center"
       justify="space-around"
@@ -35,10 +36,10 @@
       >
         <carousel-3d
           data-wow-duration="1.5s"
-          class="wow fadeInUp overflow-y-auto"
+          class="overflow-y-auto"
           controls-visible
           border="0"
-          animation-speed="850"
+          animation-speed="800"
           bias="right"
           :width="cardDimensions.width"
           :height="cardDimensions.height"
