@@ -48,14 +48,14 @@
             </p>
             <p>
               My philosophy is that we are all given a limited time on earth,
-              so we should utilize what we have to keep make a positive contribution to the society
-              and leave this world a better than how we originally found it.
+              so we should try our best to work towards making a positive contribution to the society,
+              no matter how small that is, and leave this world a better place
+              than how we originally found it.
             </p>
             <p>
-              I love to articulate real world phenomena and visualize data and abstract concepts through code.
+              I love articulating real world phenomena and visualizing data and abstract concepts through code.
               So a lot of the personal projects include some sort of data visualization.
-              I am always looking for ways to expand my knowledge on things such as
-              creating scalable software systems,
+              I am always looking for ways to expand my knowledge on things such as creating scalable software systems,
               building robust infrastructures, or using data for machine learning and deep learning
               to solve real-world problems.
             </p>
