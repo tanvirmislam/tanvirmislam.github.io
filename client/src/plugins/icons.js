@@ -22,6 +22,8 @@ import {
   faSort,
   faUser,
   faUserAstronaut,
+  faFile,
+  faFileContract,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -54,6 +56,8 @@ library.add(
   faSort,
   faUser,
   faUserAstronaut,
+  faFile,
+  faFileContract,
 
   // Brands
   faFontAwesome,

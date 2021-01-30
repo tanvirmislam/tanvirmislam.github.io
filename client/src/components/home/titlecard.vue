@@ -146,6 +146,23 @@
                     </span>
                     <span> Contact </span>
                   </v-btn>
+
+                  <a
+                    id="resume-download-link"
+                    :href="resume"
+                    target="_blank"
+                  >
+                    <v-btn
+                      small
+                      depressed
+                      class="action-button mr-2 mb-2"
+                    >
+                      <span class="title-1 mr-2">
+                        <font-awesome-icon :icon="['fas', 'file']" />
+                      </span>
+                      <span> Resume </span>
+                    </v-btn>
+                  </a>
                 </v-col>
               </v-row>
             </v-container>
@@ -158,6 +175,7 @@
 
 <script>
 import { debounce } from 'debounce';
+import resumefile from '../../../public/assets/tanvir-resume.pdf';
 import EducationComponent from './education.vue';
 
 export default {
@@ -216,6 +234,8 @@ export default {
 
       showExploreOptions: false,
       showEducationDialogBox: false,
+
+      resume: resumefile,
     };
   },
 
@@ -321,5 +341,9 @@ export default {
 
 #explore-options-container {
   text-align: center;
+}
+
+#resume-download-link {
+  text-decoration: none;
 }
 </style>
