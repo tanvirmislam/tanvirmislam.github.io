@@ -175,7 +175,7 @@
 
 <script>
 import { debounce } from 'debounce';
-import resumefile from '../../../public/assets/tanvir-resume.pdf';
+import resumefile from '../../../public/assets/tanvir-islam-resume.pdf';
 import EducationComponent from './education.vue';
 
 export default {
