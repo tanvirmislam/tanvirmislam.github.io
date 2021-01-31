@@ -48,7 +48,7 @@
             </p>
             <p>
               My philosophy is that we are all given a limited time on earth,
-              so we should try our best to work towards making a positive contribution to the society,
+              so we must try our best to make a positive contribution to the society,
               no matter how small that is, and leave this world a better place
               than how we originally found it.
             </p>
