@@ -86,7 +86,7 @@
                 icon
                 fab
                 class="red--text text--lighten-1"
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=tanvirislam.cs@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=tanvirmislam.cs@gmail.com"
                 target="_blank"
               >
                 <v-icon class="display-1">
