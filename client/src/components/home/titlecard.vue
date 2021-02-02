@@ -232,7 +232,7 @@ export default {
       textEditorSign: '|',
       isSleeping: false,
 
-      showExploreOptions: false,
+      showExploreOptions: true,
       showEducationDialogBox: false,
 
       resume: resumefile,

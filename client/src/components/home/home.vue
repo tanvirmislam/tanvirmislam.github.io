@@ -188,7 +188,7 @@ export default {
 
 #back-to-home-button-container {
   position: fixed;
-  top: 1%;
+  top: 1.5%;
   right: 15px;
   z-index: 9999;
 }
