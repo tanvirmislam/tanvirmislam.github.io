@@ -219,10 +219,11 @@ export default {
       titles: [
         'Develop',
         'Innovate',
-        'Problem Solve',
+        'Solve Problems',
         'Visualize',
         'Scale',
         'Secure',
+        'Empower',
       ],
 
       titleIndex: 0,
@@ -231,8 +232,9 @@ export default {
       titleText: '',
       textEditorSign: '|',
       isSleeping: false,
+      textInterval: null,
 
-      showExploreOptions: true,
+      showExploreOptions: false,
       showEducationDialogBox: false,
 
       resume: resumefile,
@@ -252,12 +254,19 @@ export default {
 
     // Titlecard position
     window.addEventListener('resize', this.debouncedWindowResizeHandler);
+
     // Title animation
-    setInterval(() => this.updateTitleAnimation(), 150);
+    setTimeout(() => {
+      this.textInterval = setInterval(() => { this.updateTitleAnimation(); }, 150);
+    }, 1000);
+
+    // Wait then expand the explore options
+    setTimeout(() => { this.showExploreOptions = true; }, 1200);
   },
 
   beforeDestroy() {
     window.removeEventListener('resize', this.debouncedWindowResizeHandler);
+    clearInterval(this.textInterval);
   },
 
   methods: {
@@ -280,7 +289,7 @@ export default {
         // Just completed writing the current title text
         this.isTitleBeingWritten = false;
         this.textEditorSign = '';
-        await this.sleep(1500);
+        await this.sleep(1800);
         this.textEditorSign = '|';
       } else if (!this.isTitleBeingWritten && this.titleText.length === 0) {
         // Start of writing a new title text
