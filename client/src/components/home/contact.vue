@@ -147,7 +147,7 @@
                   class="my-6"
                 >
                   <v-btn
-                    color="error"
+                    color="grey darken-3"
                     class="mr-4"
                     @click="resetForm"
                   >
@@ -155,7 +155,7 @@
                   </v-btn>
 
                   <v-btn
-                    color="success"
+                    color="grey darken-3"
                     class="mr-4"
                     @click="sendEmail"
                   >
