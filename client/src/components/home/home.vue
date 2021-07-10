@@ -53,7 +53,7 @@
             id="particles-js"
             color="#dedede"
             :particle-opacity="0.5"
-            :particles-number="90"
+            :particles-number="80"
             shape-type="triangle"
             :particle-size="5"
             lines-color="#dedede"

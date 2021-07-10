@@ -289,7 +289,7 @@ export default {
         // Just completed writing the current title text
         this.isTitleBeingWritten = false;
         this.textEditorSign = '';
-        await this.sleep(1800);
+        await this.sleep(2000);
         this.textEditorSign = '|';
       } else if (!this.isTitleBeingWritten && this.titleText.length === 0) {
         // Start of writing a new title text
