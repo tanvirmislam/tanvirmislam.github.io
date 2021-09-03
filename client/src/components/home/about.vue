@@ -41,21 +41,22 @@
               Hello world, welcome to my homepage <span class="title ml-1"> 🎉 </span>
             </p>
             <p>
-              I am a software engineer, currently working in the FinTech industry.
+              I'm a software engineer working at Google.
             </p>
             <p>
-              Developing data-driven, intelligent, and interactive software is something I am deeply passionate about.
+              Developing data-driven, intelligent, interactive, and accessible software
+              is somethingI am deeply passionate about.
             </p>
             <p>
-              My philosophy is that we are all given a limited time on earth,
+              My philosophy is that we are all here on earth for a very limited amount of time,
               so we must try our best to make a positive contribution to the society,
               no matter how small that is, and leave this world a better place
-              than how we originally found it.
+              than how we found it.
             </p>
             <p>
               I love articulating real world phenomena and visualizing data and abstract concepts through code.
               So a lot of the personal projects include some sort of data visualization.
-              I am always looking for ways to expand my knowledge on things such as creating scalable software systems,
+              I'm always looking for ways to expand my knowledge on things such as creating scalable software systems,
               building robust infrastructures, or using data for machine learning and deep learning
               to solve real-world problems.
             </p>
