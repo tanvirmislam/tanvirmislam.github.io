@@ -47,7 +47,7 @@
                 target="_blank"
                 style="text-decoration: none"
               >
-                <span class="google-text-logo">
+                <span class="google-logo-text">
                   <span id="letter-1">G</span>
                   <span id="letter-2">o</span>
                   <span id="letter-3">o</span>
@@ -66,6 +66,52 @@
               so we must try our best to make a positive contribution to the society,
               no matter how small that is, and leave this world a better place
               than how we found it.
+            </p>
+            <p>
+              I grew up in Sylhet, Bangladesh 🇧🇩 which is where I first developed my love for science and mathematics.
+              Later on I immigrated to the United States and finished my undergraduate from the
+              <a
+                href="https://uconn.edu/"
+                target="_blank"
+                style="text-decoration: none"
+              >
+                <span id="uconn-logo-text">
+                  University of Connecticut
+                </span>
+              </a>
+              with a double major in Computer Science and Electrical Engineering.
+              I began my professional career at
+              <a
+                href="https://www.factset.com/"
+                target="_blank"
+                style="text-decoration: none"
+              >
+                <span id="factset-logo-text">
+                  FactSet
+                </span>
+              </a>
+              after my graduation
+              where I got to work on developing and optimizing their financial data content platform.
+              After a couple of years, I moved on to join
+              <a
+                href="https://advertising.amazon.com/"
+                target="_blank"
+                style="text-decoration: none"
+              >
+                <span id="amazon-logo-text">
+                  Amazon
+                </span>
+              </a>
+              where I was a part of their awesome Ads Exchange team, but soon after that I found my place at
+              <span class="google-logo-text">
+                <span id="letter-1">G</span>
+                <span id="letter-2">o</span>
+                <span id="letter-3">o</span>
+                <span id="letter-4">g</span>
+                <span id="letter-5">l</span>
+                <span id="letter-6">e</span>
+              </span>
+              where I now work as a back-end engineer to build planet-scale systems.
             </p>
             <p>
               I love articulating real world phenomena and visualizing data and abstract concepts through code.
@@ -140,26 +186,40 @@ export default {
   margin: auto;
 }
 
-.google-text-logo {
+.google-logo-text {
   font-weight: bolder;
-  text-decoration: none;
 }
-.google-text-logo #letter-1 {
+.google-logo-text #letter-1 {
   color: #4285F4;
 }
-.google-text-logo #letter-2 {
+.google-logo-text #letter-2 {
   color: #DB4437;
 }
-.google-text-logo #letter-3 {
+.google-logo-text #letter-3 {
   color: #F4B400;
 }
-.google-text-logo #letter-4 {
+.google-logo-text #letter-4 {
   color: #4285F4;
 }
-.google-text-logo #letter-5 {
+.google-logo-text #letter-5 {
   color: #0F9D58;
 }
-.google-text-logo #letter-6 {
+.google-logo-text #letter-6 {
   color: #DB4437;
+}
+
+#uconn-logo-text {
+  font-weight: bolder;
+  color: #516bbe;
+}
+
+#factset-logo-text {
+  font-weight: bolder;
+  color: #00a5e8;
+}
+
+#amazon-logo-text {
+  font-weight: bolder;
+  color: #ff8c27;
 }
 </style>
