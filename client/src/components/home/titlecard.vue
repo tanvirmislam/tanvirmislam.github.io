@@ -32,10 +32,11 @@
         >
           <v-avatar
             class="mr-3"
-            size="40"
+            size="45"
+            @click="() => { showFullAvatar(); }"
           >
             <img
-              src="../../../public/assets/home/avatar.jpg"
+              src="../../../public/assets/home/avatar-snow.jpg"
               alt="Tanvir Islam"
             >
           </v-avatar>
@@ -170,17 +171,28 @@
         </div>
       </v-expand-transition>
     </v-card>
+
+    <lightbox
+      ref="lightbox"
+      :media="media"
+      :show-light-box="false"
+      :show-caption="false"
+      disable-scroll
+      show-thumbs
+    />
   </div>
 </template>
 
 <script>
 import { debounce } from 'debounce';
-import resumefile from '../../../public/assets/tanvir-islam-resume.pdf';
+import LightBoxComponent from 'vue-image-lightbox';
 import EducationComponent from './education.vue';
+import resumefile from '../../../public/assets/tanvir-islam-resume.pdf';
 
 export default {
   components: {
     education: EducationComponent,
+    lightbox: LightBoxComponent,
   },
 
   props: {
@@ -216,6 +228,16 @@ export default {
 
   data() {
     return {
+      media: [
+        {
+          index: 0,
+          name: 'avatar',
+          thumb: '/assets/home/avatar-snow.jpg',
+          src: '/assets/home/avatar-snow.jpg',
+          caption: 'Tanvir Islam',
+        },
+      ],
+
       titles: [
         'Develop',
         'Innovate',
@@ -327,6 +349,10 @@ export default {
 
       titlecardElement.style.left = `${leftSpace}px`;
       titlecardElement.style.top = `${topSpace}px`;
+    },
+
+    showFullAvatar() {
+      this.$refs.lightbox.showImage(0);
     },
   },
 };

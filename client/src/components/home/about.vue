@@ -68,7 +68,7 @@
               than how we found it.
             </p>
             <p>
-              I grew up in Sylhet, Bangladesh 🇧🇩 which is where I first developed my love for science and mathematics.
+              I grew up in Sylhet, Bangladesh 🇧🇩 where I first developed my love for science and mathematics.
               Later on I immigrated to the United States and finished my undergraduate from the
               <a
                 href="https://uconn.edu/"

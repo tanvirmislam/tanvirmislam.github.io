@@ -40,14 +40,14 @@
             <p>
               I worked under the supervision of
               <a
-                href="http://engr.uconn.edu/~song/"
+                href="https://cps.cse.uconn.edu/"
                 target="_blank"
               >
                 Dr. Song Han
               </a>
               and
               <a
-                href="http://www.engr.uconn.edu/~shengli/"
+                href="https://www.ee.uconn.edu/shengli-zhou/"
                 target="_blank"
               >
                 Dr. Shengli Zhou
