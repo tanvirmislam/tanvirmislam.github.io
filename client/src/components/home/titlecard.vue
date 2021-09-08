@@ -36,7 +36,7 @@
             @click="() => { showFullAvatar(); }"
           >
             <img
-              src="../../../public/assets/home/avatar-snow.jpg"
+              src="../../../public/assets/home/avatar.jpg"
               alt="Tanvir Islam"
             >
           </v-avatar>
@@ -232,8 +232,8 @@ export default {
         {
           index: 0,
           name: 'avatar',
-          thumb: '/assets/home/avatar-snow.jpg',
-          src: '/assets/home/avatar-snow.jpg',
+          thumb: '/assets/home/avatar.jpg',
+          src: '/assets/home/avatar.jpg',
           caption: 'Tanvir Islam',
         },
       ],
