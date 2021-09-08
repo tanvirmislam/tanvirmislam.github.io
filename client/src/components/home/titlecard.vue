@@ -257,7 +257,7 @@ export default {
 
     // Title animation
     setTimeout(() => {
-      this.textInterval = setInterval(() => { this.updateTitleAnimation(); }, 150);
+      this.textInterval = setInterval(() => { this.updateTitleAnimation(); }, 180);
     }, 1000);
 
     // Wait then expand the explore options

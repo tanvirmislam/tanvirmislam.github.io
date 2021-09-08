@@ -38,14 +38,28 @@
 
           <div :class="'text enlarged' + ($vuetify.breakpoint.mdAndUp ? ' justify-text' : '')">
             <p>
-              Hello world, welcome to my homepage <span class="title ml-1"> 🎉 </span>
+              Hello world, thanks for visiting my homepage <span class="title ml-1"> 🎉 </span>
             </p>
             <p>
-              I'm a software engineer working at Google.
+              I'm a software engineer currently working at
+              <a
+                href="https://about.google/intl/en_us/"
+                target="_blank"
+                style="text-decoration: none"
+              >
+                <span class="google-text-logo">
+                  <span id="letter-1">G</span>
+                  <span id="letter-2">o</span>
+                  <span id="letter-3">o</span>
+                  <span id="letter-4">g</span>
+                  <span id="letter-5">l</span>
+                  <span id="letter-6">e</span>
+                </span>
+              </a>.
             </p>
             <p>
               Developing data-driven, intelligent, interactive, and accessible software
-              is somethingI am deeply passionate about.
+              is something I am deeply passionate about.
             </p>
             <p>
               My philosophy is that we are all here on earth for a very limited amount of time,
@@ -124,5 +138,28 @@ export default {
 #about-content {
   height: 100%;
   margin: auto;
+}
+
+.google-text-logo {
+  font-weight: bolder;
+  text-decoration: none;
+}
+.google-text-logo #letter-1 {
+  color: #4285F4;
+}
+.google-text-logo #letter-2 {
+  color: #DB4437;
+}
+.google-text-logo #letter-3 {
+  color: #F4B400;
+}
+.google-text-logo #letter-4 {
+  color: #4285F4;
+}
+.google-text-logo #letter-5 {
+  color: #0F9D58;
+}
+.google-text-logo #letter-6 {
+  color: #DB4437;
 }
 </style>
