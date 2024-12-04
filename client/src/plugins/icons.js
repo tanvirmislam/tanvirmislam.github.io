@@ -2,12 +2,14 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import {
+  faAtom,
   faHome,
   faEnvelope,
   faHeart,
   faInfo,
   faList,
   faSpinner,
+  faCameraRetro,
   faCodeBranch,
   faCheck,
   faBomb,
@@ -17,13 +19,18 @@ import {
   faFlask,
   faBrain,
   faInfoCircle,
-  faFileAlt,
   faHandPaper,
   faSort,
   faUser,
   faUserAstronaut,
   faFile,
+  faFileAlt,
   faFileContract,
+  faFilePdf,
+  faFileInvoice,
+  faGraduationCap,
+  faBook,
+  faBookOpen,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -36,6 +43,8 @@ import {
 
 library.add(
   // Solids
+  faAtom,
+  faCameraRetro,
   faHome,
   faEnvelope,
   faHeart,
@@ -51,13 +60,18 @@ library.add(
   faFlask,
   faBrain,
   faInfoCircle,
+  faFile,
   faFileAlt,
+  faFileContract,
+  faFilePdf,
+  faFileInvoice,
   faHandPaper,
   faSort,
   faUser,
   faUserAstronaut,
-  faFile,
-  faFileContract,
+  faGraduationCap,
+  faBook,
+  faBookOpen,
 
   // Brands
   faFontAwesome,

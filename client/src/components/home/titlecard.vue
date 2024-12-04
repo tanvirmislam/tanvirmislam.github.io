@@ -57,7 +57,6 @@
           data-wow-duration="2s"
           @click="showExploreOptions = !showExploreOptions"
         >
-          <span> Explore </span>
           <v-icon>{{ showExploreOptions ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
         </v-btn>
       </v-card-actions>
@@ -77,10 +76,10 @@
                   <v-btn
                     small
                     depressed
-                    class="action-button mr-2 mb-2"
+                    class="titlecard-action mr-4 mb-4 px-3 py-5"
                     @click="$vuetify.goTo(aboutAnchor, scrollOptions)"
                   >
-                    <span class="title-1 mr-2">
+                    <span class="titlecard-action-icon mr-2">
                       <font-awesome-icon :icon="['fas', 'user-astronaut']" />
                     </span>
                     <span> About Me </span>
@@ -96,12 +95,12 @@
                       <v-btn
                         small
                         depressed
-                        class="action-button mr-2 mb-2"
+                        class="titlecard-action mr-4 mb-4 px-3 py-5"
                         v-bind="attrs"
                         v-on="on"
                       >
-                        <span class="title-1 mr-2">
-                          <font-awesome-icon :icon="['fas', 'brain']" />
+                        <span class="titlecard-action-icon mr-2">
+                          <font-awesome-icon :icon="['fas', 'book']" />
                         </span>
                         <span> Education </span>
                       </v-btn>
@@ -115,10 +114,10 @@
                   <v-btn
                     small
                     depressed
-                    class="action-button mr-2 mb-2"
+                    class="titlecard-action mr-4 mb-4 px-3 py-5"
                     @click="$vuetify.goTo(researchAnchor, scrollOptions)"
                   >
-                    <span class="title-1 mr-2">
+                    <span class="titlecard-action-icon mr-2">
                       <font-awesome-icon :icon="['fas', 'flask']" />
                     </span>
                     <span> Research </span>
@@ -127,22 +126,39 @@
                   <v-btn
                     small
                     depressed
-                    class="action-button mr-2 mb-2"
+                    class="titlecard-action mr-4 mb-4 px-3 py-5"
                     @click="$vuetify.goTo(projectsAnchor, scrollOptions)"
                   >
-                    <span class="title-1 mr-2">
+                    <span class="titecard-action-icon mr-2">
                       <font-awesome-icon :icon="['fas', 'project-diagram']" />
                     </span>
                     <span> Projects </span>
                   </v-btn>
 
+                  <a
+                    id="photography-portfolio-link"
+                    href="https://tanvirislam.myportfolio.com/"
+                    target="_blank"
+                  >
+                    <v-btn
+                      small
+                      depressed
+                      class="titlecard-action mr-4 mb-4 px-3 py-5"
+                    >
+                      <span class="titlecard-action-icon mr-2">
+                        <font-awesome-icon :icon="['fas', 'camera-retro']" />
+                      </span>
+                      <span> Photography </span>
+                    </v-btn>
+                  </a>
+
                   <v-btn
                     small
                     depressed
-                    class="action-button mr-2 mb-2"
+                    class="titlecard-action mr-4 mb-4 px-3 py-5"
                     @click="$vuetify.goTo(contactAnchor, scrollOptions)"
                   >
-                    <span class="title-1 mr-2">
+                    <span class="titlecard-action-icon mr-2">
                       <font-awesome-icon :icon="['fas', 'envelope']" />
                     </span>
                     <span> Contact </span>
@@ -156,10 +172,10 @@
                     <v-btn
                       small
                       depressed
-                      class="action-button mr-2 mb-2"
+                      class="titlecard-action mr-4 mb-4 px-3 py-5 mr-2 mb-2"
                     >
-                      <span class="title-1 mr-2">
-                        <font-awesome-icon :icon="['fas', 'file']" />
+                      <span class="titlecard-action-icon mr-2">
+                        <font-awesome-icon :icon="['fas', 'file-invoice']" />
                       </span>
                       <span> Resume </span>
                     </v-btn>
@@ -198,7 +214,7 @@ export default {
   props: {
     cardWidth: {
       type: Number,
-      default: 550,
+      default: 650,
     },
     autoAdjustPosition: {
       type: Boolean,
@@ -345,7 +361,7 @@ export default {
       const cardHeight = titlecardElement.offsetHeight;
 
       const leftSpace = windowWidth > this.cardWidth ? ((windowWidth * 0.5) - (this.cardWidth * 0.5)) : 0;
-      const topSpace = windowHeight > cardHeight ? ((windowHeight * 0.4) - (cardHeight * 0.5)) : 0;
+      const topSpace = windowHeight > cardHeight ? ((windowHeight * 0.4) - (cardHeight * 0.65)) : 0;
 
       titlecardElement.style.left = `${leftSpace}px`;
       titlecardElement.style.top = `${topSpace}px`;
@@ -376,6 +392,14 @@ export default {
 
 #explore-options-container {
   text-align: center;
+}
+
+.titlecard-action {
+  font-size: 0.875em;
+}
+
+.titlecard-action-icon {
+  font-size: 1.125em;
 }
 
 #resume-download-link {
