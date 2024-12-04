@@ -187,6 +187,8 @@ export default {
 
   data() {
     return {
+      on: undefined,
+
       cardDimensions: {
         width: '0px',
         height: '0px',

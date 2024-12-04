@@ -50,6 +50,7 @@
 
           <!-- Particle JS on the landing slide -->
           <vue-particles
+            v-if="areParticlesInView"
             id="particles-js"
             color="#dedede"
             :particle-opacity="0.5"
@@ -135,6 +136,8 @@ export default {
 
   data() {
     return {
+      areParticlesInView: true,
+
       slideVisibility: {
         projects: false,
         research: false,
@@ -166,15 +169,23 @@ export default {
 
     onScroll() {
       const top = (
-        (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0)
+        (window.scrollY || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0)
       );
 
       if (top > 0) {
         if (!this.showBackToHomeButton) {
           this.showBackToHomeButton = true;
         }
-      } else if (this.showBackToHomeButton) {
-        this.showBackToHomeButton = false;
+        if (top > window.innerHeight) {
+          this.areParticlesInView = false;
+        } else {
+          this.areParticlesInView = true;
+        }
+      } else {
+        if (this.showBackToHomeButton) {
+          this.showBackToHomeButton = false;
+        }
+        this.areParticlesInView = true;
       }
     },
   },
