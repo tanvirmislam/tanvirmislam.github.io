@@ -78,24 +78,12 @@
                     small
                     depressed
                     class="action-button mr-2 mb-2"
-                    @click="$vuetify.goTo(projectsAnchor, scrollOptions)"
+                    @click="$vuetify.goTo(aboutAnchor, scrollOptions)"
                   >
                     <span class="title-1 mr-2">
-                      <font-awesome-icon :icon="['fas', 'project-diagram']" />
+                      <font-awesome-icon :icon="['fas', 'user-astronaut']" />
                     </span>
-                    <span> Projects </span>
-                  </v-btn>
-
-                  <v-btn
-                    small
-                    depressed
-                    class="action-button mr-2 mb-2"
-                    @click="$vuetify.goTo(researchAnchor, scrollOptions)"
-                  >
-                    <span class="title-1 mr-2">
-                      <font-awesome-icon :icon="['fas', 'flask']" />
-                    </span>
-                    <span> Research </span>
+                    <span> About Me </span>
                   </v-btn>
 
                   <v-dialog
@@ -128,12 +116,24 @@
                     small
                     depressed
                     class="action-button mr-2 mb-2"
-                    @click="$vuetify.goTo(aboutAnchor, scrollOptions)"
+                    @click="$vuetify.goTo(researchAnchor, scrollOptions)"
                   >
                     <span class="title-1 mr-2">
-                      <font-awesome-icon :icon="['fas', 'user-astronaut']" />
+                      <font-awesome-icon :icon="['fas', 'flask']" />
                     </span>
-                    <span> About Me </span>
+                    <span> Research </span>
+                  </v-btn>
+
+                  <v-btn
+                    small
+                    depressed
+                    class="action-button mr-2 mb-2"
+                    @click="$vuetify.goTo(projectsAnchor, scrollOptions)"
+                  >
+                    <span class="title-1 mr-2">
+                      <font-awesome-icon :icon="['fas', 'project-diagram']" />
+                    </span>
+                    <span> Projects </span>
                   </v-btn>
 
                   <v-btn
@@ -280,7 +280,7 @@ export default {
     // Title animation
     setTimeout(() => {
       this.textInterval = setInterval(() => { this.updateTitleAnimation(); }, 180);
-    }, 1000);
+    }, 2200);
 
     // Wait then expand the explore options
     setTimeout(() => { this.showExploreOptions = true; }, 1200);

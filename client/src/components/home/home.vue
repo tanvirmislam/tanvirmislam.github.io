@@ -70,15 +70,15 @@
         </v-col>
       </v-row>
 
-      <!-- Projects -->
+      <!-- About -->
       <v-row
-        id="projects-slide"
-        v-observe-visibility="status => { onSlideVisibilityChange('projects', status); }"
+        id="about-slide"
+        v-observe-visibility="status => { onSlideVisibilityChange('about', status); }"
         class="slide"
         align="center"
         justify="space-around"
       >
-        <projects />
+        <about />
       </v-row>
 
       <!-- Research -->
@@ -92,15 +92,15 @@
         <research />
       </v-row>
 
-      <!-- About -->
+      <!-- Projects -->
       <v-row
-        id="about-slide"
-        v-observe-visibility="status => { onSlideVisibilityChange('about', status); }"
+        id="projects-slide"
+        v-observe-visibility="status => { onSlideVisibilityChange('projects', status); }"
         class="slide"
         align="center"
         justify="space-around"
       >
-        <about />
+        <projects />
       </v-row>
 
       <!-- Contact -->

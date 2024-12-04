@@ -27,106 +27,354 @@
             v-observe-visibility="onStartOfContentVisibilityChange"
           />
 
-          <div class="quote pl-3 pl-md-12 mb-12">
-            <p class="ma-0">
-              " I would rather have questions that can't be answered than answers that can't be questioned. "
-            </p>
-            <p class="ma-0">
-              - Richard Feynman
-            </p>
-          </div>
+          <div class="timeline">
+            <div class="timeline__vertical">
+              <div class="timeline__point timeline__point__top" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  June 2024
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Joined
+                  <span class="google-logo-text">
+                    <span class="letter-1">G</span>
+                    <span class="letter-2">o</span>
+                    <span class="letter-3">o</span>
+                    <span class="letter-4">g</span>
+                    <span class="letter-5">l</span>
+                    <span class="letter-6">e</span>
+                  </span>
+                  BigQuery
+                </div>
+                <p class="timeline__paragraph">
+                  Working on BigQuery's open-format data lakehouse capabilities.
+                </p>
+              </div>
+            </div>
 
-          <div :class="'text enlarged' + ($vuetify.breakpoint.mdAndUp ? ' justify-text' : '')">
-            <p>
-              Hello world, thanks for visiting my homepage <span class="title ml-1"> 🎉 </span>
-            </p>
-            <p>
-              I'm a software engineer currently working at
-              <a
-                href="https://about.google/intl/en_us/"
-                target="_blank"
-                style="text-decoration: none"
-              >
-                <span class="google-logo-text">
-                  <span id="letter-1">G</span>
-                  <span id="letter-2">o</span>
-                  <span id="letter-3">o</span>
-                  <span id="letter-4">g</span>
-                  <span id="letter-5">l</span>
-                  <span id="letter-6">e</span>
-                </span>
-              </a>.
-            </p>
-            <p>
-              Developing data-driven, intelligent, interactive, and accessible software
-              is something I am deeply passionate about.
-            </p>
-            <p>
-              My philosophy is that we are all here on earth for a very limited amount of time,
-              so we must try our best to make a positive contribution to the society,
-              no matter how small that is, and leave this world a better place
-              than how we found it.
-            </p>
-            <p>
-              I grew up in Sylhet, Bangladesh 🇧🇩 where I first developed my love for science and mathematics.
-              Later on I immigrated to the United States and finished my undergraduate from the
-              <a
-                href="https://uconn.edu/"
-                target="_blank"
-                style="text-decoration: none"
-              >
-                <span id="uconn-logo-text">
-                  University of Connecticut
-                </span>
-              </a>
-              with a double major in Computer Science and Electrical Engineering.
-              I began my professional career at
-              <a
-                href="https://www.factset.com/"
-                target="_blank"
-                style="text-decoration: none"
-              >
-                <span id="factset-logo-text">
-                  FactSet
-                </span>
-              </a>
-              after my graduation
-              where I got to work on developing and optimizing their financial data content platform.
-              After a couple of years, I moved on to join
-              <a
-                href="https://advertising.amazon.com/"
-                target="_blank"
-                style="text-decoration: none"
-              >
-                <span id="amazon-logo-text">
-                  Amazon
-                </span>
-              </a>
-              where I was a part of their awesome Ads Exchange team, but soon after that I found my place at
-              <span class="google-logo-text">
-                <span id="letter-1">G</span>
-                <span id="letter-2">o</span>
-                <span id="letter-3">o</span>
-                <span id="letter-4">g</span>
-                <span id="letter-5">l</span>
-                <span id="letter-6">e</span>
-              </span>
-              where I now work as a back-end engineer to build planet-scale systems.
-            </p>
-            <p>
-              I love articulating real world phenomena and visualizing data and abstract concepts through code.
-              So a lot of the personal projects include some sort of data visualization.
-              I'm always looking for ways to expand my knowledge on things such as creating scalable software systems,
-              building robust infrastructures, or using data for machine learning and deep learning
-              to solve real-world problems.
-            </p>
-            <p>
-              In my free time, I find solace in playing guitar, travelling, hiking,
-              or reading about space and astronomy.
-            </p>
-            <p>
-              Feel free to reach out with any questions or comments!
-            </p>
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  July 2021
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Joined
+                  <span class="google-logo-text">
+                    <span class="letter-1">G</span>
+                    <span class="letter-2">o</span>
+                    <span class="letter-3">o</span>
+                    <span class="letter-4">g</span>
+                    <span class="letter-5">l</span>
+                    <span class="letter-6">e</span>
+                  </span>
+                  Compute Engine
+                </div>
+                <p class="timeline__paragraph">
+                  Worked on distributed services responsible for managing compute and ML workloads.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  June 2021
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Joined
+                  <span class="amazon-logo-text">
+                    Amazon
+                  </span>
+                </div>
+                <p class="timeline__paragraph">
+                  In my brief time, I worked with the Ads team to create SOP for quickly onboarding new ads sources.
+                  Left job to move to the Bay Area 🌅
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  December 2019
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Paper published in IJHSES
+                </div>
+                <p class="timeline__paragraph">
+                  Pending paper from my undergraduate research with Dr. John E. Ayers got published:
+                  <a
+                    href="https://doi.org/10.1142/S0129156419400172"
+                    target="_blank"
+                  >
+                    Threading Dislocation Behavior
+                    in InGaAs/GaAs (001) Superlattice Buffer Layers
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  July 2019
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__bg">
+                <div class="timeline__title">
+                  Joined
+                  <span class="factset-logo-text">
+                    FactSet Research Systems
+                  </span>
+                </div>
+                <p class="timeline__paragraph">
+                  Worked on data intensive fintech applications across full stack,
+                  from database design and data pipeline to developing web user interfaces.
+                </p>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Publised paper in ECS
+                </div>
+                <p class="timeline__paragraph">
+                  Published a paper in ECS on my undergraduate reserach with Dr. John E. Ayers:
+                  <a
+                    href="https://doi.org/10.1149/09206.0031ecst"
+                    target="_blank"
+                  >
+                    A  Modeling Study of Dislocation Behavior in
+                    InGaAs/GaAs (001) and InAlGaAs/GaAs (001) Heterostructures Utilizing Strained-Layer Superlattice
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  May 2019
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Graduation
+                </div>
+                <p class="timeline__paragraph">
+                  Graduated from the
+                  <span class="uconn-logo-text">
+                    University of Connecticut
+                  </span>
+                  🎉
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  December 2018
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Paper published in IJHSES
+                </div>
+                <p class="timeline__paragraph">
+                  Published a paper in IJHSES on my reserach with Dr. John E. Ayers:
+                  <a
+                    href="https://doi.org/10.1142/S0129156418400281"
+                    target="_blank"
+                  >
+                    Threading Dislocations in Metamorphic Semiconductor Buffer Layers Containing Chirped Superlattices
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  June 2018
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Paper published in IJHSES
+                </div>
+                <p class="timeline__paragraph">
+                  Published my first academic paper in IJHSES based on my reserach with Dr. John E. Ayers:
+                  <a
+                    href="https://doi.org/10.1142/S0129156418400098"
+                    target="_blank"
+                  >
+                    Chirped Superlattices as Adjustable Strain Platform for Metamorphic Semiconductor Devices
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  May 2018
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  National Science Foundation REU
+                </div>
+                <p class="timeline__paragraph">
+                  Worked as a summer researcher with Dr. Shengli Zhou and Dr. Song Han to develop real-time wireless
+                  communication systems using software-defined radio.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  September 2017
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Joined as a Technical Support Specialist at the
+                  <span class="uconn-logo-text">
+                    University of Connecticut
+                  </span>
+                  SFA IT
+                </div>
+                <p class="timeline__paragraph">
+                  Working part-time as a technical support specialist at the School of Fine Arts IT dept.
+                  until graduation. Designe and maintained websited for UConn SFA and Benton Museum.
+                  Provided technical support to faculty, classrooms, and museum exhibitions.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  September 2016
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Undergraduate Research Assistant
+                </div>
+                <p class="timeline__paragraph">
+                  Started working with Dr. John E. Ayers on novel growth platform for InGaAs/GaAs metamorphic
+                  semiconductor devices, focusing simulating and researching buffer layers as dislocation filters.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  May 2015
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Joined as a tutor at the Sylvan Learning Center
+                </div>
+                <p class="timeline__paragraph">
+                  Tutored at the Sylvan learning center in West Hartford, CT till the end of the year.
+                  Taught math, physics, and chemistry to high school students.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date timeline__date">
+                  February 2015
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__endentry timeline__component__bg">
+                <div class="timeline__title">
+                  Joined as a tutor at the Quantitative Learning Center
+                </div>
+                <p class="timeline__paragraph">
+                  Tutored at the Q-Center in the
+                  <span class="uconn-logo-text">
+                    University of Connecticut
+                  </span>
+                  , West Hartford, CT for the spring semester.
+                  Taught students programming, MATLAB, calculus, physics, and general chemistry.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline__vertical">
+              <div class="timeline__point" />
+              <div class="timeline__point timeline__point__bottom" />
+            </div>
+            <div>
+              <div class="timeline__component timeline__component__date">
+                <div class="timeline__date">
+                  August 2014
+                </div>
+              </div>
+              <div class="timeline__component timeline__component__bottommostentry timeline__component__bg">
+                <div class="timeline__title">
+                  Started College
+                </div>
+                <p class="timeline__paragraph">
+                  Started undergraduate at the
+                  <span class="uconn-logo-text">
+                    University of Connecticut
+                  </span>
+                </p>
+              </div>
+            </div>
           </div>
         </v-card>
       </v-col>
@@ -186,40 +434,117 @@ export default {
   margin: auto;
 }
 
-.google-logo-text {
-  font-weight: bolder;
+#about-content a {
+  color: rgb(184, 190, 231);
+  text-decoration: none;
 }
-.google-logo-text #letter-1 {
+
+.timeline {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2px 1fr;
+}
+
+.timeline__component__bg {
+  padding: 1.5em;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.timeline__component {
+  margin: 0px 20px 10px 20px;
+}
+
+.timeline__component__date {
+  margin-bottom: 10px;
+}
+
+.timeline__component__endentry {
+  margin-bottom: 60px;
+}
+
+.timeline__component__bottommostentry {
+  margin-bottom: 0;
+}
+
+.timeline__vertical {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.timeline__point {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 1.0);
+}
+
+.timeline__point__top {
+  top: 0;
+  bottom: initial;
+}
+
+.timeline__point__bottom {
+  top: initial;
+  bottom: 0;
+}
+
+.timeline__date {
+  font-size: max(1.0em, min(1.3em, 5vw));
+}
+
+.timeline__title {
+  margin: 0;
+  font-size: max(1.0em, min(1.3em, 5vw));
+}
+
+.timeline__paragraph {
+  font-weight: lighter;
+  font-size: max(1.0em, min(1.0em, 5vw));
+  margin-bottom: 0px;
+}
+
+.google-logo-text {
+  font-weight: normal;
+}
+.google-logo-text .letter-1 {
   color: #4285F4;
 }
-.google-logo-text #letter-2 {
+.google-logo-text .letter-2 {
   color: #DB4437;
 }
-.google-logo-text #letter-3 {
+.google-logo-text .letter-3 {
   color: #F4B400;
 }
-.google-logo-text #letter-4 {
+.google-logo-text .letter-4 {
   color: #4285F4;
 }
-.google-logo-text #letter-5 {
+.google-logo-text .letter-5 {
   color: #0F9D58;
 }
-.google-logo-text #letter-6 {
+.google-logo-text .letter-6 {
   color: #DB4437;
 }
 
-#uconn-logo-text {
-  font-weight: bolder;
-  color: #516bbe;
+.amazon-logo-text {
+  font-weight: normal;
+  color: #ff8c27;
 }
 
-#factset-logo-text {
-  font-weight: bolder;
+.factset-logo-text {
+  font-weight: normal;
   color: #00a5e8;
 }
 
-#amazon-logo-text {
-  font-weight: bolder;
-  color: #ff8c27;
+.uconn-logo-text {
+  font-weight: normal;
+  color: #516bbe;
 }
 </style>

@@ -74,28 +74,6 @@
 
                   <!-- Links -->
                   <div align="start">
-                    <!-- Link to detailed description -->
-                    <v-tooltip
-                      v-if="project.learnMoreURL"
-                      bottom
-                    >
-                      <template #activator="{ on }">
-                        <v-btn
-                          icon
-                          fab
-                          class="red--text text--lighten-1"
-                          :to="project.learnMoreURL"
-                          target="_blank"
-                          v-on="on"
-                        >
-                          <v-icon class="display-1">
-                            mdi-head-lightbulb
-                          </v-icon>
-                        </v-btn>
-                      </template>
-                      <span>Learn More</span>
-                    </v-tooltip>
-
                     <!-- Link to github -->
                     <v-tooltip
                       v-if="project.repoURL"
@@ -117,6 +95,18 @@
                       </template>
                       <span>View Repository</span>
                     </v-tooltip>
+
+                    <!-- Link to detailed description -->
+                    <v-btn
+                      v-if="project.learnMoreURL"
+                      depressed
+                      class="red--text text--lighten-1 ma-2"
+                      :to="project.learnMoreURL"
+                      target="_blank"
+                      v-on="on"
+                    >
+                      Learn More
+                    </v-btn>
                   </div>
 
                   <!-- Goolge scholar slide -->
@@ -129,7 +119,7 @@
                     <div class="research-project-title">
                       Find my publications on
                       <br>
-                      Google Scholar!
+                      Google Scholar
                     </div>
 
                     <div class="mt-2">
@@ -207,8 +197,8 @@ export default {
           title: 'Software Defined Radio',
           // eslint-disable-next-line max-len
           description: 'Real-time ad-hoc wireless communication system built using GNURadio (C++), Python, and USRP SDR devices',
-          learnMoreURL: '/research/sdr',
           repoURL: 'https://github.com/tanvirmislam/tdma-gnuradio-sdr',
+          learnMoreURL: '/research/sdr',
           tags: [
             'Linux',
             'GNURadio',

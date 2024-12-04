@@ -118,8 +118,39 @@
                     </v-tooltip>
                   </div>
 
+                  <!-- Goolge scholar slide -->
+                  <div
+                    v-if="project.title === 'Github'"
+                    align="center"
+                    justify="center"
+                    style="top: 80px; -ms-transform: translateY(80px); transform: translateY(80px);"
+                  >
+                    <div class="project-title">
+                      Find my projects on
+                      <br>
+                      Github
+                    </div>
+
+                    <div class="mt-2">
+                      <v-btn
+                        icon
+                        fab
+                        class="red--text text--lighten-1"
+                        :href="project.URL"
+                        target="_blank"
+                      >
+                        <v-icon class="display-1">
+                          mdi-github
+                        </v-icon>
+                      </v-btn>
+                    </div>
+                  </div>
+
                   <!-- Content -->
-                  <div class="mt-2">
+                  <div
+                    v-else
+                    class="mt-2"
+                  >
                     <!-- Title -->
                     <div class="project-title">
                       {{ project.title }}
@@ -174,8 +205,8 @@ export default {
         {
           title: 'GitFiddle',
           description: 'Interactive visualization tool to learn git branching',
+          appURL: 'https://gitfiddle-g2l503ytg-tanvir-islams-projects.vercel.app/',
           repoURL: 'https://github.com/tanvirmislam/gitfiddle',
-          appURL: 'http://gitfiddle.herokuapp.com/',
           tags: [
             'Node.js',
             'Vue.js',
@@ -190,8 +221,8 @@ export default {
         {
           title: 'Covid Athenaeum',
           description: 'Data visualization of COVID-19 pandemic',
+          appURL: 'https://covid-athenaeum-4lzu37uwv-tanvir-islams-projects.vercel.app/',
           repoURL: 'https://github.com/tanvirmislam/covid-athenaeum',
-          appURL: 'http://covid-athenaeum.herokuapp.com/',
           tags: [
             'Node.js',
             'MongoDB',
@@ -204,40 +235,8 @@ export default {
           ],
         },
         {
-          title: 'Quickgrid Pathfinder',
-          description: 'Pathfinding algorithm visualized using grids',
-          repoURL: 'https://github.com/tanvirmislam/quickgrid-pathfinding',
-          tags: [
-            'C++',
-            'Data Stuctures',
-            'Algorithms',
-            'Graph',
-            'Command Line Tool',
-          ],
-        },
-        {
-          title: 'Checkers AI',
-          description: 'Checkers AI implemented using fixed-depth Minimax algorithm',
-          repoURL: 'https://github.com/tanvirmislam/checkers-ai',
-          tags: [
-            'C++',
-            'Algorithms',
-            'Game Theory',
-            'Minimax',
-          ],
-        },
-        {
-          title: 'Maze Wanderer Robot',
-          description: 'Maze solver bot using Microcontroller, ultrasound sensors, and optical encoders',
-          repoURL: 'https://github.com/tanvirmislam/maze-wanderer-robot',
-          tags: [
-            'C',
-            'Arduino',
-            'Microcontroller',
-            'Algorithms',
-            'Sensors and Modules',
-            'Circuits',
-          ],
+          title: 'Github',
+          URL: 'https://github.com/tanvirmislam/',
         },
       ],
     };
