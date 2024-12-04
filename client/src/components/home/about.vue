@@ -39,7 +39,7 @@
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
                 <div class="timeline__title">
-                  Joined
+                  Software Engineer at
                   <span class="google-logo-text">
                     <span class="letter-1">G</span>
                     <span class="letter-2">o</span>
@@ -48,7 +48,7 @@
                     <span class="letter-5">l</span>
                     <span class="letter-6">e</span>
                   </span>
-                  BigQuery
+                  BigQuery, Sunnyvale, CA
                 </div>
                 <p class="timeline__paragraph">
                   Working on BigQuery's open-format data lakehouse capabilities.
@@ -67,7 +67,7 @@
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
                 <div class="timeline__title">
-                  Joined
+                  Software Engineer at
                   <span class="google-logo-text">
                     <span class="letter-1">G</span>
                     <span class="letter-2">o</span>
@@ -76,7 +76,7 @@
                     <span class="letter-5">l</span>
                     <span class="letter-6">e</span>
                   </span>
-                  Compute Engine
+                  Compute Engine, Sunnyvale, CA
                 </div>
                 <p class="timeline__paragraph">
                   Worked on distributed services responsible for managing compute and ML workloads.
@@ -95,14 +95,15 @@
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
                 <div class="timeline__title">
-                  Joined
+                  Software Development Engineer at
                   <span class="amazon-logo-text">
                     Amazon
                   </span>
+                  , New York, NY
                 </div>
                 <p class="timeline__paragraph">
                   In my brief time, I worked with the Ads team to create SOP for quickly onboarding new ads sources.
-                  Left job to move to the Bay Area 🌅
+                  Left job to move to the Bay Area 🌉
                 </p>
               </div>
             </div>
@@ -144,14 +145,15 @@
               </div>
               <div class="timeline__component timeline__component__bg">
                 <div class="timeline__title">
-                  Joined
+                  Software Engineer at
                   <span class="factset-logo-text">
                     FactSet Research Systems
                   </span>
+                  , Norwalk, CT
                 </div>
                 <p class="timeline__paragraph">
                   Worked on data intensive fintech applications across full stack,
-                  from database design and data pipeline to developing web user interfaces.
+                  from database and data pipeline design to developing web user interfaces.
                 </p>
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
@@ -164,7 +166,7 @@
                     href="https://doi.org/10.1149/09206.0031ecst"
                     target="_blank"
                   >
-                    A  Modeling Study of Dislocation Behavior in
+                    A Modeling Study of Dislocation Behavior in
                     InGaAs/GaAs (001) and InAlGaAs/GaAs (001) Heterostructures Utilizing Strained-Layer Superlattice
                   </a>
                 </p>
@@ -213,7 +215,8 @@
                     href="https://doi.org/10.1142/S0129156418400281"
                     target="_blank"
                   >
-                    Threading Dislocations in Metamorphic Semiconductor Buffer Layers Containing Chirped Superlattices
+                    Threading Dislocations in Metamorphic Semiconductor Buffer Layers Containing
+                    Chirped Superlattices
                   </a>
                 </p>
               </div>
@@ -255,11 +258,15 @@
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
                 <div class="timeline__title">
-                  National Science Foundation REU
+                  NSF funded Summer Researcher at
+                  <span class="uconn-logo-text">
+                    University of Connecticut
+                  </span>
+                  dept. of CSE
                 </div>
                 <p class="timeline__paragraph">
-                  Worked as a summer researcher with Dr. Shengli Zhou and Dr. Song Han to develop real-time wireless
-                  communication systems using software-defined radio.
+                  Worked as a NSF REU funded researcher with Dr. Shengli Zhou and Dr. Song Han to develop
+                  real-time wireless communication systems using software-defined radio.
                 </p>
               </div>
             </div>
@@ -275,15 +282,15 @@
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
                 <div class="timeline__title">
-                  Joined as a Technical Support Specialist at the
+                  Technical Support Specialist at the
                   <span class="uconn-logo-text">
                     University of Connecticut
                   </span>
                   SFA IT
                 </div>
                 <p class="timeline__paragraph">
-                  Working part-time as a technical support specialist at the School of Fine Arts IT dept.
-                  until graduation. Designe and maintained websited for UConn SFA and Benton Museum.
+                  Worked part-time as a technical support specialist at the School of Fine Arts IT dept.
+                  until graduation. Designed and maintained websited for UConn SFA and Benton Museum.
                   Provided technical support to faculty, classrooms, and museum exhibitions.
                 </p>
               </div>
@@ -300,7 +307,11 @@
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
                 <div class="timeline__title">
-                  Undergraduate Research Assistant
+                  Undergraduate Research Assistant at the
+                  <span class="uconn-logo-text">
+                    University of Connecticut
+                  </span>
+                  dept. of ECE
                 </div>
                 <p class="timeline__paragraph">
                   Started working with Dr. John E. Ayers on novel growth platform for InGaAs/GaAs metamorphic
@@ -320,10 +331,10 @@
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
                 <div class="timeline__title">
-                  Joined as a tutor at the Sylvan Learning Center
+                  Tutor at the Sylvan Learning Center, West Hartford, CT
                 </div>
                 <p class="timeline__paragraph">
-                  Tutored at the Sylvan learning center in West Hartford, CT till the end of the year.
+                  Tutored at the Sylvan learning center till the end of the year.
                   Taught math, physics, and chemistry to high school students.
                 </p>
               </div>
@@ -340,14 +351,14 @@
               </div>
               <div class="timeline__component timeline__component__endentry timeline__component__bg">
                 <div class="timeline__title">
-                  Joined as a tutor at the Quantitative Learning Center
-                </div>
-                <p class="timeline__paragraph">
-                  Tutored at the Q-Center in the
+                  Tutor at the Quantitative Learning Center,
                   <span class="uconn-logo-text">
                     University of Connecticut
                   </span>
-                  , West Hartford, CT for the spring semester.
+                  , West Hartford, CT
+                </div>
+                <p class="timeline__paragraph">
+                  Tutored at the Q-Center for the spring semester.
                   Taught students programming, MATLAB, calculus, physics, and general chemistry.
                 </p>
               </div>
@@ -441,7 +452,7 @@ export default {
 
 .timeline {
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 950px;
   padding: 20px;
   display: grid;
   grid-template-columns: 2px 1fr;
