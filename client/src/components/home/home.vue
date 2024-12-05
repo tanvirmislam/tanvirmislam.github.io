@@ -47,27 +47,34 @@
             contact-anchor="#contact-slide"
           />
 
-          <!-- Particle JS on the landing slide -->
-          <vue-particles
-            v-if="showParticles"
-            id="particles-js"
-            class="wow fadeIn"
-            color="#dedede"
-            :particle-opacity="0.5"
-            :particles-number="80"
-            shape-type="triangle"
-            :particle-size="5"
-            lines-color="#dedede"
-            :lines-width="1"
-            :line-linked="true"
-            :line-opacity="0.1"
-            :lines-distance="200"
-            :move-speed="1"
-            :hover-effect="true"
-            hover-mode="grab"
-            :click-effect="true"
-            click-mode="repulse"
-          />
+          <!-- Particle JS on the landing slide. Move if they're inside the viewport -->
+          <div v-if="showParticles">
+            <vue-particles
+              id="particles-js"
+              class="wow fadeIn"
+              color="#dedede"
+              :particle-opacity="0.5"
+              :particles-number="80"
+              shape-type="triangle"
+              :particle-size="5"
+              lines-color="#dedede"
+              :lines-width="1"
+              :line-linked="true"
+              :line-opacity="0.1"
+              :lines-distance="200"
+              :move-speed="1"
+              :hover-effect="true"
+              hover-mode="grab"
+              :click-effect="true"
+              click-mode="repulse"
+            />
+          </div>
+          <div
+            v-else
+            id="particles-js-empty-container"
+          >
+            <!-- Empty space with fixed height so that other elements don't keep moving -->
+          </div>
         </v-col>
       </v-row>
 
@@ -137,8 +144,6 @@ export default {
 
   data() {
     return {
-      showParticles: true,
-
       slideVisibility: {
         projects: false,
         research: false,
@@ -153,35 +158,19 @@ export default {
       },
 
       showBackToHomeButton: false,
-
-      debounceMs: {
-        scroll: 200,
-      },
+      showParticles: true,
+      scrollDebounceMs: 1000,
     };
   },
 
   mounted() {
     this.$vuetify.goTo('#start-anchor');
-    window.onscroll = debounce(this.onScroll, this.debounceMs.scroll);
+    window.onscroll = debounce(this.onScroll, this.particlesMoveSpeed);
   },
 
   methods: {
     onSlideVisibilityChange(slideName, status) {
       this.slideVisibility[slideName] = status;
-    },
-
-    debouncedSetShowBackToHomeButton(val) {
-      return debounce(() => {
-        console.log(`Setting this.showBackToHomeButton to ${val}`);
-        this.showBackToHomeButton = val;
-      }, this.debounceMs.showBackToHomeButton);
-    },
-
-    debouncedSetShowParticles(val) {
-      return debounce(() => {
-        console.log(`Setting this.showParticels to ${val}`);
-        this.showParticles = val;
-      }, this.particlesToggleDebounceMs);
     },
 
     onScroll() {
@@ -202,6 +191,10 @@ export default {
 
 <style scoped>
 #particles-js {
+  height: 95vh;
+}
+
+#particles-js-empty-container {
   height: 95vh;
 }
 
