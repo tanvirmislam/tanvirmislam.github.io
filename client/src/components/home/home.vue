@@ -48,30 +48,25 @@
           />
 
           <!-- Particle JS on the landing slide -->
-          <span v-if="showParticles">
-            <vue-particles
-              id="particles-js"
-              class="wow fadeIn"
-              color="#dedede"
-              :particle-opacity="0.5"
-              :particles-number="70"
-              shape-type="triangle"
-              :particle-size="6"
-              lines-color="#dedede"
-              :lines-width="1"
-              :line-linked="true"
-              :line-opacity="0.1"
-              :lines-distance="200"
-              :move-speed="1"
-              :hover-effect="true"
-              hover-mode="grab"
-              :click-effect="true"
-              click-mode="repulse"
-            />
-          </span>
-          <span v-else>
-            <div id="particles-js-empty-container" />
-          </span>
+          <vue-particles
+            v-if="showParticles"
+            id="particles-js"
+            color="#dedede"
+            :particle-opacity="0.5"
+            :particles-number="70"
+            shape-type="triangle"
+            :particle-size="6"
+            lines-color="#dedede"
+            :lines-width="1"
+            :line-linked="true"
+            :line-opacity="0.1"
+            :lines-distance="200"
+            :move-speed="1"
+            :hover-effect="true"
+            hover-mode="grab"
+            :click-effect="true"
+            click-mode="repulse"
+          />
         </v-col>
       </v-row>
 
@@ -156,7 +151,7 @@ export default {
 
       showBackToHomeButton: false,
       showParticles: true,
-      scrollDebounceMs: 1000,
+      scrollDebounceMs: 200,
     };
   },
 
