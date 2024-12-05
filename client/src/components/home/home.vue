@@ -47,16 +47,16 @@
             contact-anchor="#contact-slide"
           />
 
-          <!-- Particle JS on the landing slide. Move if they're inside the viewport -->
-          <div v-if="showParticles">
+          <!-- Particle JS on the landing slide -->
+          <span v-if="showParticles">
             <vue-particles
               id="particles-js"
               class="wow fadeIn"
               color="#dedede"
               :particle-opacity="0.5"
-              :particles-number="80"
+              :particles-number="70"
               shape-type="triangle"
-              :particle-size="5"
+              :particle-size="6"
               lines-color="#dedede"
               :lines-width="1"
               :line-linked="true"
@@ -68,13 +68,10 @@
               :click-effect="true"
               click-mode="repulse"
             />
-          </div>
-          <div
-            v-else
-            id="particles-js-empty-container"
-          >
-            <!-- Empty space with fixed height so that other elements don't keep moving -->
-          </div>
+          </span>
+          <span v-else>
+            <div id="particles-js-empty-container" />
+          </span>
         </v-col>
       </v-row>
 

@@ -218,7 +218,7 @@ export default {
     },
     autoAdjustPosition: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     scrollOptions: {
       type: Object,
@@ -276,22 +276,24 @@ export default {
       showEducationDialogBox: false,
 
       resume: resumefile,
+
+      windowResizeDebounceMs: 200,
     };
   },
 
   computed: {
     debouncedWindowResizeHandler() {
-      return debounce(this.onWindowResize, 200);
+      return debounce(this.onWindowResize, this.windowResizeDebounceMs);
     },
   },
 
   mounted() {
-    if (this.autoAdjustPosition) {
-      this.adjustCardPosition();
-    }
+    this.adjustCardPosition();
 
-    // Titlecard position
-    window.addEventListener('resize', this.debouncedWindowResizeHandler);
+    if (this.autoAdjustPosition) {
+      // Auto adjust titlecard position with window resize
+      window.addEventListener('resize', this.debouncedWindowResizeHandler);
+    }
 
     // Title animation
     setTimeout(() => {
@@ -302,8 +304,13 @@ export default {
     setTimeout(() => { this.showExploreOptions = true; }, 1200);
   },
 
+  unmounted() {
+    if (this.autoAdjustPosition) {
+      window.removeEventListener('resize', this.debouncedWindowResizeHandler);
+    }
+  },
+
   beforeDestroy() {
-    window.removeEventListener('resize', this.debouncedWindowResizeHandler);
     clearInterval(this.textInterval);
   },
 
@@ -347,9 +354,6 @@ export default {
     },
 
     onWindowResize() {
-      if (!this.autoAdjustPosition) {
-        return;
-      }
       this.adjustCardPosition();
     },
 
