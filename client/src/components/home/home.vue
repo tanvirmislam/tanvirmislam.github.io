@@ -9,7 +9,6 @@
     <div
       v-if="showBackToHomeButton"
       id="back-to-home-button-container"
-      class="wow fadeIn"
     >
       <v-btn
         id="back-to-home-button"
@@ -50,8 +49,9 @@
 
           <!-- Particle JS on the landing slide -->
           <vue-particles
-            v-if="areParticlesInView"
+            v-if="showParticles"
             id="particles-js"
+            class="wow fadeIn"
             color="#dedede"
             :particle-opacity="0.5"
             :particles-number="80"
@@ -119,6 +119,7 @@
 </template>
 
 <script>
+import { debounce } from 'debounce';
 import TitlecardComponent from './titlecard.vue';
 import ProjectsComponent from './projects.vue';
 import ResearchComponent from './research.vue';
@@ -136,7 +137,7 @@ export default {
 
   data() {
     return {
-      areParticlesInView: true,
+      showParticles: true,
 
       slideVisibility: {
         projects: false,
@@ -152,14 +153,16 @@ export default {
       },
 
       showBackToHomeButton: false,
-      debounceDuration: 200,
+
+      debounceMs: {
+        scroll: 200,
+      },
     };
   },
 
   mounted() {
     this.$vuetify.goTo('#start-anchor');
-    this.showBackToHomeButton = false;
-    window.onscroll = this.onScroll;
+    window.onscroll = debounce(this.onScroll, this.debounceMs.scroll);
   },
 
   methods: {
@@ -167,25 +170,30 @@ export default {
       this.slideVisibility[slideName] = status;
     },
 
+    debouncedSetShowBackToHomeButton(val) {
+      return debounce(() => {
+        console.log(`Setting this.showBackToHomeButton to ${val}`);
+        this.showBackToHomeButton = val;
+      }, this.debounceMs.showBackToHomeButton);
+    },
+
+    debouncedSetShowParticles(val) {
+      return debounce(() => {
+        console.log(`Setting this.showParticels to ${val}`);
+        this.showParticles = val;
+      }, this.particlesToggleDebounceMs);
+    },
+
     onScroll() {
       const top = (
         (window.scrollY || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0)
       );
-
       if (top > 0) {
-        if (!this.showBackToHomeButton) {
-          this.showBackToHomeButton = true;
-        }
-        if (top > window.innerHeight) {
-          this.areParticlesInView = false;
-        } else {
-          this.areParticlesInView = true;
-        }
+        this.showBackToHomeButton = true;
+        this.showParticles = (top <= window.innerHeight);
       } else {
-        if (this.showBackToHomeButton) {
-          this.showBackToHomeButton = false;
-        }
-        this.areParticlesInView = true;
+        this.showBackToHomeButton = false;
+        this.showParticles = true;
       }
     },
   },
