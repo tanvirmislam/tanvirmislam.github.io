@@ -224,6 +224,10 @@ export default {
       type: Object,
       required: true,
     },
+    animateTitleText: {
+      type: Boolean,
+      default: true,
+    },
     projectsAnchor: {
       type: String,
       required: true,
@@ -277,7 +281,7 @@ export default {
 
       resume: resumefile,
 
-      windowResizeDebounceMs: 200,
+      windowResizeDebounceMs: 150,
     };
   },
 
@@ -326,7 +330,7 @@ export default {
     },
 
     async updateTitleAnimation() {
-      if (this.isSleeping) {
+      if (!this.animateTitleText || this.isSleeping) {
         return;
       }
 

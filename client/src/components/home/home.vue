@@ -33,6 +33,7 @@
       <!-- Landing slide -->
       <v-row
         id="title-slide"
+        v-observe-visibility="status => { onSlideVisibilityChange('titlecard', status); }"
         class="slide"
         align="center"
         justify="center"
@@ -41,6 +42,7 @@
           <!-- Title card -->
           <titlecard
             :scroll-options="scrollOptions"
+            :animate-title-text="slideVisibility.titlecard"
             projects-anchor="#projects-slide"
             research-anchor="#research-slide"
             about-anchor="#about-slide"
@@ -53,9 +55,9 @@
             id="particles-js"
             color="#dedede"
             :particle-opacity="0.5"
-            :particles-number="70"
+            :particles-number="80"
             shape-type="triangle"
-            :particle-size="6"
+            :particle-size="5"
             lines-color="#dedede"
             :lines-width="1"
             :line-linked="true"
@@ -137,9 +139,10 @@ export default {
   data() {
     return {
       slideVisibility: {
-        projects: false,
-        research: false,
+        titlecard: false,
         about: false,
+        research: false,
+        projects: false,
         contact: false,
       },
 
@@ -183,10 +186,6 @@ export default {
 
 <style scoped>
 #particles-js {
-  height: 95vh;
-}
-
-#particles-js-empty-container {
   height: 95vh;
 }
 
