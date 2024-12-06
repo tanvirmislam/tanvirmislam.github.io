@@ -15,8 +15,7 @@
           id="titlecard-header"
           class="justify-center py-8"
         >
-          <span v-if="titleText === ''"> {{ textEditorSign }} </span>
-          <span v-else> {{ titleText }}{{ textEditorSign }} </span>
+          <span> {{ titleText.currentText }}{{ titleText.editorSign }} </span>
         </v-card-title>
       </div>
 
@@ -268,13 +267,16 @@ export default {
         'Empower',
       ],
 
-      titleIndex: 0,
-      titleCharIndex: 0,
-      isTitleBeingWritten: true,
-      titleText: '',
-      textEditorSign: '|',
-      isSleeping: false,
-      textInterval: null,
+      titleText: {
+        index: 0,
+        charIndex: 0,
+        isBeingWritten: true,
+        currentText: '',
+        editorSign: '|',
+        isSleeping: false,
+        isStartingAnimation: false,
+        intervalFunction: null,
+      },
 
       showExploreOptions: false,
       showEducationDialogBox: false,
@@ -291,6 +293,18 @@ export default {
     },
   },
 
+  watch: {
+    animateTitleText: {
+      handler(newVal) {
+        if (newVal && this.titleText.intervalFunction === null) {
+          this.startTextAnimation(/** delay= */1000, /** interval= */180);
+        } else if (!newVal) {
+          this.stopTextAnimation();
+        }
+      },
+    },
+  },
+
   mounted() {
     this.adjustCardPosition();
 
@@ -299,10 +313,10 @@ export default {
       window.addEventListener('resize', this.debouncedWindowResizeHandler);
     }
 
-    // Title animation
-    setTimeout(() => {
-      this.textInterval = setInterval(() => { this.updateTitleAnimation(); }, 180);
-    }, 2200);
+    // Start title text animation
+    if (this.animateTitleText) {
+      this.startTextAnimation(/** delay= */2000, /** interval= */180);
+    }
 
     // Wait then expand the explore options
     setTimeout(() => { this.showExploreOptions = true; }, 1200);
@@ -315,46 +329,69 @@ export default {
   },
 
   beforeDestroy() {
-    clearInterval(this.textInterval);
+    this.stopTextAnimation();
   },
 
   methods: {
-    sleep(duration) {
+    sleepOnTitleText(duration) {
       return new Promise(resolve => {
-        this.isSleeping = true;
+        this.titleText.isSleeping = true;
         setTimeout(() => {
-          this.isSleeping = false;
+          this.titleText.isSleeping = false;
           resolve();
         }, duration);
       });
     },
 
     async updateTitleAnimation() {
-      if (!this.animateTitleText || this.isSleeping) {
+      if (this.titleText.isSleeping) {
         return;
       }
-
-      if (this.isTitleBeingWritten && this.titleText === this.titles[this.titleIndex]) {
+      if (this.titleText.isBeingWritten && this.titleText.currentText === this.titles[this.titleText.index]) {
         // Just completed writing the current title text
-        this.isTitleBeingWritten = false;
-        this.textEditorSign = '';
-        await this.sleep(2000);
-        this.textEditorSign = '|';
-      } else if (!this.isTitleBeingWritten && this.titleText.length === 0) {
+        this.titleText.isBeingWritten = false;
+        this.titleText.editorSign = '';
+        await this.sleepOnTitleText(2000);
+        this.titleText.editorSign = '|';
+      } else if (!this.titleText.isBeingWritten && this.titleText.currentText.length === 0) {
         // Start of writing a new title text
-        this.titleIndex = (this.titleIndex + 1) % this.titles.length;
-        this.isTitleBeingWritten = true;
-        this.titleCharIndex = 0;
-        await this.sleep(200);
-      } else if (this.isTitleBeingWritten) {
+        this.titleText.index = (this.titleText.index + 1) % this.titles.length;
+        this.titleText.isBeingWritten = true;
+        this.titleText.charIndex = 0;
+        await this.sleepOnTitleText(200);
+      } else if (this.titleText.isBeingWritten) {
         // In the middle of writing the current title text
-        this.titleText += this.titles[this.titleIndex][this.titleCharIndex];
-        this.titleCharIndex += 1;
+        this.titleText.currentText += this.titles[this.titleText.index][this.titleText.charIndex];
+        this.titleText.charIndex += 1;
       } else {
         // After completing a title text
-        this.titleText = this.titleText.slice(0, -1);
-        this.titleCharIndex -= Math.max(0, this.titleCharIndex - 1);
+        this.titleText.currentText = this.titleText.currentText.slice(0, -1);
+        this.titleText.charIndex -= Math.max(0, this.titleText.charIndex - 1);
       }
+    },
+
+    startTextAnimation(delay, interval) {
+      if (this.isStartingAnimation) {
+        return;
+      }
+      this.isStartingAnimation = true;
+      if (this.titleText.intervalFunction !== null) {
+        clearInterval(this.titleText.intervalFunction);
+      }
+      this.titleText.isSleeping = false;
+      setTimeout(() => {
+        this.titleText.intervalFunction = setInterval(() => { this.updateTitleAnimation(); }, interval);
+        this.isStartingAnimation = false;
+      }, delay);
+    },
+
+    stopTextAnimation() {
+      if (this.titleText.intervalFunction !== null) {
+        clearInterval(this.titleText.intervalFunction);
+      }
+      this.titleText.intervalFunction = null;
+      this.titleText.isSleeping = false;
+      this.isStartingAnimation = false;
     },
 
     onWindowResize() {

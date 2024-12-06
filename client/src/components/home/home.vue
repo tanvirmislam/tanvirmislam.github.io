@@ -50,12 +50,12 @@
           />
 
           <!-- Particle JS on the landing slide -->
+          <!-- Currently always showing particles. Use showParticles with v-if for conditional rendering -->
           <vue-particles
-            v-if="showParticles"
             id="particles-js"
             color="#dedede"
             :particle-opacity="0.5"
-            :particles-number="80"
+            :particles-number="particlesCount"
             shape-type="triangle"
             :particle-size="5"
             lines-color="#dedede"
@@ -121,6 +121,7 @@
 
 <script>
 import { debounce } from 'debounce';
+import { isMobile } from 'mobile-device-detect';
 import TitlecardComponent from './titlecard.vue';
 import ProjectsComponent from './projects.vue';
 import ResearchComponent from './research.vue';
@@ -152,8 +153,11 @@ export default {
         easing: 'easeInOutCubic',
       },
 
+      particlesCount: isMobile ? 60 : 100,
+
       showBackToHomeButton: false,
       showParticles: true,
+
       scrollDebounceMs: 200,
     };
   },
